@@ -1,0 +1,63 @@
+<import src="../../template/template-hotCollage.wxml" />
+<popup id="popup" showCancel="0" showConfirm="0" bind:cancelEvent="_closePopup">
+  <view slot="content">
+    <view class="popup-title">{{group.Group.IshasGroupStr}}，{{group.Group.GroupStr1}}</view>
+    <view class="popup-time row-center">
+      剩余
+      <view wx:if="{{saleTime.d>0}}" style="font-size:20rpx;">
+      <text>{{saleTime.d}}</text>天
+      </view>
+      <text>{{saleTime.h}}</text>:
+      <text>{{saleTime.s}}</text>:
+      <text>{{saleTime.m}}</text>
+    </view>
+    <view class="popup-pensonal">
+      <text>{{sendStr}}<text style="color:#eb5902;">{{sendStr1}}</text></text>
+    </view>
+    <button open-type='share' class="popuo-btn">邀请微信好友</button>
+  </view>
+</popup>
+<view class="detail-user">
+  <icon type="success" size="100rpx" color="#eb5902" class="successIcon"></icon>
+  <text class="payStatus">{{group.Group.IshasGroupStr}}</text>
+  <text class="personal" wx:if="{{group.Group.Status==0}}">{{group.Group.GroupStr1}},剩余 <text style="font-size:20rpx;padding:4rpx 12rpx;color:#fff;background:#999;border-radius:3px;"><block wx:if="{{saleTime.d>0}}">{{saleTime.d}} 天 </block>{{saleTime.h}} : {{saleTime.s}} : {{saleTime.m}}</text> 结束</text>
+  <view class="user-wrap">
+     <block wx:for="{{GroupUserList}}" wx:for-index="{{ind}}" wx:key="List">
+        <view catchtap='onclose'>
+          <image src="{{item.userimg}}" binderror='headimgerr' data-time="{{item.posttime}}"></image>
+          <text wx:if="{{item.IsGroupSir==1}}">团长</text>
+        </view>
+      </block>
+  </view>
+  <navigator url='/pages/collage/collage' wx:if="{{group.Group.Status==1||group.Group.Status==-1}}" class="moreCollage" hover-class='none'>更多拼团商品</navigator>
+  <view style="width:100%;overflow:hidden;text-align:center;" wx:if="{{group.Group.Status==0}}">
+    <button class="moreCollage" open-type='share'>{{group.Group.SendStr}}</button>
+    <text style='color:#999;'>{{group.Group.BackStr}}</text>
+  </view>
+  <navigator class="collageRule" url="/pages/product/webView/webView?url={{group.SendUrl}}">{{group.GroupTips}}</navigator>
+</view>
+<view class="hotCollage-list" wx:if="{{hotCollage.PromoteGroupList.length>0}}">
+    <text>{{hotCollage.PromoteGroupTitle}}</text>
+    <view class="collage-list">
+      <block wx:for="{{hotCollage.PromoteGroupList}}" wx:key="PromoteGroupList">
+        <navigator url="/pages/product/product?sku={{item.ProductCode}}&groupid={{item.GroupId}}&grouplogid=0" hover-class='none'>
+          <template is="hotCollage" data="{{...item}}" />
+          <view class="Persons">{{item.Persons}}</view>
+        </navigator>
+      </block>
+    </view>
+  <view style="background:#fff;width:100%;overflow:hidden;">
+    <navigator class="moreCollageBtn" url="/pages/collage/collage">{{hotCollage.PromoteGroupFoot}}</navigator>
+  </view>
+</view>
+<view class="collageUser-wrap" wx:if="{{!closebtn}}">
+  <view class="collageUser">
+    <view class="collageUser-title">参团人员列表</view>
+    <view>
+      <block wx:for="{{GroupUserList}}">
+        <template is="collageUser" data="{{...item}}" />
+      </block>
+    </view>
+    <view class="closeBtn"catchtap='onclose'>确定</view>
+  </view>
+</view>

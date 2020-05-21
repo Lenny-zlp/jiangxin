@@ -1,0 +1,109 @@
+<view class="user-wrap">
+  <navigator class="user-top" hover-class='none' url="/pages/user/personal/personal">
+    <image src="{{userhead}}" binderror='imgerr'></image>
+    <view class="user-name">{{data.nickName?data.nickName:data.Mobile}}</view>
+    <!-- <view class="user-home">会员后台入口 ></view> -->
+  </navigator>
+  <view class="user-orderBtn">
+    <view class="orderBtn-top">
+      <text>我的订单</text>
+      <navigator hover-class="none" url="/pages/order/orderlist/list">查看全部订单 ></navigator>
+    </view>
+    <view class="orderBtn-wrap">
+      <navigator hover-class="none" url="/pages/order/orderlist/list?status=0">
+        <image src="http://cache.jiangxinxiaozhen.com/WD/APP/user/w_pay.png"></image>
+        <text>待付款</text>
+        <text class="othermes" wx:if="{{data.StatusSum.DFK>0}}">{{data.StatusSum.DFK}}</text>
+      </navigator>
+      <navigator hover-class="none" url="/pages/order/orderlist/list?status=2">
+        <image src="http://cache.jiangxinxiaozhen.com/WD/APP/user/w_goods.png"></image>
+        <text>待发货</text>
+        <text class="othermes" wx:if="{{data.StatusSum.DFH>0}}">{{data.StatusSum.DFH}}</text>
+      </navigator>
+      <navigator hover-class="none" url="/pages/order/orderlist/list?status=4">
+        <image src="http://cache.jiangxinxiaozhen.com/WD/APP/user/collection.png"></image>
+        <text>待收货</text>
+        <text class="othermes" wx:if="{{data.StatusSum.DSH>0}}">{{data.StatusSum.DSH}}</text>
+      </navigator>
+      <navigator hover-class="none" url="/pages/order/orderlist/list?status=5">
+        <image src="http://cache.jiangxinxiaozhen.com/WD/APP/user/w_disc.png"></image>
+        <text>待评价</text>
+        <text class="othermes" wx:if="{{data.StatusSum.DPJ>0}}">{{data.StatusSum.DPJ}}</text>
+      </navigator>
+      <navigator hover-class="none" url='/pages/order/returnorder/returnorder'>
+        <image src="http://cache.jiangxinxiaozhen.com/WD/APP/user/returnM.png"></image>
+        <text>退换货</text>
+        <text class="othermes" wx:if="{{data.StatusSum.THH>0}}">{{data.StatusSum.THH}}</text>
+      </navigator>
+    </view>
+  </view>
+  <navigator class="VipBtn row-center" url="{{userratingid==-1?'/pages/user/recommend/Goldcard/Goldcard':'/pages/user/recommend/Goldcard/Goldcard?isshare=1'}}">
+    <view class="column Viptext">
+      <block wx:if="{{userratingid==-1}}">
+        <text>开通金卡，一年立省2000元</text>
+      </block>
+      <block wx:else>
+        <text>邀请好友成为金卡会员</text>
+        <text>立得20元</text>
+      </block>
+    </view>
+    <text class="VipBtnS">{{userratingid==-1?'立即开通':'立即邀请'}}</text>
+  </navigator>
+  <view class="user-serve" wx:if="{{data}}">
+    <view class="serve-top">
+      <text>我的服务</text>
+    </view>
+
+    <view>
+      <view class="serve-wrap">
+        <navigator url="/pages/collage/collage?v=v2" hover-class='none'>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/m_shop/user/collage.png"></image>
+          <text>我的拼团</text>
+        </navigator>
+        <!-- <navigator url="/pages/user/inviteNew/inviteNew/index" hover-class='none'>
+          <image src="http://cache.jiangxinxiaozhen.com/WD/APP/user/inviteNew.png"></image>
+          <text>邀请有礼</text>
+          <text class="othermes">{{data.InvitationStr}}</text>
+        </navigator> -->
+        <navigator url="/pages/user/myBag/mybaglist?voucherCount={{voucherCount}}&shareCouponCount={{shareCouponCount}}&couponCount={{couponCount}}&integralCount={{integralCount}}&voucherSumPrice={{voucherSumPrice}}" hover-class='none'>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/mybag.png"></image>
+          <text>我的资产</text>
+        </navigator>
+        <!-- <navigator wx:if="{{userratingid!=-1}}" url="/pages/user/recommend/recommend" hover-class='none'>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/card.png"></image>
+          <text>推荐金卡</text>
+          <text class="othermes">{{data.TuiJianStr}}</text>
+        </navigator> -->
+        <navigator wx:if="{{userratingid!=-1}}" url="/pages/user/follower/follower" hover-class='none'>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/myfollow.png"></image>
+          <text>我的粉丝</text>
+          <text class="othermes">{{customerCount}}人</text>
+        </navigator>
+        <navigator hover-class='none' url="/pages/user/invitenum/invitenum">
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/invite.png"></image>
+          <text>邀请码</text>
+        </navigator>
+        <!-- <navigator>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/about.png"></image>
+          <text>联系管家</text>
+        </navigator> -->
+        <!-- <navigator url="/pages/user/myhouse/myhouse" hover-class='none'>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/myhouse.png"></image>
+          <text>我的收藏</text>
+        </navigator> -->
+        <navigator url="/pages/shoppingcart/address/list" hover-class='none'>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/address.png"></image>
+          <text>地址管理</text>
+        </navigator>
+        <!-- <navigator wx:if="{{userratingid==-1}}" url="/pages/user/recommend/Goldcard/Goldcard" hover-class='none'>
+          <image src="/pages/image/tovip.png"></image>
+          <text>成为会员</text>
+        </navigator> -->
+        <navigator hover-class='none' catchtap='backLogin'>
+          <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/back.png"></image>
+          <text>退出登录</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

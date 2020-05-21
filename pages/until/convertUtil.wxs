@@ -1,0 +1,19 @@
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(2)//此处2为保留两位小数
+  },
+   replace: function (value) {  
+      return value.replace('起', '')//过滤掉起  
+  },
+  hasMin: function (value) {
+    if (value.indexOf('起') > 0) {
+      return true//判断是否带起
+    }
+  }
+}
+
+module.exports = {
+  hasMin: filters.hasMin,
+  replace: filters.replace,
+  toFix: filters.toFix
+}

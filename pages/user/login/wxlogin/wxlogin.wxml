@@ -1,0 +1,9 @@
+<view class="headBg" style="padding-top:{{topH}}px;font-size:{{fontSize}}px">登录</view>
+<image src="/pages/image/jxxzicon.png" mode="widthFix" class="logoPng"></image>
+<button class="WXbtn row-center" bindgetuserinfo="bindGetUserInfo" open-type='getUserInfo'>
+  <image src="/pages/image/wxicon.png" class="wxicon" mode="widthFix"></image>
+  <text style="font-size:30rpx;">微信授权登录</text>
+</button>
+<button class="WXbtn telBtn"  open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">手机号快捷登录</button>
+<navigator class="WXbtn telBtn" hover-class='none' url="/pages/user/login/password/password">账号密码登录</navigator>
+<button class="WXbtn telBtn garyBtn" catchtap='closeWeb'>暂不登录</button>

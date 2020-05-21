@@ -1,0 +1,30 @@
+<wxs module="dateUtil" src="../../pages/until/convertUtil.wxs"></wxs>
+<template name="RecCom">
+  <view class="template-RecCom">
+    <view class="template-RecCom-title">
+      <text>{{title}}</text>
+    </view>
+    <block wx:for="{{list}}">
+      <view class="template-RecCom-List" data-sku="{{item.ProductCode}}" catchtap="hrefUrl">
+        <image src="{{item.Img}}" mode="widthFix"></image>
+        <view class="template-RecCom-detail">
+          <text>{{item.ProductName}}</text>
+          <block wx:if="{{item.WkActivityId>0}}">
+            <view style="padding:20rpx 0 0; ">¥{{dateUtil.replace(item.Price)}}<text wx:if="{{dateUtil.hasMin(item.Price)}}" style="font-size:20rpx;">起</text>
+              <image src="{{item.VipPriceImg}}" mode="widthFix"></image>
+            </view>
+            <view style="color:#888;font-size:22rpx; height:40rpx"><text style="display:inline;">¥{{dateUtil.replace(item.SPrice)}}</text><text wx:if="{{dateUtil.hasMin(item.SPrice)}}" style="font-size:20rpx;display:inline;">起</text> 小镇价</view>
+          </block>
+          <block wx:else>
+            <view style="padding:20rpx 0 0; ">¥{{dateUtil.replace(item.Price)}}
+              <text class="del" wx:if="{{item.VPrice>item.Price}}">¥{{item.VPrice}}</text>
+            </view>
+            <view style="opacity:0;height:40rpx">
+             <text>¥{{dateUtil.replace(item.SPrice)}}</text>
+            </view> 
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

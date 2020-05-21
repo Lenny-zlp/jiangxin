@@ -1,0 +1,44 @@
+page{background:#f4f4f4;padding-bottom:100rpx;}
+.user-wrap{width:100%;overflow:hidden;background:#f4f4f4;}
+.user-top{padding-top:30rpx;overflow:hidden;background:#f8f8f8;}
+.user-top>image{width:130rpx;height:130rpx;border-radius: 50%;background:#fff;margin:0 auto 22rpx;display:block;}
+.user-name{color:#666;font-size:32rpx;text-align: center;margin-bottom:30rpx;}
+.user-home{color:#fff;background:#303030;text-align: center;line-height:42rpx;width:204rpx;margin:0 auto 30rpx;border-radius: 21rpx;display:block;}
+.user-orderBtn,.user-serve{background:#fff;padding:25rpx 25rpx 10rpx;width:calc(100% - 50rpx);margin:0 auto 20rpx;box-sizing: border-box;overflow: hidden;border-radius: 20rpx;}
+.orderBtn-top,.serve-top{width:100%;display:flex;flex-direction: row;justify-content: space-between;border-bottom:1px solid #fafafa;padding-bottom:20rpx;}
+.orderBtn-top text,.serve-top text{font-size:30rpx;color:#303030}
+.orderBtn-top>navigator{color:#999;}
+.orderBtn-wrap{width:100%;display:flex;flex-direction: row;margin-bottom:10rpx;padding:30rpx 0 20rpx;}
+.orderBtn-wrap>navigator,.serve-wrap>navigator{display:flex;flex-direction: column;justify-content: space-between;height:96rpx;position:relative;text-align: center;}
+.orderBtn-wrap{justify-content: space-between;}
+.orderBtn-wrap text{color:#666;font-size:24rpx;}
+.serve-wrap{width:100%;overflow:hidden; position:relative;}
+.serve-wrap text{color:#666;font-size:26rpx;}
+.serve-wrap>navigator{width:25%;float:left;padding:30rpx 0 40rpx;border-bottom:1px solid #fafafa;}
+
+.orderBtn-wrap .othermes{position:absolute;right:0;width:34rpx;height:34rpx;text-align: center;line-height:34rpx;background:#eb5902;color:#fff;border-radius: 50%;font-size: 20rpx !important;top:0;}
+navigator>image{width:48rpx;height:48rpx;display:block;margin:0 auto}
+.VipBtn{width:700rpx;margin:0 auto 20rpx; height:119rpx;border-radius: 20rpx;background:url(https://cache.jiangxinxiaozhen.com/WD/APP/togoldcard.png) no-repeat center center;background-size:700rpx 119rpx;position:relative;padding:0 25rpx;box-sizing: border-box;display: flex;flex-direction: row;justify-content: space-between;}
+.Viptext text{color:#fff; font-weight:bold;font-size:26rpx;}
+.VipBtnS{display:inline-block;width:140rpx;height:56rpx;border-radius:10rpx;color:#eb5902;background:#fff;text-align:center;line-height:56rpx;letter-spacing:1.5px;font-size:24rpx;animation:ease-in tishi 1s infinite;}
+.serve-wrap::after{position: absolute;content:"";width:100%;height:1px;background:#fafafa;bottom:0;left:0;}
+.user-serve{padding-bottom:30rpx;}
+.serve-wrap .othermes{position:absolute;left:0;bottom:10rpx;text-align: center;color:#999;width:100%;font-size: 22rpx !important;}
+
+
+@keyframes  tishi{
+    0% {
+        transform:scale(0.8);
+         -webkit-transform:scale(0.8);
+
+    }
+   50% {
+        transform:scale(1);
+         -webkit-transform:scale(1);
+
+    }
+    100% {
+        transform:scale(0.8);
+        -webkit-transform:scale(0.8);
+    }
+}

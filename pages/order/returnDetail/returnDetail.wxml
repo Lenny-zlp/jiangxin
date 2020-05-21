@@ -1,0 +1,38 @@
+<view class="returnAddress column-between">
+  <view>寄回地址信息</view>
+  <text>收件人：{{detail.ReAddress.ReName}}</text>
+  <text>联系方式：{{detail.ReAddress.ReTel}}</text>
+  <text>地址：{{detail.ReAddress.ReAddress}}</text>
+</view>
+<view class="returnAddress column-between">
+  <view>申请信息</view>
+  <text>售后类型：{{detail.RefundType==0?"换货":"退货"}}</text>
+  <text>原因：{{detail.RefundReason}}</text>
+  <text>说明：{{detail.Remark}}</text>
+  <text>物流公司：{{detail.TransferWay}}</text>
+  <text>快递单号：{{detail.TransferCode}}</text>
+  <text>申请时间：{{detail.CreateTime}}</text>
+  <text>当前状态：{{detail.StatusName}}</text>
+</view>
+<navigator wx:if="{{detail.RefundStatus==2}}" hover-class='none' url="/pages/order/returnaddress/returnaddress?refundid={{detail.Id}}" class="noteNum arrowRight">填写快递单号</navigator>
+<view class="returnAddress column-between">
+  <view>退换货信息</view>
+  <text>订单号：{{detail.OrderCode}}</text>
+
+<block wx:for="{{detail.Refundlist}}">
+  <view class="row-between" style="border-bottom:1px solid #eee;">
+    <view class=" order row-center">
+      <view class="productImag">
+        <image src="{{item.Img}}" class="imgBG"></image>
+      </view>
+      <view class="column-between productDetail">
+        <text>{{item.ProductName}}</text>
+        <text style="color:#999">{{item.color}}</text>
+        <text>￥{{item.price}}</text>
+      </view>
+    </view>
+    <text class="orderNum">x{{item.RefundQty}}</text>
+  </view>
+</block>
+
+</view>

@@ -1,0 +1,51 @@
+@import"../template/template-recCom.wxss";
+page{background:#eee;}
+.carTopWrap{width:100%;overflow: hidden;border-radius:0 0 18rpx 18rpx;background:#fff;}
+.userMes{width:700rpx;padding:20rpx 25rpx;background:#fff;display:flex;flex-direction: row;align-items: center;}
+.userMes>image:nth-child(1){width:35rpx;height:35rpx;margin-right:20rpx;}
+.userMes>image:nth-child(2){width:70rpx;height:70rpx;margin-right:20rpx;}
+.username-num{display:flex;flex-direction: column;justify-content: space-between;}
+.shopid{padding:1rpx 6rpx;border-radius: 3px;background:#eb5902;color:#fff;}
+.freight,.salesMes{width:700rpx;padding:20rpx 25rpx;background:#fff8d8;color:#ed9663;}
+.salesMes{background:#fff url(https://cache.jiangxinxiaozhen.com/Content/wd/more1.png) no-repeat right 15rpx center;background-size:14rpx 24rpx;color:#666;padding:25rpx 40rpx 25rpx 25rpx;width:685rpx;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;}
+.salesMes>text:nth-child(1){padding:1rpx 10rpx;border-radius: 3px;border:1px solid #ed9663;color:#ed9663;margin-right:15rpx;}
+.storeWrap{width:100%;margin:20rpx auto;border-radius: 18rpx;overflow:hidden;}
+.storeName{width:100%;background:#fff;height:80rpx;box-sizing:border-box;padding:0 30rpx; display:flex;align-items: center;flex-direction:row;justify-content:space-between}
+.productList{width:750rpx;background:#f4f4f4;overflow:hidden;}
+
+.productMes{width:750rpx;height:200rpx;background:#fff;border-bottom:1rpx solid #f4f4f4;}
+.scroll-content{width:850rpx;height:200rpx;display:flex;flex-direction: row;}
+.productmes-wrap{width:750rpx; padding:30rpx 98rpx 30rpx 25rpx;height:200rpx;box-sizing: border-box;position:relative;}
+.delProduct{width:100rpx;text-align:center;background:#eb5902;color:#fff;line-height:200rpx;}
+.productleft-template{display:flex;flex-direction: row;align-items:center;width:100%;}
+.radioBor{width:40rpx ;height:40rpx;border-radius: 50%;border:1px solid #dedddd;box-sizing: border-box;display:inline-block;}
+.productleft-template>view>image{width:140rpx;height:140rpx;margin-left:14rpx;background:#f4f4f4;box-sizing: border-box;}
+.product-price-template{margin-left:26rpx;height:140rpx;width:405rpx;}
+.product-price-template text{font-size:28rpx;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;}
+.numRight-template{width:155rpx;height:50rpx;overflow:hidden;position:absolute;right:26rpx;bottom:26rpx;display:flex;flex-direction: row;justify-content: center;align-items: center;}
+.numRight-template image{height:44rpx;width:48rpx;padding:5rpx;float:left;box-sizing:border-box;}
+.numRight-template input{text-align: center;width:58rpx;color:#303030;font-size:30rpx;float:left;}
+.delBtn{padding:18rpx; font-size:40rpx;color:#999;position:absolute;right:0;top:0;z-index: 5;}
+.radioBg-template{border:0 none;background:url(https://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/001.png) no-repeat center center;background-size:40rpx;}
+.radio-gray{background:#999;border:0 none;}
+.balance-wrap{position:fixed;bottom:100rpx;left:0;width:750rpx;height:90rpx;background:#fff;z-index:5;border-top:1rpx solid #f4f4f4;align-items: center;}
+.balance-left{padding-left:25rpx;}
+.balance{padding:0 30rpx;background:#eb5902;color:#fff;margin-left:10rpx;line-height:88rpx;}
+.saleDetailMore{width:100%;height:520rpx;margin:10rpx auto;}
+.saleDetailMore view{padding:20rpx 20rpx;box-sizing: border-box;width:100%;}
+
+.empty{
+  height:100rpx;
+  width:100%;
+  position:fixed;
+  top: calc(50vh - 100rpx);
+  text-align: center;
+  }
+  .vipPrice{
+    background:#eb5902;color:#fff;padding:0rpx 10rpx 2rpx 10rpx;border-radius:9rpx;margin-left:30rpx;display:inline;
+  }
+  ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+ } 

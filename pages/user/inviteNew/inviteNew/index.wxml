@@ -1,0 +1,35 @@
+<view class="inviteNew-wrap">
+<navigator url="/pages/user/inviteNew/inviteRule/index" hover-class='none'class="rulePage">活动规则</navigator>
+  <image src="{{data.BannerImg}}" class="inviteImg"></image>
+  <swiper autoplay="true" vertical="true" class="scrollMesg" circular="true" interval="2000" wx:if="{{data.boradcost.length>0}}">
+    <block wx:for="{{data.boradcost}}">
+      <swiper-item>{{item.msg}}</swiper-item>
+    </block>
+  </swiper>
+  <image src="{{data.CouponImg}}" style="width:{{data.CouponImg_W}}rpx;height:{{data.CouponImg_H}}rpx"></image>
+  <button open-type='share' class="shareBtn">立刻分享</button>
+  <view class="invite-tab">
+    <view>生成海报</view>
+
+    <view>当面邀请</view>
+  </view>
+</view>
+<view class="invite-tab-wrap" catchtap='ontaggle'>
+  <view class="invite-tab">
+    <text class="{{show=='1'?'active':''}}" data-ind="1">已邀请({{data.HasInviRows}})</text>
+    <text class="{{show=='2'?'active':''}}" data-ind="2">获得奖励({{data.SuccessRows}})</text>
+  </view>
+  <block wx:for="{{show=='1'?data.HasInviList:data.SuccessList}}">
+    <view class="invite-list row-between">
+      <view class="row-center">
+        <image src="{{item.Head}}"></image>
+        <view class="column-between">
+          <text>{{item.Mobile}}</text>
+          <text style="color:#999;">{{item.Time}}</text>
+        </view>
+      </view>
+      <text style="color:{{item.StatusStrColor}}">{{item.StatusStr}}</text>
+    </view>
+  </block>
+
+</view>

@@ -1,0 +1,37 @@
+<template name="hotCollage">
+  <view class="hot-template">
+    <image src="{{ProductImg}}" lazy-load="true"></image>
+    <view class="hot-detail-template">
+      <text class="hotName-template">{{ProductName}}</text>
+      <view class="hotUsr-template">
+        <view wx:if="{{GroupUserList.length>0}}">
+          <block wx:for="{{GroupUserList}}" wx:for-index="ind">
+            <image src="{{item.userimg}}" lazy-load="true" binderror='imgerr' data-index="{{ind}}" data-sku="{{ProductCode}}"></image>
+          </block>
+          <image src="http://cache.jiangxinxiaozhen.com/WD/public/more-user1.png" lazy-load="true"></image>
+        </view>
+        <text>{{GroupCount}}</text>
+      </view>
+      <view class="hotCollage-price-template">
+        <text style="color:#8f4141;padding-right:10rpx;">¥<text style="font-size:34rpx;">{{Price}} {{GroupFreeDelivery}}</text></text>
+        <text style="color:#999;text-decoration: line-through;">¥{{OldPrice}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="collageUser">
+  <view class="collageUser-list-template">
+    <view class="usertext-template">
+      <view>
+        <image src="{{userimg}}" lazy-load="true"></image>
+        <text wx:if="{{IsGroupSir==1}}">团长</text>
+      </view>
+      <view>{{Name}}</view>
+    </view>
+    <view class="payTime-template">
+      <view>{{posttime}}</view>
+      <view>{{status}}</view>
+    </view>
+  </view>
+</template>

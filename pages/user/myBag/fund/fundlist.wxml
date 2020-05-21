@@ -1,0 +1,8 @@
+<view class="mybag-wrap">
+  <view class="fund row-between row-center">
+    <text>账户余额</text>
+    <text style="color:#eb5902;">{{model.jsonData.Amount}}</text>
+  </view>
+  <navigator class="fundlist row-between row-center" hover-class='none' url="/pages/user/myBag/fund/stream/streamlist">账户流水</navigator>
+  <navigator class="fundlist row-between row-center" hover-class='none' url="/pages/user/myBag/fund/setpassword/password?mobile={{model.jsonData.Mobile}}">修改支付密码</navigator>
+</view>

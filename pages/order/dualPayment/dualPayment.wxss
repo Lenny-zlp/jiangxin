@@ -1,0 +1,23 @@
+.payStatus{width:100%;padding:40rpx 0;display:flex;flex-direction: column;justify-content: center;align-items: center;border-bottom:8rpx solid #eee;background:#fff;}
+.payStatus icon{margin-bottom:40rpx;}
+.payStatus text{margin-bottom:20rpx; font-size:30rpx;color:#eb5902;}
+.address-wrap,.bag,.pay-wrap{padding:30rpx 25rpx;box-sizing:border-box;width:100%;overflow:hidden;border-bottom:8rpx solid #eee;background:#fff;}
+.ordermesg{width:100%;padding:15rpx 0;}
+.ordermesg text{color:#505050;}
+.ordermesg text:first-child{color:#999;width:130rpx;}
+.bag>view:first-child{padding-left:60rpx;background:url(https://cache.jiangxinxiaozhen.com/WD/APP/user/payBag.png) no-repeat left center;background-size:48rpx 46rpx;}
+page{background:#eee;}
+.pay-wrap{position:fixed;bottom:0;left:0;padding:15rpx 25rpx;overflow:hidden;border-bottom:0;}
+
+.pay-wrap button:last-child{width:180rpx;text-align: center;height:100%;background:#eb5902;color:#fff;position:absolute;right:0;bottom:0;justify-content: center;}
+.pay-wrap text{color:#999;}
+.payWord-wrap{width:100%;height:100%;background:rgba(0,0,0,.2);position:fixed;top:0;left:0;}
+.payWord{position:absolute;top:50%;left:50%;width:500rpx;height:300rpx;margin-top:-150rpx;margin-left:-250rpx;background:#f8f8f8;border-radius: 10rpx;z-index: 5;overflow:hidden;}
+.payTitle {font-size:30rpx;line-height:80rpx;text-align: center;width:100%;display:block;}
+.inp{width:400rpx;height:60rpx;line-height:60rpx;background:#fff;display:block;margin:15rpx auto;padding-left:15rpx;box-sizing: border-box;}
+.btn-bot{width:100%;border-top:1px solid #dedddd;line-height:80rpx;position:absolute;bottom:0;left:0;}
+.btn-bot button{width:50%;text-align: center;color:#026bb1}
+.btn-bot button:nth-child(1){border-right:1px solid #dedddd;box-sizing: border-box;color:#999;}
+.productList-title{width:100%;height:80rpx;background:#f8f8f8;padding:0 25rpx;box-sizing: border-box;line-height:80rpx;}
+.orderALL{background:#fff;padding:25rpx;border-top:1px solid #eee;}
+

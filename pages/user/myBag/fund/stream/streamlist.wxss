@@ -1,0 +1,9 @@
+
+.stream-wrap{width:100%;background:#eee;overflow: hidden;padding-top:80rpx;}
+.stream-tab{line-height:80rpx;display:flex;flex-direction: row;width:750rpx;justify-content: space-around;border-bottom:1px solid #dedddd;background:#fff;position:fixed;top:0;left:0;}
+.stream-tab text{color:#999;width:50%;text-align: center;position: relative;}
+.stream-tab .active{color:#eb5902;}
+.stream-tab .active::after{position:absolute;width:60%;height:2rpx;content:'';background:#eb5902;left:20%;bottom:0;}
+.streamList-wrap{margin-top:2rpx;background:#f8f8f8;width:750rpx;}
+.streamList{background:#fff;padding:25rpx;width:700rpx;align-items: center;margin-bottom:1rpx;}
+.streamList image{width:140rpx;height:140rpx;margin-right:20rpx;}

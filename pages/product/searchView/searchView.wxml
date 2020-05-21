@@ -1,0 +1,28 @@
+<view class="search-wrap">
+  <view class="search-top row-between">
+    <view class="search-border row-center">
+      <icon type="search" size='30rpx'></icon>
+      <input type="text" focus='true' bindconfirm="onConfirm" confirm-type="search" />
+    </view>
+    <text catchtap='topAnimation'>取消</text>
+  </view>
+  <view class="recommend-wrap ">
+    <view class="recTitle">热门推荐</view>
+    <view class="recommend row-center">
+      <block wx:for="{{searchMesg}}">
+        <navigator url="/pages/list/search/search?keyword={{item.productname}}" hover-class='none'>{{item.productname}}</navigator>
+      </block>
+    </view>
+  </view>
+  <view class="recommend-wrap">
+    <view class="recTitle" style="padding:0;padding-top:20rpx;">历史搜索</view>
+    <scroll-view scroll-y='true' class="history">
+      <view class="recommendlist">
+        <block wx:for="{{history}}" wx:for-item="item">
+          <navigator url="/pages/list/search/search?keyword={{item}}" hover-class='none'>{{item}}</navigator>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="clearSearch" catchtap='clearSearch'>清空历史搜索</view>
+</view>

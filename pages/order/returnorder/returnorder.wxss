@@ -1,0 +1,15 @@
+page{background:#fff;}
+.list-wrap{margin-top:10rpx;width:100%;background:#fff;overflow: hidden;}
+.list{padding:0 30rpx;height:90rpx; align-items: center;border-bottom:1px solid #eee;}
+.order-wrap{width:100%;background-position: right 25rpx top 35rpx;}
+.order{width:100%;padding:25rpx 30rpx;box-sizing: border-box;height:180rpx;border-bottom:1px solid #eee;position:relative;}
+.productImag{width:130rpx;height:130rpx;position:relative;margin-right:32rpx;}
+.imgBG{width:130rpx;height:130rpx;border:1px solid #f8f8f8;box-sizing: border-box;}
+.productDetail{height:120rpx;}
+.orderNum{position:absolute;right:25rpx;bottom:35rpx;}
+.superscript{position:absolute;right:1px;top:1px;width:60rpx;height:60rpx;}
+.list-bottom{width:100%;padding:0 30rpx;box-sizing: border-box;height:100rpx;border-bottom:10rpx solid #eee;}
+.noteText{padding:0rpx 12rpx;border: 1px solid #eee;display:block;height:50rpx;margin-top:25rpx;box-sizing: border-box;line-height:48rpx;}
+.noList image{display:block;width:80rpx;margin:400rpx auto 20rpx;}
+.noList text{color:#999;display: block;width:100%;text-align: center;}
+.noList navigator{width:160rpx;height:70rpx;text-align: center;line-height:70rpx;border:0.5rpx solid #eb5902;border-radius: 3px;color:#eb5902;margin:40rpx auto;display:block;}

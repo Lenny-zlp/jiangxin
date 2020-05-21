@@ -1,0 +1,27 @@
+<!-- <view class="detail-wrap">
+  <view class="ourlist-top ">
+    <view class="row-center">
+      <image src="{{message.UserHead}}"></image>
+      <text>{{message.NickName}}</text>
+    </view>
+    <view class="ourlist-title">{{message.Title}}</view>
+  </view>
+  <rich-text nodes='{{html}}'></rich-text>
+  <navigator class="user-words" hover-class='none' url="/pages/our/xzlife/xzlife">说说您对产品的建议吧，我们会认真对待！</navigator>
+  <view class="tabBar-wrap row-center ">
+  <view>
+    <image></image>
+    <text>浏览{{message.LookNum}}</text>
+  </view>
+  <view>
+    <image></image>
+    <text>点赞{{message.LikeNum}}</text>
+  </view>
+  <view>
+    <image></image>
+    <text>收藏{{message.HouseNum}}</text>
+  </view>
+  </view>
+</view> -->
+
+<web-view src="{{shareurl}}"></web-view>

@@ -1,0 +1,62 @@
+<template name="banner">
+  <swiper-item class="template-swiper">
+    <image lazy-load="true" src="" mode='aspectFit'></image>
+  </swiper-item>
+</template>
+<!-- 星品预定/团购 -->
+<template name="starCollage">
+  <view wx:if="{{Title != ''}}" class="template-title">{{Title}}</view>
+  <view class="template-starCollage-img">
+    <view wx:if="{{ModuleType == 17}}" class="template-collage-btn">{{Module[0].GroupPersons}}</view>
+    <image lazy-load="true" src="{{Module[0].Img}}"></image>
+    <view class="template-starCollage-btn" wx:if="{{ModuleType == 16}}">
+      <text>{{Module[0].ReserveCount}}</text>已预订</view>
+    <view class="template-starCollage-btn" wx:if="{{ModuleType == 17}}">
+      已成团
+      <text>{{Module[0].GroupCount}}</text>人</view>
+  </view>
+</template>
+<!-- 竖版列表 -->
+<template name="vertical-list">
+  <image lazy-load="true" class="vertical-image-template" src="{{Product.Img}}"></image>
+  <view class="vertical-title-template" style="background:#{{Product.HomeBgcolor==null?'':Product.HomeBgcolor}};color:#{{Product.HomeFontcolor==null?'505050':Product.HomeFontcolor}}">{{Product.ProductName}}</view>
+  <view class="vertical-price-template row" style="background:#{{Product.HomeBgcolor==null?'':Product.HomeBgcolor}}; padding-bottom:6rpx;">
+    <view class="vsprice-template" style="color:#{{Product.HomeFontcolor==null?'eb5902':Product.HomeFontcolor}}">¥{{Product.MarketPrice>0?Product.MarketPrice:Product.Price}}</view>
+    <image src="{{Product.PriceIcon}}" wx:if="{{Product.MarketPrice>0}}" style="width:60rpx;height:26rpx; "></image>
+    <view class="vvprice-template" wx:if="{{(Product.vprice-Product.Price)>0}}" style="color:#{{Product.HomeBgcolor==null?'999':Product.HomeFontcolor}}">¥{{Product.vprice}}</view>
+  </view>
+  <view class="vertical-price-template row" style="background:#{{Product.HomeBgcolor==null?'':Product.HomeBgcolor}};">
+    <view class="vsprice-template" wx:if="{{Product.MarketPrice>0}}" style="color:#888;font-size:24rpx;">¥{{Product.Price}}
+      <text style="font-size:22rpx;">小镇价</text>
+    </view>
+  </view>
+  <image lazy-load="true" class="imglittle-template" wx:if="{{Product.Homeicon!=null}}" src="{{Product.Homeicon}}"></image>
+</template>
+<!-- 标题 -->
+<template name="title">
+  <view class="title-wrap-template {{MoreLink==0?'':'title-more-wrap-template'}}" wx:if="{{Title!=''}}">
+    <view class="title-text-template">{{Title}}</view>
+    <view class="title-more-template" wx:if="{{MoreLink!=0}}" data-title="{{Title}}" data-link="{{MoreLink}}">更多>></view>
+  </view>
+</template>
+<!-- 横版图文 -->
+<template name="horizontalImg">
+  <view class="horizontalImg-template">
+    <image lazy-load="true" src="{{Product.Img}}"></image>
+    <view class="horizontaltext-template">
+      <view class="hor-proname-template">{{Product.ProductName}}</view>
+      <view class="hor-othername-template">{{Product.productOtherName}}</view>
+      <view class="hor-span-template">
+        <view wx:if="{{Product.Descri!=''}}">{{Product.Descri}}</view>
+        <view wx:if="{{Product.Packing!=''}}" style="background:none;border:1px solid #eb5902;color:#eb5902;box-sizing:border-box;">{{Product.Packing}}</view>
+      </view>
+      <view class="hor-sprice-template row-center">¥{{Product.MarketPrice>0?Product.MarketPrice:Product.Price}}
+        <text style="font-size:26rpx;padding-left:15rpx;color:#999;text-decoration: line-through;" wx:if="{{(Product.vprice-Product.Price)>0}}">¥{{Product.vprice}}</text>
+        <image src="{{Product.PriceIcon}}" wx:if="{{Product.MarketPrice>0}}" style="width:60rpx;height:26rpx; padding-left:15rpx;"></image>
+      </view>
+      <view class="hor-sprice-template row-center" style="color:#888;bottom:30rpx;font-size:22rpx;" wx:if="{{Product.MarketPrice>0}}">¥{{Product.Price}}
+        <text style="font-size:22rpx;padding-left:15rpx;">小镇价</text>
+      </view>
+    </view>
+  </view>
+</template>

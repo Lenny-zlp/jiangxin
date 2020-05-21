@@ -1,0 +1,3 @@
+.follower-wrap{width:700rpx;padding:30rpx 25rpx;border-bottom:1px solid #eee;height:80rpx;}
+.follower>image{width:80rpx;height:80rpx;margin-right:15rpx;border:1px solid #eee;}
+.follower-user{height:70rpx;}

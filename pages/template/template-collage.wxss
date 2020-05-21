@@ -1,0 +1,11 @@
+.collage-list-tem{width:690rpx;overflow:hidden;display:flex;flex-direction: column;position:relative;}
+.collage-list-tem>image{width:690rpx;height:380rpx;border-radius: 10rpx; box-sizing: border-box;}
+.persons-tem{width:80rpx;height:40rpx;text-align: center;line-height:40rpx;border-radius: 0 0 3px 3px;color:#fff;background:#eb5902;
+position:absolute;top:0;left:60rpx;}
+.collage-name-template{padding:20rpx 0 5rpx;font-size:30rpx;color:#303030;}
+.collage-count-template{color:#999;}
+.collage-price-template{padding:10rpx 0 10rpx; }
+.collage-price-template text{margin-right:15rpx;color:#999;text-decoration:line-through;}
+.red-price-template{color:#eb5902 !important;font-size:34rpx;text-decoration:none !important;}
+.collage-btn-template{position:absolute;right:0;bottom:10rpx;width:140rpx;height:50rpx;line-height:50rpx;text-align: center;background:#eb5902;color:#fff;border-radius: 3px;}
+.saleOver{width:150rpx;height:150rpx;background:rgba(0,0,0,.4);text-align: center;line-height: 150rpx;color:#fff;font-size:34rpx;position:absolute;top:115rpx;left:50%;margin:0 0 0 -75rpx;border-radius: 75rpx;}

@@ -1,0 +1,17 @@
+.voucherTab{width:100%;height:80rpx;align-items: center;border-bottom:1rpx solid #eee;background:#f8f8f8;position:fixed;top:0;left:0;z-index: 10;}
+.voucherTab text{color:#666;width:50%;text-align: center;height:80rpx;line-height:80rpx;}
+.voucherTab .active{color:#eb5902;}
+page{background:#eee;}
+.voudherList-wrap{width:100%;padding-top:80rpx;overflow:hidden;}
+.voucherList{width:100%;height:174rpx;margin:20rpx auto 0;}
+.voucherL{width:220rpx;height:174rpx;justify-content: center;position:relative;}
+.voucherL::after{width:2rpx;height:72rpx;position:absolute;right:0;content: "";background:rgba(255,255,255,.5);top:51rpx;}
+.voucherR{width:440rpx;height:174rpx;justify-content: center;align-items: left;padding:0 50rpx;box-sizing:border-box;font-size:30rpx;color:rgba(255,255,255,.8)}
+.voucherL text{color:#fff; font-size:60rpx;position: relative;padding-right:40rpx;}
+.voucherL text::before{position:absolute;right:0;bottom:12rpx;content:'元';color:#fff;font-size: 36rpx;}
+.useBg{background:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/billUse.png) no-repeat right 28rpx center;background-size:128rpx 99rpx;}
+.Overdue{background:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/billOverdue.png) no-repeat right 28rpx center;background-size:128rpx 99rpx;}
+.voucherWrap.gray{background-image:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/usebill.png)}
+
+.voucherWrap{width:660rpx;margin:20rpx auto 40rpx;height:240rpx;background:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/bill.png) no-repeat center center;background-size: 660rpx 240rpx;}
+.saleTime{width:100%;text-align: center;height:66rpx;color:#999;font-size:26rpx;line-height:66rpx;}

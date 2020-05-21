@@ -1,0 +1,53 @@
+<import src="../template/template-purchase.wxml" />
+<import src="../template/template-moduleRem.wxml" />
+<view class="purchase-wrap">
+  <image src="{{content.banner}}" class="purchase-img-top"></image>
+  <view class="menu" wx:if="{{content.purchase}}">
+    <block wx:for="{{content.purchase}}" wx:for-index="ind" wx:key="tab">
+      <view class="menu-list {{ind==type-1?'menu-cur':''}} {{tabW==1?'menu-only':''}} {{tabW==2?'menu-two':''}}" wx:if="{{ind<3}}" data-id="{{ind}}" catchtap='onTab'>
+        <text style="display:block;line-height:50rpx;">{{item.StartTime}}</text>
+        <text class="payS">{{item.State==1?'抢购中':'即将开抢'}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="time-wrap" wx:if="{{list.length>0}}">
+    <view class="time">
+      <text style="margin-right:5px;">{{state==1?'距离结束时间': '距离开始时间'}}</text>
+      <view style="margin-right:4px;" wx:if="{{saleTime.d>0}}">
+        <text style="margin-right:6rpx;">{{saleTime.d}}</text>天
+      </view>
+      <view>
+        <text>{{saleTime.h}}</text>：
+      </view>
+      <view>
+        <text>{{saleTime.s}}</text>：
+      </view>
+      <view>
+        <text>{{saleTime.m}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="list-wrap" wx:if="{{list.length>0}}">
+    <block wx:for="{{list}}" wx:key="key2" wx:for-index="ind">
+      <view class="list {{ind==0?'list-noR':''}}" data-sku="{{item.pruchaseList.ProductCode}}" catchtap='tapHref'>
+        <template is="purchase" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+  <view wx:if="{{list.length==0}}" style="padding:100rpx 0;text-align:center;color:#999;">
+  限时购暂时没有数据哦~
+  </view>
+  <view class="moduleListWrap list-wrap" wx:if="{{content.moduleList.length>0}}">
+    <block wx:for="{{content.moduleList}}" wx:key="key3">
+      <view class="moduleTittle" wx:if="{{item.RecommendList.length>0}}">{{item.ModuleName}}</view>
+      <view>
+        <block wx:for="{{item.RecommendList}}" wx:key="key4" wx:for-index="ind4" wx:for-item='item4'>
+          <view class="list {{ind4==0?'list-noR':''}}" data-sku="{{item4.ProductCode}}" catchtap='tapHref'>
+            <template is="moduleRem" data="{{...item4}}" />
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+
+</view>

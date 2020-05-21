@@ -1,0 +1,11 @@
+.discussList-template{width:100%;padding:18rpx 25rpx;box-sizing: border-box;border-bottom:1px solid #f4f4f4;line-height:80rpx;}
+
+.discussList-template>text{color:#999;}
+.discussImage-template{width:100%;display:flex;flex-direction: row;flex-wrap: wrap;padding-top:15rpx;}
+.discussImage-template>image{width:180rpx;height:180rpx;background:#f8f8f8;margin:0 30rpx 30rpx 0;display:block;}
+.discussText-template{width:100%;overflow:hidden;line-height:40rpx;padding-top:20rpx;}
+.discussUser-template>image{width:30rpx;height:30rpx;margin-right:10rpx;}
+.discussUser-template>.userHeader-template{width:80rpx;height:80rpx;border-radius: 50%;border:1px solid #eee;}
+.discussColor-template{color:#999;line-height:40rpx;}
+view, text{font-size:28rpx;}
+.discussList-template view,.discussList-template text{font-size:26rpx;color:#777;}

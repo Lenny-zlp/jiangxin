@@ -1,0 +1,2 @@
+<textarea placeholder="写下您的宝贵意见，这是我们产品服务的起点（留言经过筛选后，对所有人可见）" focus='true'></textarea>
+<button class="issue">发布</button>

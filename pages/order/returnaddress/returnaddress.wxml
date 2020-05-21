@@ -1,0 +1,24 @@
+<view class="returnAddress column-between">
+  <view>寄回地址信息</view>
+  <text>收件人：{{info.ReName}}</text>
+  <text>联系方式：{{info.ReTel}}</text>
+  <text>地址：{{info.ReAddress}}</text>
+
+</view>
+<form bindsubmit="formSubmit">
+  <view class="row-center">
+    <label>快递名称：</label>
+    <input value="" name="name"></input>
+  </view>
+  <view class="row-center">
+    <label>快递单号：</label>
+    <input value="" name="num"></input>
+  </view>
+  <view class="row-center">
+    <label>运费：</label>
+    <input value="" name="price"></input>
+  </view>
+
+  <button form-type="submit">确定</button>
+</form>
+<view class="returnText">{{info.Notice}}</view>

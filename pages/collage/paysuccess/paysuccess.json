@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "popup": "/components/showmodal/showModal"
+  },
+  "navigationBarTitleText": "开团成功"
+}

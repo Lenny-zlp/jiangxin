@@ -1,0 +1,29 @@
+<wxs module="dateUtil" src="../../../pages/until/timeUtil.wxs"></wxs>
+<import src="../../template/template-recCom.wxml" />
+<view class="success-wrap">
+  <icon type="success_no_circle" color="#eb5902" size="70rpx"></icon>
+  <view>支付成功</view>
+  <view class="order-detail">
+    <text>{{model.Receiver}} {{model.MobilePhone}}</text>
+    <text>{{model.Address}}</text>
+    <view style="color:#999;display:block;">若收货地址有误，请30分钟内
+      <navigator hover-class='none' url="/pages/order/orderdetail/detail?ordercode={{model.ordercode}}">修改地址>></navigator>
+    </view>
+    <view style="color:#999">订单编号：{{model.ordercode}}</view>
+  </view>
+  <navigator hover-class='none' class="order-btn" url='/pages/order/orderdetail/detail?ordercode={{model.ordercode}}'>查看订单</navigator>
+</view>
+<!-- <view class="recommend-product"></view>
+<view class="productList-wrap">
+  <block wx:for="{{rlist.RecommendList}}" wx:key="RecommendList">
+    <navigator url='/pages/product/product?sku={{item.productcode}}'  class="productList" hover-class='none'>
+      <image src="{{item.imgUrl}}" mode="widthFix"></image>
+      <text>{{item.productname}}</text>
+      <text style="color:#eb5902;font-size:30rpx;">￥{{item.price}}</text>
+    </navigator>
+  </block>
+</view> -->
+ <!--推荐商品-->
+    <view class="RecCom-wrap" wx:if="{{RecCom.list.length>0}}">
+      <template is="RecCom" data="{{list:RecCom.list,title:RecCom.payMsg}}"/>
+    </view>

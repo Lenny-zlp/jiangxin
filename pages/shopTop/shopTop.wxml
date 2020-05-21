@@ -1,0 +1,115 @@
+<import src="../template/template.wxml" />
+<view class="top-wrap">
+  <block wx:for="{{content}}" wx:key="key3" wx:for-index="">
+    <view class="vmodule-wrap" wx:if="{{item.ModuleType == 1}}"style="padding-bottom:20rpx;}}">
+      <swiper class="swiper-wrap" indicator-dots="true" indicator-active-color="#eb5902" autoplay="true">
+        <block wx:for="{{item.Module}}">
+          <swiper-item data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Code}}" catchtap='tapHref'>
+            <image src="{{item.Img}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="vmodule-wrap" wx:if="{{item.ModuleType == 16}}" style="padding-bottom:20rpx;}}" data-sku="{{itemWrap.Module[0].Code}}" data-linktype='{{itemWrap.Module[0].LinkType}}' catchtap='tapHref'>
+      <template is="starCollage" data="{{...item}}" />
+    </view>
+    <view class="vmodule-wrap" wx:if="{{item.ModuleType == 17}}" style="padding-bottom:20rpx;}}" catchtap='toCollage'>
+      <view style="background:#fff;">
+        <template is="starCollage" data="{{...item}}" />
+      </view>
+    </view>
+    <view class="sale-time-wrap" wx:if="{{item.ModuleType == 11}}"style="padding-bottom:20rpx;}}" catchtap='toPurchase'>
+      <view class="sale-time">
+        <image src="{{item.Module[0].Product.Img}}"></image>
+        <view class="sale-time-title">{{item.Module[0].Product.xsg_title}}</view>
+        <view class="sale-time-text">{{item.Module[0].Product.xsg_tips}}</view>
+        <view class="sale-time-s">
+          <view class="sale-time-day" wx:if="{{saleTime.d!='00'}}">
+            <text>{{saleTime.d}}</text> 天 </view>
+          <view class="sale-time-hour">
+            <text>{{saleTime.h}}</text> : </view>
+          <view class="sale-time-secend">
+            <text>{{saleTime.s}}</text> : </view>
+          <view class="sale-time-min">
+            <text>{{saleTime.m}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="vertical-wrap" wx:if="{{item.ModuleType == 3}}" style="padding-bottom:20rpx;}}">
+              <view>
+                <template is="title" data="{{...item}}" />
+              </view>
+              <view class="list-wrap">
+                <block wx:for="{{item.Module}}" wx:key="key5" wx:for-index="ind">
+                  <view class="listTopImage" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref' wx:if="{{item.Img!=null&& item.Product.sprice==null}}">
+                    <image lazy-load="true" src="{{item.Img}}" mode="widthFix"></image>
+                  </view>
+
+                  <view class="product-list" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref' wx:if="{{item.Img==null&& item.Product.sprice!=null}}">
+                    <template is="vertical-list" data="{{...item}}" />
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class="horizontal-wrap" wx:if="{{item.ModuleType == 2}}" style="padding-bottom:20rpx;}}">
+              <view>
+                <template is="title" data="{{...item}}" />
+              </view>
+              <block wx:for="{{item.Module}}">
+                <view data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Code}}" catchtap='tapHref'>
+                  <image lazy-load="true" class="horizontal-img" lazy-load='true' mode="widthFix" src="{{item.Img}}"></image>
+                </view>
+              </block>
+            </view>
+    <view class="horizontal-img-wrap" wx:if="{{item.ModuleType == 9}}" style="padding-bottom:20rpx;}}">
+      <view>
+        <template is="title" data="{{...item}}" />
+      </view>
+      <block wx:for="{{item.Module}}" wx:key="key7">
+        <view class="horizontal-img-list" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref'>
+          <template is="horizontalImg" data="{{...item}}" />
+        </view>
+      </block>
+    </view>
+    <view class="vertical-Bg-wrap" wx:if="{{item.ModuleType == 18}}" style="background:#{{item.bgcolor}}">
+      <image src="{{item.bgimg}}"></image>
+      <view class="vertical-Bg-list-wrap">
+        <block wx:for="{{item.Module}}">
+          <view class="vertical-Bg-list"  data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref'>
+            <image src="{{item.Product.Img}}" class="vertical-bg-img"></image>
+            <view class="verticalBg-text">
+              <view class="verticalBg-title">{{item.Product.ProductName}}</view>
+              <view class="verticalBg-price" style="color:#{{vertical.PriceColor}}">
+                ¥
+                <text style="color:#{{vertical.PriceColor}}">{{item.Product.Price}}</text>
+                <text>¥{{item.Product.sprice}}</text>
+              </view>
+              <view class="vertical-btn" style="color:#{{vertical.ButtonFontColor}};background:#{{vertical.ButtonColor}}">立即购买</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="horizontal-Bg-wrap" wx:if="{{item.ModuleType == 19}}" style="background:#{{item.bgcolor}}">
+      <image src="{{item.bgimg}}"></image>
+      <view class="horizontalBG-list-wrap">
+        <block wx:for="{{item.Module}}">
+          <view class="horizontalBG-list" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref'>
+            <image src="{{item.Product.Img}}" class="vertical-bg-img"></image>
+            <view class="horizontalBG-text">
+              <view class="horizontalBG-title">{{item.Product.ProductName}}</view>
+              <view class="horizontalBG-Othertitle">{{item.Product.productOtherName}}</view>
+              <view class="horizBg-price" style="color:#{{horiz.PriceColor}}">
+                ¥
+                <text style="color:#{{horiz.PriceColor}}">{{item.Product.Price}}</text>
+                <text>¥{{item.Product.sprice}}</text>
+              </view>
+              <view class="horizBg-btn" style="color:#{{horiz.ButtonFontColor}};background:#{{horiz.ButtonColor}}">立即购买</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

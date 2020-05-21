@@ -1,0 +1,9 @@
+page{background:#fcf5f0;}
+.payGoldcardWrap{width:100%;padding:25rpx;box-sizing: border-box;background:#f4f4f4;display:flex;flex-direction: column;justify-content: center;align-items: center;}
+.payGoldcardWrap image{display:block;width:150rpx;margin:60rpx 0;}
+.message-wrap{width:100%;padding:30rpx 25rpx;box-sizing: border-box;background:#fff;border-radius: 10rpx;}
+.message-wrap view{line-height:80rpx;border-bottom:1px solid #eee;}
+.message-wrap view:last-child{border:0 none;}
+page{background:#eee;}
+.payBtn{width:600rpx;height:80rpx;text-align: center;line-height:80rpx;background:#eb5902;color:#fff;font-size:30rpx;margin:40rpx 0;}
+navigator{color:#eb5902;}

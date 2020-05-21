@@ -1,0 +1,36 @@
+/* 角标样式 */
+.imglittle-template{position:absolute;left:20rpx;top:0;width:75rpx;height:77rpx;}
+.template-swiper{width:100%;height:100%;}
+.template-swiper image{width:100%;height:100%;}
+.template-title{width:750rpx;height:88rpx;text-align: center;line-height: 88rpx;border-bottom:1px solid #eee;background:#fff;font-size:30rpx;}
+.template-starCollage-img{width:750rpx;height:360rpx;position:relative;background:#fff;}
+.template-starCollage-img image{width:100%;height:100%;}
+.template-starCollage-btn{min-width:150rpx;height:60rpx;background: #e0c89b;border-radius: 8rpx;text-align: center;color:#fff;position:absolute;left:30rpx;bottom:40rpx;line-height:60rpx;padding:0 20rpx;}
+.template-starCollage-btn text{font-size:40rpx;}
+.template-collage-btn{position:absolute;left:40px;top:0;width:80rpx;height:40rpx;border-radius: 0 0 8rpx 8rpx;background:#eb5902;color:#fff;text-align: center;line-height:40rpx;}
+.vertical-image-template{width:295rpx;height:295rpx;margin:30rpx auto;}
+.vertical-title-template{width:100%;height:60rpx;line-height:60rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;padding:0 20rpx ; box-sizing: border-box;}
+.vertical-price-template{line-height:30rpx;padding:0 20rpx 20rpx;height:30rpx; align-items: center;}
+.vsprice-template{font-size:30rpx;color:#eb5902; margin-right:10rpx;display:inline-block;}
+.vvprice-template{color:#999;text-decoration: line-through;display:inline-block;font-size:24rpx;}
+
+.title-wrap-template{width:100%;height:90rpx;background:#fff;line-height: 90rpx;text-align: center;}
+.title-text-template{font-size:30rpx;color:#303030;}
+.title-more-wrap-template{padding:0 30rpx;display:flex;justify-content: space-between;box-sizing: border-box;}
+.title-more-wrap-template .title-text-template{font-size:30rpx;}
+.title-more-wrap-template .title-more-template{color:#999;}
+
+.horizontalImg-template{width:100%;border-bottom:1px solid #eee;overflow:hidden;padding:20rpx 0;}
+.horizontalImg-template image{float:left;width:290rpx;height:290rpx; margin-right:30rpx;}
+.horizontaltext-template{width:calc(100% - 320rpx);float:right;height:290rpx;position:relative;}
+.hor-proname-template{font-size:30rpx;padding-top:40rpx;color:#303030;width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.hor-othername-template{color:#999;padding-top:15rpx;width:100%;text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;}
+.hor-span-template{padding-top:15rpx;height:30rpx;width:100%;}
+.hor-sprice-template{color:#eb5902;font-size:30rpx;position:absolute;left:0;bottom:70rpx;}
+.hor-span-template view{font-size:20rpx;float:left;margin-right:10rpx;padding:4rpx 12rpx 4rpx;border-radius: 6rpx;color:#fff;background:#ef4f4f}
+

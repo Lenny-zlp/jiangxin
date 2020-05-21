@@ -1,0 +1,38 @@
+<wxs module="dateUtil" src="../../pages/until/convertUtil.wxs"></wxs>
+<block wx:if="{{productList.length>0 && categorys.list.length>0}}">
+  <!--内容-->
+  <view style="height:{{searchH}}rpx;overflow:hidden;">
+    <view class='main' style="height:{{searchH}}rpx;">
+      <!--搜索框-->
+      <navigator class='search_view' url="/pages/product/searchView/searchView" hover-class='none'>
+        <input type="text" disabled='true' placeholder="搜索" class="search_text" />
+      </navigator>
+      <!--左侧分类导航-->
+      <view class="list_wrap">
+        <view class='navigation_view'>
+          <block wx:for="{{categorys.list}}" wx:key="key">
+            <view class="{{categoryId==item.Categoryid?'category_active':''}}" catchtap="tapName" data-categoryid="{{item.Categoryid}}"> {{item.CategoryName}}</view>
+          </block>
+        </view>
+        <!--右侧商品列表-->
+        <view class="list_view" style="height:{{searchH-76}}rpx;">
+          <scroll-view scroll-y="true" bindscrolltolower="scroll_bottom" scroll-top="{{scrollTop}}" style="height:100%;">
+            <block wx:for="{{productList}}" wx:key="key">
+              <navigator url='/pages/product/product?sku={{item.ProductCode}}&groupid=-1&&grouplogid=-1' class='image_view' hover-class='none'>
+                <image src='{{item.Img}}'></image>
+                <view class="productRight">
+                  <view class='product_name'>{{item.ProductName}}</view>
+                   <view class='product_othername'>{{item.ProductOtherName}}</view>
+                  <view class='product_price'>¥{{dateUtil.replace(item.MarketPrice)>0?item.MarketPrice:item.Price}} <text class="vipSpan" wx:if="{{dateUtil.replace(item.MarketPrice)>0}}" style="background:url({{item.PriceIcon}}) no-repeat center center;background-size:60rpx 30rpx;"></text></view>
+                  <view style="color:#888;" wx:if="{{dateUtil.replace(item.MarketPrice)>0}}">¥{{item.Price}}</view>
+                </view>
+
+              </navigator>
+            </block>
+            <view class="more">已经到底啦~</view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

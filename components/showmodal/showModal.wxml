@@ -1,0 +1,52 @@
+<!--components/popup/popup.wxml-->
+<block wx:if="{{showModal}}">
+  <view class="modal-mask" catchtap='_onClose'></view>
+  <view class="modal-dialog">
+    <view class='m-title' wx:if="{{title}}">
+      {{title}}
+    </view>
+    <view wx:if="{{showClose==1}}" class='m-close' catchtap='_onClose'>×</view>
+    <view class="m-info">
+      <block wx:if="{{imgUrl}}">
+        <image src='{{imgUrl}}' class='m-i-img'></image>
+      </block>
+      <text>
+        {{content}}
+      </text>
+      <slot name="content">
+      </slot>
+    </view>
+
+    <!-- 显示底部按钮 -->
+    <view class="modal-footer" wx:if="{{showCancel==1 || showConfirm==1}}">
+      <!-- 取消和确认都显示 -->
+      <block wx:if="{{showCancel==1 && showConfirm==1}}">
+        <view class="btn-footer btn-l-footer" style='background:{{cancelBgColor}};color:{{cancelColor}}' bindtap="_onCancel">
+          <text>{{cancelText}}</text>
+        </view>
+        <view class="btn-footer btn-r-footer" style='background:{{confirmBgColor}};color:{{confirmColor}}' bindtap="_onConfirm">
+          <text>{{confirmText}}</text>
+        </view>
+      </block>
+
+      <!-- 只显示确认 -->
+      <block wx:if="{{showCancel!=1 && showConfirm==1}}">
+        <view class="btn-footer-confirm" style='background:{{confirmBgColor}};color:{{confirmColor}}' bindtap="_onConfirm">
+          <text>{{confirmText}}</text>
+        </view>
+      </block>
+
+      <!-- 只显示取消 -->
+      <block wx:if="{{showCancel==1 && showConfirm!=1}}">
+        <view class="btn-footer-cancel" style='background:{{cancelBgColor}};color:{{cancelColor}}' bindtap="_onCancel">
+          <text>{{cancelText}}</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- 不显示底部按钮 -->
+    <view class="modal-footer-empty" wx:if="{{showCancel!=1 && showConfirm!=1}}">
+
+    </view>
+  </view>
+</block>

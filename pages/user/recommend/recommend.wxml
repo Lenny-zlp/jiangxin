@@ -1,0 +1,4 @@
+<view class="recommend-wrap">
+<image src="{{data.img}}" mode="widthFix"></image>
+<button open-type='share'>我要推荐</button>
+</view>

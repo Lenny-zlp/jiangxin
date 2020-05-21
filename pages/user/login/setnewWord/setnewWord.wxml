@@ -1,0 +1,11 @@
+<form class="content" bindsubmit="btnsubmit">
+  <view class="telInp row-between">
+    <input type="{{isShow?'password':'text'}}" value='' placeholder="请输入新密码" bindinput="userPwdInput" placeholder-class="input-placeholder"></input>
+    <image src="{{isShow?_src:_src2}}" catchtap='openeye'></image>
+  </view>
+  <view class="telInp row-between">
+    <input type="{{isShow2?'password':'text'}}" value='' placeholder="确认新登录密码" bindinput="surePwdInput"  placeholder-class="input-placeholder"></input>
+     <image src="{{isShow2?_src:_src2}}" catchtap='openeye1'></image>
+  </view>
+  <button class="sureBtn" form-type='submit' >完成</button>
+</form>

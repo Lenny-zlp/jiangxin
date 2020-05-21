@@ -1,0 +1,13 @@
+<wxs module="dateUtil" src="../../../pages/until/convertUtil.wxs"></wxs>
+<view class="productList-wrap">
+  <block wx:for="{{list}}">
+    <navigator class="productList" hover-class='none' url="/pages/product/product?sku={{item.ProductCode}}&groupid=0&grouplogid=-1">
+      <image src="{{item.Img}}" mode="widthFix"></image>
+      <text>{{item.ProductName}}</text>
+      <view style="color:#eb5902;font-size:30rpx;" class="priceWrap">￥{{dateUtil.replace(item.MarketPrice)>0 ?item.MarketPrice:item.Price}}
+        <image wx:if="{{dateUtil.replace(item.MarketPrice)>0}}" src="{{item.PriceIcon}}" style="display:inline-block;width:60rpx;" mode="widthFix"></image>
+      </view>
+      <text style="color:#888;font-size:24rpx; {{dateUtil.replace(item.MarketPrice)>0?'opacity:1;':'opacity:0;'}}">￥{{item.Price}}<text style="font-size:20rpx;padding-left:10rpx;">小镇价</text></text>
+    </navigator>
+  </block>
+</view>

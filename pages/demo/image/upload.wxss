@@ -1,0 +1,6 @@
+/* pages/demo/image/upload.wxss */
+button{
+  background: #eb5902;
+  color: #fff;
+  font-size: 30rpx;
+}

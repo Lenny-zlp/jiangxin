@@ -1,0 +1,16 @@
+.wrap{width:100%;padding:50rpx 30rpx;background:#fff;box-sizing: border-box;overflow:hidden;}
+input{width:568rpx;height:56rpx;border-bottom:1px solid #eee;color:#303030;text-align: left;display:block;box-sizing: border-box;font-size:28rpx;margin:0 auto 88rpx;padding-left:20rpx;}
+form{display:block;width:100%;padding-top:10rpx;}
+page{background:#eee;}
+button{height:88rpx;color:#eb5902;width:568rpx;font-size:30rpx;border-radius: 44rpx !important;line-height: 88rpx;border:1px solid #eb5902;box-sizing: border-box;margin:0 auto 88rpx;}
+.popupInp{margin:0 auto;width:80%;border-color: #eee;text-align: left;padding:10rpx;}
+button[disabled] {
+    color: #fff !important;
+    background: #999 !important;
+    border-color: none !important;
+}
+page{background:#fff;}
+.topimg{width:166rpx;margin:88rpx auto;display:block;}
+.num{width:100%;text-align: center;font-size:30rpx;color:#303030;margin-bottom: 130rpx;}
+.rule{width:100%;padding:0 60rpx;box-sizing: border-box;overflow: hidden;display: flex;flex-direction: column;line-height:48rpx;}
+.rule text{color:#999;font-size:24rpx;}

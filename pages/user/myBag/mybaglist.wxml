@@ -1,0 +1,32 @@
+<view class="bag-wrap">
+
+    <navigator class="more-fund row-between row-center" hover-class='none' url="/pages/user/myBag/fund/fundlist">
+      <view class="fund-left row-center">
+        <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/mybag.png"></image>
+        <text>我的钱包</text>
+      </view>
+      <text></text>
+    </navigator>
+     <navigator class="more-fund row-between row-center" hover-class='none' url="/pages/user/myBag/coupon/couponlist?v=1">
+      <view class="fund-left row-center">
+        <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/coupon.png"></image>
+        <text>优惠券</text>
+      </view>
+      <text>{{couponCount}}</text>
+    </navigator>
+     <navigator class="more-fund row-between row-center" hover-class='none' url="/pages/user/myBag/voucher/voucherlist">
+      <view class="fund-left row-center">
+        <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/mycoup.png"></image>
+        <text>小镇币</text>
+      </view>
+      <text>{{voucherSumPrice}}元</text>
+    </navigator>
+     <!-- <navigator class="more-fund row-between row-center" hover-class='none'url="/pages/user/myBag/fruit/fruitlist" >
+      <view class="fund-left row-center">
+        <image src="https://cache.jiangxinxiaozhen.com/WD/APP/user/guo.png"></image>
+        <text>沙棘果</text>
+      </view>
+      <text>{{integralCount}}</text>
+    </navigator> -->
+  
+</view>

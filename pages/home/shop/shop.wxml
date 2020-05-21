@@ -1,0 +1,177 @@
+<import src="../../template/template.wxml" />
+<view class="homeWrap" catchtap='onShoptop'>
+  <view class="row-between userTop">
+
+    <navigator class="usertopSearch row-between" url="/pages/product/searchView/searchView" hover-class='none'>
+      <text>搜索商品</text>
+      <icon type="search" size="30rpx" color="#666"></icon>
+    </navigator>
+  </view>
+  <scroll-view class="menu-wrap" scroll-x="{{true}}" wx:if="{{menu.length!=0}}">
+    <view class="menu">
+      <block wx:for="{{menu}}" wx:for-index="ind">
+        <text data-code="{{item.Code}}" data-cur="{{ind}}" class="{{currentPage==item.currentIndex?'active':''}}" catchtap='onclickTab'>{{item.PageName}}</text>
+      </block>
+    </view>
+  </scroll-view>
+  <swiper class="screen-wrap" style="height:{{height}}rpx" current='{{currentPage}}' bindchange="swipertop" bindanimationfinish='onchange'>
+    <block wx:for="{{page}}" wx:for-item="pageItem" wx:key="page">
+      <swiper-item data-code="{{pageItem.Code}}">
+        <scroll-view class="content" scroll-y="{{true}}" scroll-top="{{scrollTop}}">
+
+          <block wx:for="{{pageItem.content}}" wx:key="key3" wx:for-index="ind" wx:for-item="itemWrap">
+            <view class="vmodule-wrap" wx:if="{{itemWrap.ModuleType == 1}}" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}">
+              <swiper class="swiper-wrap" indicator-dots="true" circular="true" indicator-active-color="#eb5902" autoplay="true">
+                <block wx:for="{{itemWrap.Module}}">
+                  <swiper-item data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Code}}" catchtap='tapHref' style="border-radius:20rpx;overflow:hidden;">
+                    <image lazy-load="true" src="{{item.Img}}"></image>
+                  </swiper-item>
+                </block>
+              </swiper>
+            </view>
+            <!-- 每周一品 -->
+            <view class="everyWeek" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}" wx:if="{{itemWrap.ModuleType == 21}}">
+              <view class="weekTitle" wx:if="{{itemWrap.Title}}">{{itemWrap.Title}}</view>
+              <block wx:for="{{itemWrap.Module}}">
+                <navigator class="weekContent" hover-class='none' url="/pages/home/weekly/weekly">
+                  <image src="{{item.Img}}" mode='widthFix'></image>
+                </navigator>
+              </block>
+            </view>
+            <view class="vmodule-wrap" wx:if="{{itemWrap.ModuleType == 16}}" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}" data-sku="{{itemWrap.Module[0].Code}}" data-linktype='{{itemWrap.Module[0].LinkType}}' catchtap='tapHref'>
+              <template is="starCollage" data="{{...itemWrap}}" />
+            </view>
+            <view class="vmodule-wrap" wx:if="{{itemWrap.ModuleType == 17}}" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}" catchtap='toCollage'>
+              <view style="background:#fff;">
+                <template is="starCollage" data="{{...itemWrap}}" />
+              </view>
+            </view>
+            <view class="sale-time-wrap" wx:if="{{itemWrap.ModuleType == 11&& saleTime!=''&&saleTime}}" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}" catchtap='toPurchase'>
+              <view class="sale-time">
+                <image lazy-load="true" src="{{itemWrap.Module[0].Product.Img}}"></image>
+                <view class="sale-time-title">{{itemWrap.Module[0].Product.xsg_title}}</view>
+                <view class="sale-time-text">{{itemWrap.Module[0].Product.xsg_tips}}</view>
+                <view class="sale-time-s">
+                  <view class="sale-time-day" wx:if="{{saleTime.d!='00'}}">
+                    <text>{{saleTime.d}}</text> 天 </view>
+                  <view class="sale-time-hour">
+                    <text>{{saleTime.h}}</text> : </view>
+                  <view class="sale-time-secend">
+                    <text>{{saleTime.s}}</text> : </view>
+                  <view class="sale-time-min">
+                    <text>{{saleTime.m}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="vertical-wrap" wx:if="{{itemWrap.ModuleType == 3}}" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}">
+              <view>
+                <template is="title" data="{{...itemWrap}}" />
+              </view>
+              <view class="list-wrap">
+                <block wx:for="{{itemWrap.Module}}" wx:key="key5" wx:for-index="ind">
+                  <view class="listTopImage" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref' wx:if="{{item.Img!=null&& item.Product.sprice==null}}">
+                    <image lazy-load="true" src="{{item.Img}}" mode="widthFix"></image>
+                  </view>
+
+                  <view class="product-list" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref' wx:if="{{item.Img==null&& item.Product.sprice!=null}}">
+                    <template is="vertical-list" data="{{...item}}" />
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class="horizontal-wrap" wx:if="{{itemWrap.ModuleType == 2}}" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}">
+              <view>
+                <template is="title" data="{{...itemWrap}}" />
+              </view>
+              <block wx:for="{{itemWrap.Module}}">
+                <view data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Code}}" catchtap='tapHref'>
+                  <image lazy-load="true" class="horizontal-img" lazy-load='true' mode="widthFix" src="{{item.Img}}"></image>
+                </view>
+              </block>
+            </view>
+            <view class="horizontal-img-wrap" wx:if="{{itemWrap.ModuleType == 9}}" style="{{itemWrap.showline==0?'margin-bottom:20rpx;':''}}">
+              <view style="border-bottom:1px solid #eee;">
+                <template is="title" data="{{...itemWrap}}" />
+              </view>
+              <block wx:for="{{itemWrap.Module}}" wx:key="key7">
+                <view class="horizontal-img-list" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref'>
+                  <template is="horizontalImg" data="{{...item}}" />
+                </view>
+              </block>
+            </view>
+            <view class="vertical-Bg-wrap" wx:if="{{itemWrap.ModuleType == 18}}" style="background:#{{itemWrap.bgcolor}};">
+              <image lazy-load="true" wx:if="{{itemWrap.bgimg}}" src="{{itemWrap.bgimg}}"></image>
+              <view class="vertical-Bg-list-wrap">
+                <block wx:for="{{itemWrap.Module}}" wx:key="module">
+                  <view class="vertical-Bg-list" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref'>
+                    <image src="{{item.Product.Homeicon}}" class="homeicon"></image>
+                    <image lazy-load="true" src="{{item.Product.Img}}" class="vertical-bg-img"></image>
+                    <view class="verticalBg-text">
+                      <view class="verticalBg-title">{{item.Product.ProductName}}</view> 
+                      <view class="verticalBg-price" style="color:#{{itemWrap.PriceColor}}" wx:if="{{item.Product.MarketPrice>0}}">
+                        ¥
+                        <text style="color:#{{itemWrap.PriceColor}}">{{item.Product.MarketPrice}}</text>
+                       <image src="{{item.Product.PriceIcon}}" mode="widthFix" style="width:60rpx; display:inline-block;"></image>
+                      </view>
+                      <view class="verticalBg-price" style="color:#{{itemWrap.PriceColor}}" wx:else>
+                        ¥
+                        <text style="color:#{{itemWrap.PriceColor}}">{{item.Product.Price}}</text>
+                        <text wx:if="{{(item.Product.vprice-item.Product.Price)>0}}">¥{{item.Product.vprice}}</text>
+                      </view>
+                      <view class="vertical-btn" style="color:#{{itemWrap.ButtonFontColor}};background:#{{itemWrap.ButtonColor}}">立即购买</view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class="hotView" wx:if="{{itemWrap.ModuleType == 14}}">
+              <block wx:for="{{itemWrap.hotview}}" wx:for-item="hotitem" wx:key="hotView">
+                <view class="hotView-list">
+                  <image lazy-load="true" src="{{hotitem.img}}" mode="widthFix" style="width:{{hotitem.Width*100}}rpx;height:{{hotitem.Height*100}}rpx"></image>
+                  <block wx:for="{{hotitem.coordsArrow}}" wx:for-index="index" wx:key="hotitem">
+                    <navigator wx:if="{{hotitem.typeArrow[index]=='1'}}" url="/pages/product/product?sku={{hotitem.skuArrow[index]}}" hover-class='none' style="width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;"></navigator>
+                    <navigator wx:if="{{hotitem.typeArrow[index]=='5'}}" url="/pages/product/webView/webView?url={{hotitem.skuArrow[index]}}" hover-class='none' style="width:{{item.width}}rpx;height:{{item.height}}rpx;top:{{item.top}}rpx;left:{{item.left}}rpx;"></navigator>
+                  </block>
+                </view>
+              </block>
+            </view>
+            <view class="horizontal-Bg-wrap" wx:if="{{itemWrap.ModuleType == 19}}" style="background:#{{itemWrap.bgcolor}}">
+              <image lazy-load="true" src="{{itemWrap.bgimg}}"></image>
+              <view class="horizontalBG-list-wrap">
+                <block wx:for="{{itemWrap.Module}}" wx:key="module19">
+                  <view class="horizontalBG-list" data-code='{{item.Code}}' data-linktype='{{item.LinkType}}' data-link='{{item.Link}}' data-sku="{{item.Product.ProductCode}}" catchtap='tapHref'>
+                    <image src="{{item.Product.Homeicon}}" class="homeicon"></image>
+                    <image lazy-load="true" src="{{item.Product.Img}}" class="vertical-bg-img"></image>
+                    <view class="horizontalBG-text">
+                      <view class="horizontalBG-title">{{item.Product.ProductName}}</view>
+                      <view class="horizontalBG-Othertitle">{{item.Product.productOtherName}}</view>
+                       <view class="horizBg-price" style="color:#{{itemWrap.PriceColor}};bottom:54rpx;" wx:if="{{item.Product.MarketPrice>0}}">
+                        ¥
+                        <text style="color:#{{itemWrap.PriceColor}}">{{item.Product.MarketPrice}}</text>
+                       <image src="{{item.Product.PriceIcon}}" mode="widthFix" style="width:60rpx; display:inline-block;"></image>
+                      </view>
+                        <view class="horizBg-price" wx:if="{{item.Product.MarketPrice>0}}" style="color:#999;bottom:26rpx">
+                        ¥{{item.Product.Price}}
+                        <text style="color:#999;font-size:22rpx;">小镇价</text>                     
+                      </view>
+                      <view class="horizBg-price" style="color:#{{itemWrap.PriceColor}}" wx:else>
+                        ¥
+                        <text style="color:#{{itemWrap.PriceColor}}">{{item.Product.Price}}</text>
+                        <text wx:if="{{(item.Product.vprice-item.Product.Price)>0}}">¥{{item.Product.vprice}}</text>
+                      </view>
+                      <view class="horizBg-btn" style="color:#{{itemWrap.ButtonFontColor}};background:#{{itemWrap.ButtonColor}}">立即购买</view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </block>
+
+        </scroll-view>
+      </swiper-item>
+    </block>
+
+
+  </swiper>
+</view>

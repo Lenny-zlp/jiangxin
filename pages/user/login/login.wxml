@@ -1,0 +1,29 @@
+<view class="login-wrap" wx:if="{{!contentShow}}">
+  <image src="https://cache.jiangxinxiaozhen.com/WD/shop/little/logPng1.png" class="log" mode='aspectFit'></image>
+  <view style="overflow:hidden; margin-bottom:20rpx;">
+    <view class="inpt row-between">
+      <input type="number" value='{{u_phone}}' placeholder="请输入手机号" placeholder-style="color:#999" bindinput="userNameInput"></input>
+    </view>
+    <view class="inpt row-between">
+      <input type="text" value='{{u_code}}' placeholder="请输入验证码" placeholder-style="color:#999" bindinput="userCodeInput"></input>
+      <button bindtap="_getphonecode" disabled='{{u_codedis}}' style="color:{{btnColor}};background-color:{{btnBg}}">{{btn}}</button>
+    </view>
+  </view>
+  <button class="loginBtn" style="opacity:{{opacity}}" bindtap="loginPhoneCode">快捷登录</button>
+  <text style="color:#999;display:block;">首次用手机号登录将自动为您注册</text>
+  <view class="otherLogin">
+    <text></text>
+  </view>
+  <button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+    <image src="https://cache.jiangxinxiaozhen.com/WD/public/wxIcon.png" class="wxIcon"></image>
+  </button>
+</view>
+<view class="authorWrap" wx:if="{{contentShow}}">
+  <view class="author">
+    <view class="title">微信登录</view>
+    <image src="https://cache.jiangxinxiaozhen.com/WD/APP/little/logo.png"></image>
+    <view class="textWrap">欢迎登录匠心小镇</view>
+    <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" disabled='{{contentReadOnly}}'>微信授权登录</button>
+  </view>
+
+</view>

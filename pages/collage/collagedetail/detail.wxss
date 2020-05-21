@@ -1,0 +1,33 @@
+@import"../../template/template-hotCollage.wxss";
+page{background:#f4f4f4;}
+.collage-detail-wrap{background:#fff;margin-top:20rpx;width:100%;overflow:hidden;}
+.detail-top{width:700rpx;padding:20rpx 25rpx;display:flex;flex-direction: row;border-bottom:1px solid #f4f4f4;justify-content: center;align-items: center;}
+.detail-top>image{width:200rpx;height:200rpx;display:block;box-sizing: border-box;margin-right:20rpx;}
+.collage-status{display:flex;flex-direction: column;justify-content: space-between;width:480rpx;}
+.collage-dec{color:#999;}
+.statusBg{width:140rpx;height:36rpx;text-align: center;line-height:36rpx;border-radius: 3px;color:#fff;background:#666;}
+.detail-user{width:100%;padding:30rpx 0 0;display:flex;flex-direction: column;text-align: center;}
+.order-lasttiame{text-align: center;}
+.order-time-wrap{display:inline-block;width:180rpx;text-align:center;margin:10rpx auto;line-height:36rpx;background:#666;color:#fff;border-radius: 3px;font-size:22rpx;}
+.order-time{display:inline;}
+.productMore{color:#0076ff;padding:30rpx 0;}
+.user-wrap{width:650rpx;margin:50rpx auto;overflow:hidden;}
+.user-wrap>view{float:left;margin:0 15rpx 15rpx;width:100rpx;position:relative;}
+.user-wrap image{width:100rpx;height:100rpx;border-radius: 50%;background:#f4f4f4;}
+.user-wrap text{position:absolute;bottom:0;left:50%;margin-left:-35rpx;width:70rpx;line-height:30rpx;border-radius: 30rpx;background:#eb5902;color:#fff;text-align: center;}
+.moreCollage{width:650rpx;line-height:70rpx;border-radius: 3px;background:#eb5902;color:#fff;text-align:center;margin:15rpx auto;font-size:28rpx;}
+.collageRule{width:700rpx;padding:25rpx 30rpx;border-top:1rpx solid #f4f4f4;background:url(https://cache.jiangxinxiaozhen.com/Content/wd/more1.png) no-repeat right 25rpx center;background-size:14rpx 20rpx;text-align: left;color:#999;margin-top:30rpx;}
+/*火热拼团*/
+.collage-list{width:710rpx;padding:20rpx;overflow:hidden;border-top:1px solid #f4f4f4;background:#fff;}
+.hotCollage-list{width:100%;overflow:hidden;padding-top:20rpx;background:#f4f4f4;}
+.hotCollage-list>text{line-height:70rpx;display:block;width:100%;text-align: center;background:#fff;font-size:28rpx;}
+.collage-list>navigator{float:left;overflow:hidden;margin-right:14rpx;margin-bottom:20rpx;width:348rpx;position:relative;}
+.collage-list>navigator:nth-child(2n){margin-right:0;}
+.Persons{width:100rpx;height:40rpx;text-align: center;line-height:38rpx;color:#fff;position:absolute;left:0;top:30rpx;z-index: 2;background:url(https://cache.jiangxinxiaozhen.com/WD/collage/span.png) no-repeat center center;background-size: 100rpx 40rpx;}
+.moreCollageBtn{width:700rpx;height:70rpx;border:1rpx solid #f4f4f4;color:#666;text-align: center;line-height:70rpx;margin:30rpx auto;border-radius: 3px;}
+/*产团人员列表*/
+.collageUser-wrap{width:100%;height:100%;position:fixed;top:0;left:0;background:rgba(0,0,0,.15);z-index: 12;}
+.collageUser{width:750rpx; padding:30rpx 15rpx 80rpx;box-sizing: border-box;height:65%;background:#fff;position:absolute;left:0;bottom:0;}
+.collageUser-title{width:100%;line-height:60rpx;font-size:32rpx;margin-bottom:20rpx;padding-left:30rpx;box-sizing: border-box;position:relative;}
+.collageUser-title::before{content:"";width:8rpx;height:40rpx;border-radius:4px;position:absolute;left:10rpx;top:10rpx;background:#eb5902;}
+.closeBtn{position:absolute;bottom:0;left:0;width:100%;line-height:78rpx;font-size:28rpx;text-align: center;background:#eb5902;color:#fff;}

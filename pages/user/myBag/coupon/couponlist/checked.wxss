@@ -1,0 +1,61 @@
+@import "../couponlist.wxss";
+
+page {
+  background: #eee;
+}
+
+.couponlist-wrap {
+  width: 100%;
+  padding: 0 10rpx 0 60rpx;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.checkedBtn {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 10rpx;
+  top: 50%;
+  margin-top: -20rpx;
+  border: 1px solid #666;
+  border-radius: 50%;
+  display: block;
+  background: #eee;
+  box-sizing: border-box;
+}
+
+.checkedBtnBg {
+  background: url(https://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/001.png) no-repeat center center;
+  background-size: 40rpx;
+  border: 0 none;
+}
+
+.noChecked-wrap {
+  background: #eee;
+  padding: 30rpx 0 40rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.noChecked {
+  color: #eb5902;
+  border: 1px solid #eb5902;
+  background: #f8f8f8;
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  display: block;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+}
+
+.content {
+  padding-bottom: 160rpx;
+}

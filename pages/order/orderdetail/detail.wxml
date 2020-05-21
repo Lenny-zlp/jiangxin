@@ -1,0 +1,208 @@
+
+<popup id="popup" showCancel="0" showConfirm="0" bind:cancelEvent="_closePopup">
+  <view slot="content">
+    <view class="popup-title">开团成功，再邀请
+      <text>{{group.Persons}}人</text>成团</view>
+    <view class="popup-time row-center">
+      剩余
+      <block wx:if="{{group_countdown.dd>0}}">
+        <text>{{group_end_countdown.dd}}</text>天</block>
+      <text>{{group_end_countdown.hh}}</text>:
+      <text>{{group_end_countdown.mm}}</text>:
+      <text>{{group_end_countdown.ss}}</text>
+    </view>
+    <view class="popup-pensonal">
+      <text>马上邀请，成团率高达<text style="color:#eb5902;">95%</text></text>
+    </view>
+    <button open-type='share' class="popuo-btn">邀请微信好友</button>
+  </view>
+</popup>
+
+<view class='main' wx:if="{{detail}}">
+  <view class='split_view'style="margin-bottom:0;background:none;">
+    <text class='status_str'>状态：{{detail.StatusName}}</text>
+    <text class='right_str' wx:if="{{detail.CountDown>0 && detail.Status==0}}" style="font-size:28rpx;line-height:60rpx">支付时间仅剩         <text wx:if="{{pay_countdown.dd>0}}">{{pay_countdown.dd}}天</text>
+    <text>{{pay_countdown.hh}}:</text>
+    <text>{{pay_countdown.mm}}:</text>
+    <text>{{pay_countdown.ss}}</text>
+    </text>
+    <text class='right_str' wx:if="{{detail.GroupCountDown>0 && detail.Status==1}}" style="font-size:28rpx;line-height:60rpx">               剩余<text wx:if="{{group_end_countdown.dd>0}}">{{group_end_countdown.dd}}天</text>
+    <text>{{group_end_countdown.hh}}:</text>
+    <text>{{group_end_countdown.mm}}:</text>
+    <text>{{group_end_countdown.ss}}\r结束</text>
+    </text>
+    <view wx:if="{{detail.OrderType==2}}">
+      <text class='{{detail.GroupStatus==0?"group_str_active":detail.GroupStatus==1?"group_str_success":"group_str_expire"}}'>{{detail.GroupStr}}</text>
+    </view>
+  </view>
+<view style="width:100%;overflow:hidden;border-radius:20rpx;margin-bottom:20rpx;"> 
+  <view class='split_view' wx:if="{{logistics.LogisticsMsg}}" style="margin-bottom:1rpx; border-radius:0;">
+    <navigator hover-class='none' url='/pages/order/logistics/logistics?ordercode={{detail.ordercode}}'>
+      <view class='logisticsmsg arrowRight'>{{logistics.LogisticsMsg}}</view>
+      <view class='logisticstime'>{{logistics.LogisticsTime}}</view>
+    </navigator>
+  </view>
+
+   <view class="split_view addressBG {{detail.Status>1 || detail.Status==-1 ? '' : 'arrowRight'}}" style="border-radius:0;margin-bottom:0;">
+    <navigator wx:if="{{detail.Status<2 && detail.Status!=-1}}" hover-class='none' url="/pages/shoppingcart/address/list?source=2&ordercode={{detail.ordercode}}">
+      <view class='reciver'>{{detail.Receiver}}
+        <text class='group_head' wx:if="{{detail.IsHeadGroup==1}}">团长</text>
+        <text>{{detail.MobilePhone}}</text>
+      </view>
+      <view class='address'>{{detail.Address}}</view>
+    </navigator>
+    <block wx:if="{{detail.Status>1 || detail.Status==-1}}">
+      <view class='reciver'>{{detail.Receiver}}
+        <text class='group_head' wx:if="{{detail.IsHeadGroup==1}}">团长</text>
+        <text>{{detail.MobilePhone}}</text>
+      </view>    
+      <view class='address'>{{detail.Address}}</view>
+    </block>
+  </view>
+</view>
+ 
+
+
+  <!-- 循环商品列表 无拆单 -->
+  <view class='split_view' wx:if="{{detail.SpitOrders.length<2}}" style="padding-top:0;padding-bottom:0;">
+    <block wx:for="{{detail.OrderDetails}}" wx:key="product">
+      <view class='order_product' style="{{detail.OrderDetails.length>1?'border-bottom:1px solid #f4f4f4':'border-bottom:0 none'}}">
+        <navigator class='order_navigator' url='/pages/product/product?sku={{item.ProductCode}}&groupid={{detail.GroupId}}'>
+          <view class='product_img_view'>
+            <image class='product_img' src='{{item.Img}}'></image>
+            <view class="image_icon" wx:if="{{item.IsLargess}}">
+              <image src='https://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/zeng.png'></image>
+            </view>
+            <view class="image_icon" wx:if="{{item.ProductType==2}}">
+              <image src='https://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/dui.png'></image>
+            </view>
+            <view class="image_icon" wx:if="{{item.ProductType==4}}">
+              <image src='https://cache.jiangxinxiaozhen.com/WD/collage/collage.png'></image>
+            </view>
+          </view>
+
+          <view class='product_text'>
+            <view>{{item.ProductName}}</view>
+            <view>{{item.color}}</view>
+            <view>¥{{item.price}}</view>
+            <text class='product_qty'>x{{item.ProductQty}}</text>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </view>
+
+  <!-- 循环商品列表 有拆单 -->
+  <view style='background-color:#fff;width:100%;margin-bottom:20rpx;padding:15rpx 0;border-radius:20rpx;' wx:if="{{detail.SpitOrders.length>1}}">
+    <block wx:for="{{detail.SpitOrders}}" wx:key="product">
+      <view style='width:100%;height:80rpx;line-height:80rpx;padding-left:20rpx'>
+        <text style='font-weight:bold;padding-right:20rpx;font-size:27rpx;'>{{item.OrderName}}</text>
+        <text>{{item.StoreName}}</text>
+      </view>
+      <block wx:for="{{item.Orders}}" wx:key="product">
+        <view class='order_product'>
+          <navigator class='order_navigator' url='/pages/product/product?sku={{item.ProductCode}}&groupid={{detail.GroupId}}'>
+            <view class='product_img_view'>
+              <image class='product_img' src='{{item.Img}}'></image>
+              <view class="image_icon" wx:if="{{item.IsLargess}}">
+                <image src='http://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/zeng.png'></image>
+              </view>
+              <view class="image_icon" wx:if="{{item.ProductType==2}}">
+                <image src='http://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/dui.png'></image>
+              </view>
+              <view class="image_icon" wx:if="{{item.ProductType==4}}">
+                <image src='http://cache.jiangxinxiaozhen.com/WD/collage/collage.png'></image>
+              </view>
+            </view>
+
+            <view class='product_text'>
+              <view>{{item.ProductName}}</view>
+              <view>{{item.color}}</view>
+              <view>¥{{item.price}}</view>
+              <text class='product_qty'>x{{item.ProductQty}}</text>
+            </view>
+          </navigator>
+        </view>
+      </block>
+      <view class='split_view' style="margin-bottom:0;border-top:1px solid #f4f4f4; border-radius:0;">
+        <view class='left_str'>订单总计</view>
+        <view class='right_str'> ¥{{item.TotalPrice}}</view>
+      </view>
+    </block>
+  </view>
+ 
+  <view class='split_view'>
+   <view class='split_view_v1'>
+      <view class='left_str'>支付方式</view>
+      <view class='right_str'>{{detail.PaymentType}}</view>
+    </view>
+
+    <view class='split_view_v1'>
+      <view class='left_str'>商品合计</view>
+      <view class='right_str'>¥{{detail.Price}}</view>
+    </view>
+
+    <view class='split_view_v1' wx:if="{{detail.discountprice>0}}">
+      <view class='left_str'>促销优惠</view>
+      <view class='right_str'>-¥{{detail.discountprice}}</view>
+    </view>
+
+    <view class='split_view_v1'>
+      <view class='left_str'>运费</view>
+      <view class='right_str'>+ ¥{{detail.transferprice}}</view>
+    </view>
+
+    <view class='split_view_v1' wx:if="{{detail.CouponPrice>0}}">
+      <view class='left_str'>优惠券</view>
+      <view class='right_str'>- ¥{{detail.CouponPrice}}</view>
+    </view>
+
+    <view class='split_view_v1' wx:if="{{detail.VoucherPrice>0}}">
+      <view class='left_str'>小镇币</view>
+      <view class='right_str'>- ¥{{detail.VoucherPrice}}</view>
+    </view>
+    <view class='split_view_v1' wx:if="{{detail.AmountPrice>0}}">
+      <view class='left_str'>余额抵扣</view>
+      <view class='right_str'>- ¥{{detail.AmountPrice}}</view>
+    </view>
+    <view class='split_view_v1'>
+      <view class='left_str'>{{detail.PayStatusName}}</view>
+      <view class='right_str' style='color:#eb5902'>¥{{detail.SFK}}</view>
+    </view>
+     <view class='split_view_v1' wx:if="{{detail.CustomRemark && detail.CustomRemark!='undefined'}}">
+    <view class='left_str'>买家留言</view>
+    <view class='right_str' style='color:#999'>{{detail.CustomRemark}}</view>
+  </view>
+  </view>
+
+  <view class='split_view' style='margin-bottom:100rpx;'>
+    <view class='split_view_v1'>
+      <view class='ordercode_l'style="color:#999;font-size:24rpx;">订单编号：{{detail.ordercode}}</view>
+      <view class='ordercode_r'>
+        <button class='copy_btn' bindtap='clipboard' data-ordercode='{{detail.ordercode}}'>复制</button>
+      </view>
+    </view>
+    <view class='split_view_v1' wx:if="{{detail.PostTime}}">
+      <view class='ordercode_l'style="color:#999;font-size:24rpx;">下单时间：{{detail.PostTime}}</view>
+    </view>
+    <view class='split_view_v1' wx:if="{{detail.PayTime}}">
+      <view class='ordercode_l'style="color:#999;font-size:24rpx;">付款时间：{{detail.PayTime}}</view>
+    </view>
+    <view class='split_view_v1' wx:if="{{detail.DeliveryTime}}">
+      <view class='ordercode_l'style="color:#999;font-size:24rpx;">发货时间：{{detail.DeliveryTime}}</view>
+    </view>
+    <view class='split_view_v1' wx:if="{{detail.CompleteTime}}">
+      <view class='ordercode_l'style="color:#999;font-size:24rpx;">完成时间：{{detail.CompleteTime}}</view>
+    </view>
+  </view>
+
+  <view class='bottom_btn'>
+    <button class='pay_button' wx:if="{{detail.Status==0}}" catchtap='pay_order'>立即付款</button>
+    <button class='del_button' wx:if="{{(detail.OrderType == 2 && ((detail.Status == 1 && detail.GroupStatus == 1) || (detail.Status==0))) || (detail.OrderType != 2 && (detail.Status == 0 || detail.Status == 1))}}" bindtap='cancel_order'>取消订单</button>
+    <button class='pay_button' wx:if="{{detail.IsShowJoinGroup==1 && detail.OrderType==2}}" catchtap='to_group'>邀请参团</button>
+    <button class='del_button' wx:if="{{detail.IsDetails==1 && detail.OrderType==2}}" catchtap='to_groupDetail'>拼团详情</button>
+    <button class='pay_button' wx:if="{{detail.Status==4}}" catchtap='to_confirm'>确认收货</button>
+    <button class='pay_button' wx:if="{{detail.Status==5}}" catchtap='to_reviews'>评价订单</button>
+    <button class='del_button' wx:if="{{detail.IsCanDel==1}}" bindtap='del_order'>删除订单</button>
+  </view>
+</view>

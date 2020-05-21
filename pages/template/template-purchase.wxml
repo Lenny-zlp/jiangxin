@@ -1,0 +1,28 @@
+<template name="purchase">
+  <view class="purchase-tem-wrap {{pruchaseList.Stock==0?'over-tem':''}}">
+    <image src="{{pruchaseList.PurchaseImg}}" lazy-load="true"></image>
+    <view class="purchase-tem-text">
+      <text class="purchase-tem-title">{{pruchaseList.ProductName}}</text>
+      <text class="purchase-tem-detail">{{pruchaseList.remarks}}</text>
+      <view class="purchase-tem-bor" wx:if="{{style!=''}}">
+        <block wx:for="{{style}}" wx:for-item="text">
+          <text>{{text}}</text>
+        </block>
+      </view>
+      <view class="purchase-tem-price">
+        <view class="pur-tem-price">限时价
+          <text>¥{{pruchaseList.PurPrice}}</text>
+        </view>
+        <view class="pur-tem">原价
+          <text>¥{{pruchaseList.Price}}</text>
+        </view>
+      </view>
+      <view class="pur-tem-btn">
+        <view class="stock-tem {{pruchaseList.state==1?'':'stock-other-tem'}}">
+          <text style="width:{{pruchaseList.Stock/pruchaseList.ProductCount*100}}%" class="{{pruchaseList.Stock/pruchaseList.ProductCount<1?'textradius':''}}"></text>{{pruchaseList.state==1?'仅剩':'限量'}}{{pruchaseList.Stock}}件
+        </view>
+        <view class="state-tem">{{pruchaseList.Stock<=0?'去看看':pruchaseList.state==1?'马上抢':'即将开抢'}}</view>
+      </view>
+    </view>
+  </view>
+</template>

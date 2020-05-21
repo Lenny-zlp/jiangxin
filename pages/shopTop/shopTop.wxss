@@ -1,0 +1,4 @@
+@import"../home/shop/shop.wxss";
+@import"../template/template.wxss";
+.top-wrap{width:750rpx;overflow:hidden; padding-top:20rpx;}
+.horizontal-img{width:710rpx; border-radius: 20rpx;}

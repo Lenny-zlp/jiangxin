@@ -1,0 +1,45 @@
+<view class="main" style="background-image:url(https://cache.jiangxinxiaozhen.com/WD/collage/invite.png);">
+  <from class="content" style="width:640rpx;">
+    <!-- <view class="from-content">
+      <view class="form-title row-center">
+        <image src="{{data.userhead}}"></image>
+        <text>{{data.userNickName}}分享给您的新人福利</text>
+      </view>
+      <image src="https://cache.jiangxinxiaozhen.com/WD/collage/quan.png" style="width:540rpx;margin-top:40rpx" mode="widthFix"></image> 
+      <button form-type='submit' class="submitBtn">立即领取</button>
+    </view> -->
+     <view class="from-content">
+      <view class="form-title column-between" wx:if="{{contentShow}}">
+       <text style="font-size:36rpx;color:#eb5902;padding:15rpx 0;">此福利是APP新人专属噢</text>
+       <text style="font-size:25rpx;color:#666;">您是APP老用户啦，邀请新朋友可以获得以下奖励~</text>
+      </view>
+      <view class="form-title row-center" wx:if="{{!contentShow}}">
+        <image src="{{data.userhead}}"></image>
+        <text>{{data.userNickName}}分享给您的新人福利</text>
+      </view>
+      <image src="https://cache.jiangxinxiaozhen.com/WD/collage/quan.png" style="width:540rpx;margin-top:40rpx"mode="widthFix"></image> 
+      <button form-type='submit' class="submitBtn">去邀请</button>
+    </view>
+  </from>
+  <view style="color:#999">活动规则</view>
+  <view class="column-between rule-text">
+    <text>
+   1、被邀请的好友仅限于未下载登录过小镇APP的用户。
+    </text>
+    <text>
+        2、邀请好友下载并登录小镇APP，好友7天内通过小镇APP下单并签收即为成功邀请。
+    </text>
+    <text>
+        3、邀请成功后，3天内邀请人将获得对应的10元券，奖励可叠加，多邀多得。
+    </text>
+    <text>
+        4、此活动各得的10元券仅限于APP使用。
+    </text>
+    <text>
+        5、若好友已经是小镇App的用户，则邀请无效；若好友被邀请注册后7天内并未下单，则邀请无效；
+    </text>
+    <text>
+        6、如发现恶意刷单或违反诚信的其他行为，小镇有权缴销邀请奖励及相关订单并追究其法律责任。
+    </text>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+.fruit-top {background:#eee;width:100%;overflow:hidden;position:fixed;top:0;left:0;}
+.fruit-top navigator{padding:20rpx 25rpx;line-height:50rpx;justify-content: space-between;margin-bottom:8rpx;}
+.fruit-top navigator text:nth-child(2){padding-right:25rpx;}
+.fruit-title{background:#fff;padding:15rpx 25rpx;overflow:hidden;line-height:40rpx;justify-content: space-between;border-bottom:1px solid #eee;}
+.fruit-list-wrap{width:100%;background:#fff;padding-top:170rpx;padding-bottom:88rpx;}
+.fruit-list{padding:25rpx;width:700rpx;background:#fff;border-bottom:1px solid #f8f8f8;justify-content: space-between;position:relative;}
+.fruit>view{height:130rpx;}
+.fruit>image{width:140rpx;height:140rpx;border:1px solid #f8f8f8;margin-right:20rpx;}
+.fruitNum-wrap{position:absolute;right:25rpx;top:50%;margin-top:-30rpx;width:150rpx;height:60rpx;justify-content: space-between;}
+.fruitNum-wrap label{height:40rpx;width:40rpx;line-height:40rpx;text-align: center;border:1px solid #eee;box-sizing: border-box;}
+.addNum{border:0 none;background:#eb5902;color:#fff;}
+.balance-wrap{width:100%;background:#fff;border-top:1px solid #dedddd;height:88rpx;justify-content: space-between;position:fixed;bottom:0;left:0;overflow: hidden;}
+button{background:140rpx;text-align: center;line-height:88rpx;background:#eb5902;color:#fff;margin:0 !important;}
+.addFruit{padding-left:25rpx;}

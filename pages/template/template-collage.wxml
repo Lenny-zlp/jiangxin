@@ -1,0 +1,14 @@
+<template name="collage">
+  <view class="collage-list-tem">
+    <image lazy-load="true" src="{{CoverImg}}"></image>
+    <text class="persons-tem">{{Persons}}</text>
+    <text class="collage-name-template">{{Name}}</text>
+    <text class="collage-count-template">{{GroupCount}}</text>
+    <view class="collage-price-template">
+      <text class="red-price-template">¥{{Price}}</text>
+      <text>¥{{OldPrice}}</text>
+    </view>
+    <view class="collage-btn-template" style="background:{{BtnStatus==0?'#999':'#eb5902'}};">{{BtnStr}}</view>
+    <view class="saleOver" wx:if="{{BtnStatus==0}}">已抢完</view>
+  </view>
+</template>

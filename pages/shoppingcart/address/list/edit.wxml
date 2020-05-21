@@ -1,0 +1,28 @@
+
+<form bindsubmit="fromSubmit">
+  <view class="editList row-center">
+    <text>收货人</text>
+    <input type="text" name="fullname" focus='true' value='{{fullname}}'></input>
+  </view>
+  <view class="editList row-center">
+    <text>手机号码</text>
+    <input type="numble" name="mobilephone" value="{{mobilephone}}"></input>
+  </view>
+  <view class="editList row-center">
+    <text>收货地址</text>
+    <picker mode="region" name="region" value="{{mesg}}" custom-item="{{customItem}}" bindchange="bindRegionChange">
+      <view class="picker">{{provincename+cityname+areaname}}</view>
+    </picker>
+  </view>
+  <view class="editList row-center">
+    <text>添加详细地址</text>
+    <input type="text" name="address" value='{{address}}'></input>
+  </view>
+  <view class="switchWrap row-between">
+    <text>设置为默认地址</text>
+    <switch name="isdefault" bindchange="switchChange" checked wx:if="{{isdefault==1}}" />
+     <switch name="isdefault" bindchange="switchChange"  wx:if="{{isdefault!=1}}" />
+  </view>
+   <view wx:if="{{type==1}}" class="switchWrap" bindtap='del' style="text-align:center;color:#eb5902">删除</view>
+  <button form-type='submit' class="btnsubmit">保存</button>
+</form>

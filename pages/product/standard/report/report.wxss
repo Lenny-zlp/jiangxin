@@ -1,0 +1,2 @@
+.report-wrap{width:100%;overflow: hidden;}
+.report-wrap image{width:94%;display:block;margin:0 auto 15rpx;box-shadow: 0 0 20rpx 0rpx rgba(0,0,0,.5)}

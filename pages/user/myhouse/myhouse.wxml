@@ -1,0 +1,17 @@
+<block wx:for="{{dataList}}">
+  <scroll-view scroll-x="true" scroll-left="{{scrollLeft}}">
+    <view style="width:840rpx;background:#eee;"class="row-center">
+      <navigator url="/pages/product/product?sku={{item.ProductCode}}&groupid=0&grouplogid=-1" hover-class='none' class="house-wrap">
+        <view class="house row-center">
+          <image src="{{item.ImgUrl}}"></image>
+          <view class="column-between">
+            <text>{{item.ProductName}}</text>
+            <text>￥{{item.Price}}</text>
+          </view>
+        </view>
+      </navigator>
+      <view class="delete" data-sku="{{item.ProductCode}}" catchtap='onDelete'>删除</view>
+    </view>
+
+  </scroll-view>
+</block>

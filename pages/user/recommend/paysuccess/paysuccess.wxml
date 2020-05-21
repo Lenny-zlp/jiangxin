@@ -1,0 +1,12 @@
+<view class="success-wrap">
+  <icon type="success_no_circle" color="#eb5902" size="70rpx"></icon>
+  <view>支付成功</view>
+  <view class="text">匠心小镇欢迎您加入~</view>
+  <navigator open-type="switchTab" hover-class='none' url="/pages/home/shop/shop" class="navigateHref">马上逛一逛</navigator>
+</view>
+<view class="voucherWrap" wx:if="{{show}}">
+  <view class="voucherImgWrap">
+    <image class=" voucherImg" mode="widthFix" src="https://cache.jiangxinxiaozhen.com/WD/shop/little/paysuccess.png"></image>
+    <view class="closeBtn" catchtap="closeBtn"></view>
+  </view>
+</view>

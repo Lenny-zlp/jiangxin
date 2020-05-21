@@ -1,0 +1,17 @@
+<view class="headBg" style="padding-top:{{topH}}px">
+  <navigator url="/pages/home/shop/shop" class="backBtn" open-type='switchTab'></navigator>
+  <text class="headTitle"style="top:{{topH}}px;font-size:{{fontSize}}px">绑定邀请码</text>
+</view>
+<image src="https://cache.jiangxinxiaozhen.com/WD/APP/little/invitenumimg.png" mode='widthFix' class="topimg"></image>
+
+<block>
+  <form>
+    <input type="text" placeholder='请输入邀请码' fouse="true" value='' bindinput="shopcodeInput"></input>
+    <button bindtap="_bindShopCode">完成</button>
+  </form>
+</block>
+<view class="rule">
+  <view style="color:#999;">规则：</view>
+  <text>1、邀请码为匠心小镇店主店铺授权编码。</text>
+  <text>2、一个用户只可以绑定一个邀请码，绑定后可更改。</text>
+</view>

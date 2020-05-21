@@ -1,0 +1,21 @@
+<view class="stream-wrap">
+  <view class="stream-tab">
+    <text class="{{type==1?'active':''}}" data-type='1' bindtap='onTap'>收入</text>
+       <text class="{{type==2?'active':''}}"  data-type='2' bindtap='onTap'>支出</text>
+  </view>
+  <view class="streamList-wrap">
+    <block wx:for="{{incomelist}}">
+      <view class="streamList row-between">
+        <view class="row-center">
+          <image src='{{item.ImgUrl}}'></image>
+          <view class="column-between" style="height:120rpx;">
+            <text style="font-size:28rpx;color:#303030;">{{item.OrderCode}}</text>
+            <text style="color:#666;font-size:24rpx;">{{item.BankTypeString}}</text>
+            <text style="color:#999;font-size:22rpx;">{{item.CreateTime}}</text>
+          </view>
+        </view>
+        <text style="color:#eb5902;font-size:28rpx;">{{item.Price}}</text>
+      </view>
+    </block>
+  </view>
+</view>

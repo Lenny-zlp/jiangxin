@@ -1,0 +1,105 @@
+<!--pages/order/orderlist/list.wxml-->
+<refresh-view id='refreshView' backgroundColor="#000" bind:onRefresh="onPullDownRefresh" />
+<popup id='popup' title='' confirmText='邀请微信好友' showClose='1' showCancel='0' showConfirm='0'>
+  <view slot="content" class='p_content'>
+    <view class='p_success'>开团成功，再邀
+      <text style='color:#eb5902;font-size:32rpx;'>{{group.Persons}}人</text>成团
+    </view>
+    <view style='width:340rpx;position:absolute;margin-top:16rpx;left:calc(50% - (150rpx))'>
+      <view style='float:left;line-height:40rpx;padding-right:10rpx'>剩余</view>
+      <view class='p_time' wx:if="{{group_countdown.dd>0}}">{{group_countdown.dd}}
+      </view>
+      <text style='float:left;line-height:40rpx;padding:0 10rpx' wx:if="{{group_countdown.dd>0}}">天</text>
+      <view class='p_time'>{{group_countdown.hh}}
+      </view>
+      <text style='float:left;line-height:40rpx;padding:0 10rpx'>:</text>
+      <view class='p_time'>{{group_countdown.mm}}
+      </view>
+      <text style='float:left;line-height:40rpx;padding:0 10rpx'>:</text>
+      <view class='p_time'>{{group_countdown.ss}}
+      </view>
+    </view>
+    <view class='p_per'>
+      <view class='p_line_l'></view>
+      <text class='p_line_c'>马上邀请，拼团成功率高达 <text style='color:#eb5902;'>95%</text></text>
+      <view class='p_line_r'></view>
+    </view>
+    <view style='margin-top:240rpx'>
+      <button class='p_btn' open-type="share">邀请微信好友</button>
+    </view>
+  </view>
+</popup>
+<view class='main' bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
+  <!--状态栏-->
+  <view class="status_view">
+    <view class='{{status==-10?"status_str_acrive":"status_str"}}' bindtap='onTap' data-status='-10'>
+      <text class='status_str_text'>全部</text>
+    </view>
+    <view class='{{status==0?"status_str_acrive":"status_str"}}' bindtap='onTap' data-status='0'>
+      <text class='status_str_text'>待付款</text>
+    </view>
+    <view class='{{status==2?"status_str_acrive":"status_str"}}' bindtap='onTap' data-status='2'>
+      <text class='status_str_text'>待发货</text>
+    </view>
+    <view class='{{status==4?"status_str_acrive":"status_str"}}' bindtap='onTap' data-status='4'>
+      <text class='status_str_text'>待收货</text>
+    </view>
+    <view class='{{status==5?"status_str_acrive":"status_str"}}' bindtap='onTap' data-status='5'>
+      <text class='status_str_text'>待评价</text>
+    </view>
+  </view>
+
+  <!--订单列表-->
+  <view class='order_each'>
+    <block wx:for="{{orderList}}" wx:key="orderList" wx:for-item="order_list" >
+      <view class='order_list'>
+        <view class='order_code'>
+          <text>订单编号：{{order_list.ordercode}}</text>
+          <label>{{order_list.StatusName}}</label>
+        </view>
+        <block wx:for="{{order_list.Details}}" wx:key="Details">
+          <view class='order_product'>
+            <navigator class='order_navigator'hover-class="none"  url='/pages/order/orderdetail/detail?ordercode={{order_list.ordercode}}&status={{status}}'>
+              <view class="{{item.ProductType==4?'collageImg':''}} product_img_view">
+                <image class='product_img' src='{{item.Img}}' lazy-load='true'></image>
+                <view class="image_icon" wx:if="{{item.ProductType==2}}">
+                  <image src='http://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/dui.png'></image>
+                </view>
+                <view class="image_icon" wx:if="{{item.IsLargess}}">
+                  <image src='http://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/zeng.png'></image>
+                </view>
+              </view>
+              <view class='product_text'>
+                <view>{{item.ProductName}}</view>
+                <view>{{item.color}}</view>
+                <view>¥{{item.price}}</view>
+                <text class='product_qty'>x{{item.ProductQty}}</text>
+              </view>
+            </navigator>
+          </view>
+        </block>
+        <!-- <view class='button'>
+          <view wx:if="{{order_list.PayCountDown>0}}" class='countdown'>
+            <text class='pay_time'>{{order_list.pay_countdown}}</text>
+            <text class='pay_time_str'>支付结束</text>
+          </view>
+          <view wx:if="{{order_list.GroupCountDown>0}}" class='countdown'>
+            <text class='pay_time'>{{order_list.pay_countdown_group}}</text>
+            <text class='pay_time_str'>拼团结束</text>
+          </view>
+          <button class='pay_button' wx:if="{{order_list.IsShowPay==1}}" catchtap='toPay' data-ordercode='{{order_list.ordercode}}'>立即付款</button>
+          <button class='del_button' wx:if="{{order_list.IsShowCancle==1}}" catchtap='toCancel' data-ordercode='{{order_list.ordercode}}'>取消订单</button>
+          <button class='pay_button' wx:if="{{order_list.IsShowJoinGroup==1}}" catchtap='toGroup' data-ordercode='{{order_list.ordercode}}'>邀请参团</button>
+          <button class='pay_button' wx:if="{{order_list.IsShowConfirm==1}}" catchtap='toConfirm'  data-ordercode='{{order_list.ordercode}}'>确认收货</button>
+          <button class='del_button' wx:if="{{order_list.IsShowLogistics==1}}" catchtap='toLogistics' data-ordercode="{{order_list.ordercode}}">查看物流</button>
+          <button class='pay_button' wx:if="{{order_list.IsShowCommon==1}}" catchtap='toReviews' data-ordercode="{{order_list.ordercode}}">评价订单</button>
+          <button class='del_button' wx:if="{{order_list.IsShowDel==1}}" catchtap='toDel' data-ordercode='{{order_list.ordercode}}'>删除订单</button>
+        </view> -->
+      </view>
+    </block>
+    <view class='bottom_line' wx:if="{{showLine}}">-------- 我是有底线的 --------</view>
+    <view class='bottom_line' style='height:1000rpx' wx:if="{{shownone}}">暂无数据...</view>
+  </view>
+</view>
+
+<view></view>

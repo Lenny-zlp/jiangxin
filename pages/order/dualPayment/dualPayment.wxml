@@ -1,0 +1,49 @@
+<view class="payStatus">
+  <icon type="success" size='100rpx' color="#eb5902"></icon>
+  <text>订单提交成功</text>
+  <text style="font-size:24rpx;color:#999">订单超时将关闭</text>
+</view>
+<block wx:if="{{model}}">
+<view class="address-wrap">
+  <view class="ordermesg row-center">
+    <text style='width:130rpx'>订单编号</text>
+    <text>{{ordercode}}</text>
+  </view>
+  <view class="ordermesg" style='display:flex;flex-direction:row;'>
+    <text style='width:130rpx'>收货地址</text>
+    <text style='width:82%'>{{model.order.RecieveAddress+"\t"+model.order.Receiver+"\t"+model.order.MobilePhone}}</text>
+  </view>
+</view>
+<view style="padding:10rpx 25rpx 25rpx;color:#999;" wx:if="{{model.Amount>0}}">是否使用余额抵扣</view>
+<view class="bag row-between" wx:if="{{model.Amount>0}}">
+
+  <view class="row-center">
+    <text>账户余额</text>
+  </view>
+  <view class="row-center">
+    <text style='color:#eb5902' wx:if="{{useamount==1}}">[可成功抵扣{{model.order.DisPrice}}]</text>
+    <text>{{model.Amount}}</text>
+    <switch bindchange='changeSwitch' checked="{{useamount==1}}"></switch>
+  </view>
+</view>
+<view class="pay-wrap row-between">
+  <view class="column-between">
+    <text style="color:#eb5902;">应支付金额：￥{{model.order.PayPrice}}</text>
+    <text wx:if="{{model.order.CountDown>0}}">剩余支付时间：{{pay_countdown.hh}}：{{pay_countdown.mm}}：{{pay_countdown.ss}}</text>
+  </view>
+  <!-- <view class="column-center" catchtap='onPay'>支付</view> -->
+  <button open-type='getUserInfo' class="column-center" bindgetuserinfo='bindGetUserInfo'>支付</button>
+</view>
+<view class="payWord-wrap" wx:if="{{payWrap}}">
+  <form bindsubmit="sumitPay">
+    <view class="payWord">
+      <text class="payTitle">请输入支付密码</text>
+      <input type="text" name="paypass" password value='' focus='true' class="inp"></input>
+      <view class="row-between btn-bot">
+        <button catchtap='oncancel'>取消</button>
+        <button formType="submit" catchtap='onconfirm'>确定</button>
+      </view>
+    </view>
+  </form>
+</view>
+</block>

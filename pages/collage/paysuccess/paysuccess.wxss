@@ -1,0 +1,13 @@
+@import"../collagedetail/detail.wxss";
+page{background:#fff;}
+.successIcon{display:block;margin:50rpx auto 50rpx;width:100rpx;}
+.payStatus,.personal{display:block;width:100%;text-align: center;color:#eb5902;margin-bottom:80rpx;}
+.personal{color:#999;margin-bottom:30rpx;}
+.popup-title{text-align: center;font-size:32rpx;font-weight: 600;color:#333;margin:0 auto;}
+.popup-title text{color:#eb5902;font-size:32rpx;font-weight: 600;}
+.popup-time{font-size:28rpx;color:#333;margin:30rpx auto;justify-content: center;}
+.popup-time text{display:inline-block;width:40rpx;height:40rpx;border:1px solid #dedddd;text-align: center;line-height:38rpx;font-size:20rpx;border-radius: 20rpx;margin-right:10rpx;margin-left:10rpx;box-sizing: border-box;}
+.popup-pensonal{position:relative;width:100%;text-align: center;margin: 30rpx auto 20rpx;height:44rpx;}
+.popup-pensonal>text{position:absolute;width:70%;background:#fff;text-align: center;left:15%;}
+.popup-pensonal::before{position:absolute;width:90%;height:2rpx;background:#999;left:5%;top:50%;margin-top:1rpx;content:"";}
+.popuo-btn{width:60%;height:70rpx;border-radius: 44rpx !important;color:#fff;text-align: center;line-height:70rpx;background:#eb5902;margin:30rpx auto 15rpx;}

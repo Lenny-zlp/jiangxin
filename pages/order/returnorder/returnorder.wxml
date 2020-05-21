@@ -1,0 +1,35 @@
+<view class="list-wrap">
+  <block wx:for="{{refundlist}}">
+    <view class="row-between list">
+      <text>订单编号：{{item.OrderCode}}</text>
+      <text style="color:#eb5902;">{{item.StatusName}}</text>
+    </view>
+    <navigator class="order-wrap" hover-class='none' url="/pages/order/returnDetail/returnDetail?refundid={{item.Id}}">
+      <block wx:for="{{item.RefundList}}">
+        <view class="order row-center">
+          <view class="productImag">
+            <image src="{{item.Img}}" class="imgBG"></image>
+          </view>
+          <view class="column-between productDetail">
+            <text>{{item.ProductName}}</text>
+            <text style="color:#999">{{item.Color}}</text>
+            <text>￥{{item.Price}}</text>
+          </view>
+          <text class="orderNum">{{item.RefundQty}}</text>
+        </view>
+      </block>
+    </navigator>
+    <view class="row-between list-bottom">
+      <view class="row-center">
+        <text>交易金额：￥{{item.Price}}</text>
+        <text style="color:#eb5902;padding-left:25rpx;">退款金额：￥{{item.RefundMoney}}</text>
+      </view>
+      <navigator wx:if="{{item.RefundStatus==2}}" hover-class='none' class="noteText" url="/pages/order/returnaddress/returnaddress">录入信息</navigator>
+    </view>
+  </block>
+</view>
+<view class="noList" wx:if="{{refundlist.length==0}}">
+  <image src="https://cache.jiangxinxiaozhen.com/WD/APP/little/nodata.png" mode='widthFix'></image>
+    <text>还没有相关数据</text>
+    <navigator open-type='switchTab' hover-class='none' url="/pages/home/shop/shop">去逛逛</navigator>
+</view>

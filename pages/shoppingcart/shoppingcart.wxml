@@ -1,0 +1,98 @@
+<wxs module="dateUtil" src="../../pages/until/timeUtil.wxs"></wxs>
+<import src="../template/template-recCom.wxml" />
+<popup id="popup" title="促销活动" sure="确定" catch:sure="closePage">
+  <scroll-view slot="content" scroll-y="true">
+    <block wx:for="{{cart.AppliedPromotions}}" wx:key='AppliedPromotions'>
+      <view style="padding:15rpx 20rpx 5rpx;line-height:40rpx">{{item.PromotionName}}</view>
+    </block>
+  </scroll-view>
+</popup>
+<view class="carTopWrap">
+  <view class="userMes" wx:if="{{cart.Shop.ShopId>0}}">
+    <image src="https://cache.jiangxinxiaozhen.com/WD/shop/little/shop.png"></image>
+    <image src="{{cart.Shop.ShopLogo}}"></image>
+    <view class="username-num">
+      <text>{{cart.Shop.ShopName}}</text>
+      <text class="shopid">邀请码{{cart.Shop.LoginName}}</text>
+    </view>
+  </view>
+  <view class="salesMes" wx:if="{{cart.PromotionsString}}" catchtap="moreSale">
+    <text>促销活动</text>
+    <text>{{cart.PromotionsString}}</text>
+  </view>
+</view>
+<view style="overflow:hidden;width:100%;padding-bottom:{{RecCom.list.length>0?'20rpx':'191rpx'}};">
+  <block wx:for="{{cart.SpitOrders}}" wx:for-item="store">
+    <view class="storeWrap">
+      <view class="storeName">
+        <view class="row-center">
+          <label class="radioBor {{store.itemNum==store.itemCheckedNum ? 'radioBg-template' :''}}" catchtap='checkByStore' data-ischeckall='{{store.itemNum==store.itemCheckedNum}}' data-storeId="{{store.StoreId}}"></label>
+          <text style="padding-left:10rpx;">{{store.StoreName}}</text>
+        </view>
+        <text style="color:#999;">{{store.FreeShippString}}</text>
+      </view>
+      <view class="productList" wx:if="{{store.Items.length>0}}">
+        <!--普通商品-->
+        <block wx:for="{{store.Items}}" wx:for-index="index">
+          <scroll-view scroll-x="{{item.ProductType!=3?true:false}}" class="productMes" scroll-left='{{left}}'>
+            <view class="scroll-content">
+              <view class="productmes-wrap">
+                <view class="productleft-template">
+                  <!--radioBg-template:选中  radio-gray 不可选-->
+                  <label class="radioBor {{item.Ischecked ? 'radioBg-template' : dateUtil.dateFormat(item.TimeNow)<dateUtil.dateFormat(item.PTimeLimit) ? 'radio-gray' : '' }}" catchtap='changeRedio' data-sku="{{item.ProductCode}}" data-isPoint="{{item.IsOptional}}" data-chk="{{item.Ischecked ? 1 : dateUtil.dateFormat(item.TimeNow)<dateUtil.dateFormat(item.PTimeLimit) ? -1 : 0 }}"></label>
+                  <view style='position:relative'>
+                    <image src="{{item.Img}}"></image>
+                    <label wx:if="{{item.ProductType==3}}" style='background:url(https://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/zeng.png) no-repeat center center;background-size:60rpx;width:60rpx;height:60rpx;position:absolute;right:0;top:0;'></label>
+                  </view>
+                  <navigator open-type='redirect' hover-class="none" url='/pages/product/product?sku={{item.ProductCode}}'>
+                    <view class="product-price-template column-between">
+                      <view>
+                        <text wx:if="{{item.IsToMainStore}}" style='background:#eb5902;color:#fff;padding:2rpx 6rpx;border-radius:6rpx;font-size:20rpx;position:relative;top:-4rpx;'>分仓</text> {{item.Name}}
+                      </view>
+                      <text style="font-size:24rpx;color:#999;">{{item.Color}} </text>
+                      <view style="color:#eb5902;">¥{{item.ProductType==3?"0":item.Price}}
+                        <!-- <view wx:if="{{item.VipPriceImg}}" class='vipPrice'>会员价</view> -->
+                        <image wx:if="{{item.VipPriceImg}}" src="{{item.VipPriceImg}}" mode="widthFix" style="width:60rpx;position:relative;top:5rpx;"></image>
+                      </view>
+                    </view>
+                  </navigator>
+                </view>
+                <view class="numRight-template row-between" data-ind="{{index}}">
+                  <view wx:if="{{item.ProductType==3}}">{{item.Qty}}</view>
+                  <view wx:else>
+                    <image data-type="-1" data-qty='{{item.Qty}}' data-sku="{{item.ProductCode}}" catchtap='changeNum' src="/pages/image/minus.png" style="opacity:{{item.Qty>1?'1':'0.3'}}"></image>
+                    <input type="number" maxlength='3' bindblur='inputChange' value='{{item.Qty}}' data-sku="{{item.ProductCode}}"></input>
+                    <image data-type="1" data-qty='{{item.Qty}}' data-sku="{{item.ProductCode}}" catchtap='changeNum' src="/pages/image/add.png"></image>
+                  </view>
+                </view>
+              </view>
+              <view wx:if="{{item.ProductType!=3}}" class="delBtn" catchtap='del' data-isPoint="{{item.IsOptional}}" data-sku="{{item.ProductCode}}">×</view>
+              <view wx:if="{{item.ProductType!=3}}" class="delProduct" catchtap='del' data-isPoint="{{item.IsOptional}}" data-sku="{{item.ProductCode}}">删除</view>
+            </view>
+          </scroll-view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <view class="productList" wx:if="{{cart.SpitOrders.length<=0}}">
+    <view class='empty'>
+      还没有相关宝贝哦~
+    </view>
+  </view>
+</view>
+ <!--推荐商品-->
+    <view class="RecCom-wrap" wx:if="{{RecCom.list.length>0}}" style="padding-bottom:{{RecCom.list.length>0?'191rpx':'0'}}">
+      <template is="RecCom" data="{{list:RecCom.list,title:RecCom.cartMsg}}"/>
+    </view>
+<view class="balance-wrap row-between" wx:if="{{cart.SpitOrders.length>0}}">
+  <view class="balance-left row-center" catchtap='checkAll' data-ischeckall='{{isCheckAll}}'>
+    <label class="radioBor {{isCheckAll?'radioBg-template':''}}"></label>
+    <text style="margin-left:10rpx;">选择</text>
+    <!-- <text style="margin-left:10rpx;">选择({{checkedNum}})</text> -->
+  </view>
+  <view class="balance-right row-center">
+    <text>优惠: ¥ {{cart.YouHui}} 合计:</text>
+    <text style="color:#eb5902;padding:0 5rpx;">¥{{cart.CartPrice}}</text>
+    <text catchtap='toBalance' class="balance" hover-class='none'>去结算</text>
+  </view>
+</view>

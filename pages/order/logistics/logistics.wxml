@@ -1,0 +1,27 @@
+<block wx:for="{{list}}" wx:for-index="index">
+  <view class="logistice-wrap row-center">
+    <image src="{{item.Img}}"></image>
+    <view class="column-between" style="height:120rpx;">
+      <text style="color:#303030">物流状态：<text style="color:#eb5902">{{item.showapi_res_body.statusStr}}</text></text>
+      <text>承运来源：{{item.showapi_res_body.expTextName}}</text>
+      <view style="font-size:24rpx; color:#999;">运单编号：{{item.showapi_res_body.mailNo}} <text  catchtap='copynum' data-copynum="{{item.showapi_res_body.mailNo}}" class='copynum'>复制</text></view>
+      <text>官方电话：{{item.showapi_res_body.tel}}</text>
+    </view>
+    <view catchtap='checkarrow' data-mailno="{{item.showapi_res_body.mailNo}}">
+      <view class="{{!item.moreshow?'morearrow':'morearrow cur'}}"></view>     
+    </view>
+    
+    <text class="storeText" wx:if="{{list.length>1}}">包裹{{index+1}}</text>
+  </view>
+  <view class="list-wrap" wx:if="{{item.moreshow}}">
+    <view style="padding:0 28rpx;line-height:80rpx;border-bottom:1px solid #eee;">物流跟踪提醒</view>
+    <view class="newMessge">
+      <block wx:for="{{item.showapi_res_body.data}}">
+        <view class="column-between">
+          <text>{{item.context}}</text>
+          <text style="font-size:22rpx;">{{item.time}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</block>

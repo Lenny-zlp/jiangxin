@@ -1,0 +1,55 @@
+<import src="../../template/template-discuss.wxml" />
+<block wx:if="{{count>0}}">
+  <view style="height:{{pageHeight}}px;width:100%;overflow:hidden;">
+    <view class="discussTop-wrap" id="getheight">
+      <view class="discussTop row-between">
+        <view class="row-center">
+          <text>评分</text>
+          <block wx:for="{{starArr}}" wx:for-item="i" wx:key="star">
+            <image wx:if="{{i==1}}" src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png"></image>
+            <image wx:if="{{i==0}}" src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/grayStar.png"></image>
+          </block>
+        </view>
+        <text>{{discuss.perLike}}</text>
+      </view>
+      <view class="discussBtn-wrap" style="height:{{line}}">
+        <block wx:for="{{tab}}">
+          <text class="{{labelid==item.LabelId?'active':''}}" catchtap="onlabel" data-labelid="{{item.LabelId}}">{{item.LabelName}}{{item.Count}}</text>
+        </block>
+      </view>
+      <view class="discussBtn-more" catchtap='tabmore'>
+        <text wx:if="{{taggle}}">更多</text>
+        <text wx:if="{{!taggle}}" class="{{!taggle?'cur':''}}">收起</text>
+      </view>
+    </view>
+    <view class="discussList-wrap">
+      <scroll-view scroll-y="true" style="height:{{height}}px" bindscrolltolower="loadMore" id="scrollview" scroll-top="{{scrollTop}}">
+        <view class="scroll-content">
+          <block wx:for="{{commentlist}}" wx:key="commentlist" wx:for-index="ind">
+            <view catchtap='showbigimg' data-i="{{ind}}">
+              <template is="discuss" data="{{...item}}" />
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{count==0}}">
+  <view class="datanull">
+    <image src="https://cache.jiangxinxiaozhen.com/WD/APP/little/datanull.png"></image>
+    <text>暂无相关评论</text>
+  </view>
+</block>
+
+<view class="bigimgWrap" wx:if="{{showbigimg}}">
+  <icon type="clear" size="50rpx" class="closeIcon" catchtap='closeBigimg'></icon>
+  <view class="pagenum">{{current+1}}/{{bigimglength}}</view>
+  <swiper class="bigimg" bindanimationfinish="touchSwiper" current="{{current}}">
+    <block wx:for="{{bigimg}}">
+      <swiper-item>
+        <image lazy-load="true" src="{{item.bigimg}}" mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

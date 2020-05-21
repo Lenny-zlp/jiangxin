@@ -1,0 +1,39 @@
+<view class="standard-wrap">
+  <view class="row-center" data-list="{{content.safeStandard.ImgList}}" catchtap='Toreport'>
+    <image src="https://cache.jiangxinxiaozhen.com/WD/APP/standard/rule1.png" class="ruleImage"></image>
+    <text>{{content.safeStandard.title}}</text>
+    <text>{{content.safeStandard.CategoryName}} <text wx:if="{{content.safeStandard.ImgList.length>0}}"> >></text></text>
+  </view>
+  <view>
+    <block wx:for="{{content.safeStandard.contentList}}">
+      <view class="list row-between">
+        <text>{{item.Title}}</text>
+        <text>{{item.Contents}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="standard-wrap">
+  <view class="row-center">
+    <image src="https://cache.jiangxinxiaozhen.com/WD/APP/standard/rule2.png" class="ruleImage"></image>
+    <text>{{content.valueStandard.title}}</text>
+  </view>
+  <view>
+    <block wx:for="{{content.valueStandard.contentList}}">
+      <view class="list list2 row-between"data-list="{{item.ImgList}}" catchtap='Toreport'>
+        <text>{{item.CategoryName}} <text wx:if="{{item.ImgList.length>0}}"> >> </text></text>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="standard-wrap" wx:if="{{content.globalPoint.MessId!=''}}">
+  <view class="row-center">
+    <image src="https://cache.jiangxinxiaozhen.com/WD/APP/standard/rule3.png" class="ruleImage"></image>
+    <text>{{content.globalPoint.title}}</text>
+  </view>
+  <view>
+    <navigator class="list list3 row-between" url="/pages/our/ourlist/detail?messid={{content.globalPoint.MessId}}">
+      <text>{{content.globalPoint.CategoryName}} <text wx:if="{{content.globalPoint.MessId!=''}}">>></text></text>
+    </navigator>
+  </view>
+</view>

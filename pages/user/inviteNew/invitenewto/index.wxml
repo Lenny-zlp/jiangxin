@@ -1,0 +1,47 @@
+<popup id="popup" showCancel='0' showConfirm="0" wx:if="{{contentShow}}">
+  <view class="" slot="content">
+    <image src="https://cache.jiangxinxiaozhen.com/WD/APP/little/logo.png" style="width:90rpx;height:90rpx; display:block;margin:5rpx auto 15rpx"></image>
+    <text>匠心小镇申请获得您的公开信息</text>
+    <button open-type='getUserInfo' bindgetuserinfo='_inviteNew' style="width:80%;background:#eb5902;color:#fff; height:80rpx;line-height:80rpx;border-radius:40rpx !important;display:block;margin:80rpx auto 40rpx;">去授权</button>  
+  </view>
+</popup>
+<view class="main" style="background-image:url(https://cache.jiangxinxiaozhen.com/WD/collage/invite.png);" bindsubmit="_submitGetCoupon">
+  <from class="content">
+    <view class="from-content">
+      <view class="form-title row-center">
+        <image src="{{data.userhead}}"></image>
+        <text>{{data.userNickName}}分享给您的新人福利</text>
+      </view>
+      <image src="https://cache.jiangxinxiaozhen.com/WD/collage/gift.png" class="invitenCard"></image>
+      <view class="inp">
+        <input type="numble" name="tel" value='' placeholder="请输入手机号" bindinput="userMobileInput"></input>
+      </view>
+      <view class="inp lineR">
+        <input type="text" name="tel" value='' placeholder="请输入验证码" bindinput="userCodeInput" style="width:60%;"></input>
+        <button class="checkPassword" catchtap='_getphonecode' disabled='{{u_codedis}}' style="color:{{btnColor}};background-color:{{btnBg}}">{{btn}}</button>
+      </view>
+      <button class="submitBtn" style="opacity:{{opacity}}">立即领取</button>
+    </view>
+  </from>
+  <view style="color:#999">活动规则</view>
+  <view class="column-between rule-text">
+    <text>
+        1、被邀请的好友仅限于未下载登录过小镇APP的用户。
+    </text>
+    <text>
+        2、邀请好友下载并登录小镇APP，好友7天内通过小镇APP下单并签收即为成功邀请。
+    </text>
+    <text>
+        3、邀请成功后，3天内邀请人将获得对应的10元券，奖励可叠加，多邀多得。
+    </text>
+    <text>
+        4、此活动各得的10元券仅限于APP使用。
+    </text>
+    <text>
+        5、若好友已经是小镇App的用户，则邀请无效；若好友被邀请注册后7天内并未下单，则邀请无效；
+    </text>
+    <text>
+        6、如发现恶意刷单或违反诚信的其他行为，小镇有权缴销邀请奖励及相关订单并追究其法律责任。
+    </text>
+  </view>
+</view>

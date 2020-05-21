@@ -1,0 +1,139 @@
+<view wx:if="{{model}}" wx:if="{{model.Orders.length>0}}" style="width:calc(100%-50rpx);padding:0 25rpx;">
+  <form bindsubmit="sumitOrder">
+    <view class="address-wrap">
+      <view class="address-topBg">
+        <navigator wx:if="{{model.AddressModel.AddressId>0}}" class="address-top " hover-class='none' url="/pages/shoppingcart/address/list?source=1">
+          <view class="userMesg">
+            <text style="width:120rpx;">{{model.AddressModel.FullName}}</text>
+            <text style="width:calc(100% - 120rpx)">{{model.AddressModel.Mobile}}</text>
+          </view>
+          <view class="address">
+            <text style="width:120rpx; height:40rpx;">
+            <text wx:if="{{model.AddressModel.IsDefault==1}}" style="padding:1rpx 8rpx;border:1rpx solid #eb5902;border-radius:3rpx;color:#eb5902;font-size:18rpx;">默认</text>
+            </text>
+            <text style="width:calc(100% - 120rpx);">{{model.AddressModel.Province+model.AddressModel.City+model.AddressModel.Area+model.AddressModel.Address}}</text>
+          </view>
+          <!-- <image src="https://cache.jiangxinxiaozhen.com/WD/APP/little/addressbg.png"></image> -->
+        </navigator>
+         <navigator wx:if="{{model.AddressModel.AddressId<=0}}" class="address-top row-center" style="justify-content:center;padding-top:25rpx;padding-bottom:25rpx;" hover-class='none' url="/pages/shoppingcart/address/list?source=1">
+        +新增地址
+      </navigator>
+      </view>
+     
+    </view>
+    <view class="product-wrap">
+      <view style='{{model.SpitOrders.length>1?"margin-top:-20rpx;":""}}'>
+        <block wx:for="{{model.SpitOrders}}" wx:key="orders">
+          <view class="productList-title" wx:if="{{model.SpitOrders.length>0}}">
+            <text style="font-size:30rpx;padding-right:15rpx;">{{item.OrderName}}</text>
+            <text style="color:#999;font-size:26rpx;">{{item.StoreName}}</text>
+          </view>
+          <block wx:for="{{item.Orders}}" wx:key="orders">
+            <view class="product-list row-between">
+              <view class="product row-center">
+                <view class="productImg">
+                  <image src="{{item.Img}}"></image>
+                  <text wx:if="{{item.ProductType==4}}" style='background:url(https://cache.jiangxinxiaozhen.com/WD/collage/collage.png) no-repeat center center;background-size:60rpx;'></text>
+                  <text wx:if="{{item.ProductType==2}}" style='background:url(https://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/dui.png) no-repeat center center;background-size:60rpx;'></text>
+                  <text wx:if="{{item.ProductType==3}}" style='background:url(https://cache.jiangxinxiaozhen.com/WeiDian/wd_shop/zeng.png) no-repeat center center;background-size:60rpx;'></text>
+                </view>
+                <view class="productMes column-between">
+                  <text>{{item.ProductName}}</text>
+                  <text style="color:#999;">{{item.Color}} </text>
+                  <text>¥{{item.ProductType==3?"0":item.Price}}</text>
+                </view>
+              </view>
+              <view class="numRight-template row-between">
+                <image data-type="-1" data-qty='{{item.ProductQty}}' data-sku="{{item.ProductCode}}" catchtap='{{item.ProductType==2||item.ProductType==3?"":"changeNum"}}' src="/pages/image/minus.png" style="opacity:{{item.ProductType==2||item.ProductType==3?'0':item.ProductQty>1?'1':'0.3'}}"></image>
+                <input type="number" maxlength='3' bindblur='inputChange' disabled='true' value='{{item.ProductQty}}' data-sku="{{item.ProductCode}}"></input>
+                <image data-type="1" data-qty='{{item.ProductQty}}' data-sku="{{item.ProductCode}}" catchtap='{{item.ProductType==2||item.ProductType==3?"":"changeNum"}}' src="/pages/image/add.png" style="opacity:{{item.ProductType==2||item.ProductType==3?'0':'1'}}"></image>
+              </view>
+            </view>
+          </block>
+          <view class="row-between orderALL" wx:if="{{model.SpitOrders.length>1}}">
+            <text>订单总计</text>
+            <text>￥{{item.TotalPrice}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="balance-list-wrap">
+      <view class="balance-list">
+        <view class="row-center row-between">
+          <text>商品合计</text>
+          <text>￥{{model.HuoPinZongJia}}</text>
+        </view>
+        <view class="row-center row-between" wx:if="{{model.DianPuYouHui>0}}">
+          <text>促销优惠</text>
+          <text>￥{{model.DianPuYouHui}}</text>
+        </view>
+
+        <view class="row-center row-between">
+          <text class="{{model.IsShowDialog==1?'fareDetail':''}}" catchtap="showFareList">运费</text>
+          <text>￥{{model.ZongYunFei}}</text>
+        </view>
+        <navigator url='/pages/user/myBag/vouchercheck/vouchercheck?voucherId={{model.CouponId}}' wx:if="{{model.IsShowVoucher}}">
+          <view class="row-center row-between">
+            <text>小镇币{{model.VoucherMutex}}</text>
+            <text style='color:#eb5902'>{{model.VoucherStr}}{{model.IsShowVoucher?" >":""}}</text>
+          </view>
+        </navigator>
+        <navigator url='/pages/user/myBag/coupon/couponlist/checked?buytype={{buytype}}&dg={{dg}}&qty={{qty}}&sku={{sku}}&couponkeyid={{model.CouponKeyId}}' wx:if="{{model.IsShowCoupon}}">
+          <view class="row-center row-between">
+            <text>优惠券{{model.CouponMutex}}</text>
+            <text style='color:#eb5902'>{{model.CouponStr}}{{model.IsShowCoupon?" >":""}}</text>
+          </view>
+        </navigator>
+        <view class="row-center row-between" wx:if="{{model.AmountPrice>0}}">
+          <text>账户余额</text>
+          <view class="row-center">
+            <text style='color:#eb5902' wx:if="{{model.DisAmount>0}}">【成功抵扣{{model.DisAmount}}元】</text>
+            <text>{{model.AmountPrice}}</text>
+            <switch checked='{{check}}' disabled='true' catchtap='switchBtn'></switch>
+          </view>
+        </view>
+        <view class="row-center row-between">
+          <text>买家留言</text>
+          <input type="text" placeholder='请输入留言（可选）' name='customremark' value='' bindinput='remark'></input>
+        </view>
+      </view>
+    </view>
+    <view class="balance-wrap row-center row-between" style='z-index:1'>
+      <text>应支付金额: ￥{{model.ShiJiYingFu}}</text>
+      <button wx:if="{{model.ShiJiYingFu>0}}" open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo' disabled='{{submit_disabled}}'>{{submit_text}}</button>
+      <!-- <button wx:if="{{model.ShiJiYingFu>0}}" formType="submit">提交订单</button> -->
+      <button wx:if="{{model.ShiJiYingFu==0}}" disabled='{{submit_disabled}}' formType="submit">{{submit_text1}}</button>
+    </view>
+  </form>
+  <view class="payWord-wrap" wx:if="{{payWrap}}">
+    <form bindsubmit="formSubmit">
+      <view class="payWord">
+        <text class="payTitle">请输入您的支付密码</text>
+        <input type="text" cursor-spacing='200rpx' name='paypass' password value='' placeholder='请输入支付密码' focus='true' class="inp"></input>
+        <view class="row-between btn-bot">
+          <button catchtap='pay_cancel'>取消</button>
+          <button formType="submit">确定</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>
+<view wx:if="{{model.Orders.length<=0}}">
+  <view class='empty'>
+    您购买的商品已售罄或已下架~
+  </view>
+</view>
+<view class="storeFare" wx:if="{{fareDetail}}">
+  <view class="fareList ">
+    <view class="fareListName">运费详情</view>
+    <view class="fareListWrap column-center">
+      <block wx:for="{{model.Dialogs}}" wx:key="Dialogs">
+        <view class="row-between row-center">
+          <text>{{item.Content}}</text>
+          <text>{{item.FreightStr}}</text>
+        </view>
+      </block>
+    </view>
+    <button style="color:#eb5902;font-size:30rpx;" class="iSure" catchtap="closeFareList">我知道了</button>
+  </view>
+</view>

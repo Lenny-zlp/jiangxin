@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "popup": "/components/showmodal/showModal"
+  },
+  "navigationBarBackgroundColor": "#eb5902",
+  "navigationBarTitleText": "订单详情",
+  "backgroundColor": "#f8f8f8",
+  "enablePullDownRefresh": false
+}

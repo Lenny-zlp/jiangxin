@@ -1,0 +1,50 @@
+<view>
+  <!-- 展示插件全部功能 -->
+  <popup 
+  id='popup' 
+  cancelText='取消' 
+  confirmText='确定' 
+  title='标题' 
+  content='内容' 
+  showClose='1'
+  showCancel='1'
+  imgUrl='https://cache.jiangxinxiaozhen.com//product/2018/9/19/0000528/2018_9_19_13_42_40_9097.jpg'
+  bind:cancelEvent="popupCancel"
+  bind:confirmEvent="popupConfirm">
+    <view slot="content" style='color: #eb5902;'>
+      可插拔插槽，内容和样式可自定义
+    </view>
+  </popup>
+
+  <!-- 展示插件部分功能 -->
+  <!-- <popup 
+  id='popup' 
+  cancelText='取消' 
+  confirmText='确定' 
+  title='标题' 
+  content='内容'>
+    <view slot="content" style='color: red;'>
+      插槽测试部分
+    </view>
+  </popup> -->
+
+  <!-- <popup id='popup' title='' confirmText='邀请微信好友' showClose='1' showCancel='0' showConfirm='0' bind:cancelEvent="popupCancel" bind:confirmEvent="popupConfirm">
+    <view slot="content" style='height:380rpx;font-size:30rpx;color:black'>
+      <view style='margin-top:-70rpx;margin-bottom:36rpx;font-weight:bold;font-size:32rpx;color:black'>开团成功，再邀
+        <text style='color:#eb5902;font-size:32rpx;'>1人</text>成团
+      </view>
+      剩余
+      <text style='border:solid 1rpx #666;border-radius:40rpx;padding:10rpx 14rpx'>11</text> :
+      <text style='border:solid 1rpx #666;border-radius:40rpx;padding:10rpx 14rpx'>11</text> :
+      <text style='border:solid 1rpx #666;border-radius:40rpx;padding:10rpx 14rpx'>11</text>
+      <view style='margin-top:60rpx;position:absolute;left:36rpx'>
+        <view style='border:solid 1rpx #888;width:60rpx;float:left;margin-right:10rpx;'></view>
+        <text style='float:left;line-height:5rpx;margin;color:#888'>马上邀请，拼团成功率高达 <text style='color:#eb5902;'>95% </text></text>
+        <view style='border:solid 1rpx #888;width:60rpx;float:left;margin-left:10rpx'></view>
+      </view>
+      <view style='margin-top:140rpx'>
+        <view style='border:solid 1rpx #eb5902;width:80%;margin:0 auto;height:72rpx;line-height:70rpx;background:#eb5902;color:#eee;border-radius:40rpx;font-size:28rpx'>邀请微信好友</view>
+      </view>
+    </view>
+  </popup> -->
+</view>

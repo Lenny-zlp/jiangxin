@@ -1,0 +1,6 @@
+.logoPng{width:160rpx;height:160rpx;margin:144rpx auto 274rpx; display:block;}
+.WXbtn{display:block;width:600rpx;height:90rpx;border-radius: 6rpx !important; color:#fff;background:#eb5902;margin:0 auto;justify-content: center;line-height:90rpx;}
+.wxicon{display:inline-block;width:45rpx;height:37rpx;margin-right:10rpx; position:relative;top:10rpx;}
+.telBtn{text-align: center;font-size:30rpx;background:none;border:1px solid #eb5902;color:#eb5902;opacity: 0.8; margin-top:40rpx;box-sizing: border-box;}
+.headBg{text-align: center;}
+.garyBtn{color:#999;border:0 none;}

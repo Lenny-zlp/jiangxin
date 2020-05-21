@@ -1,0 +1,13 @@
+.template-RecCom{width:100%;overflow: hidden;background:#f4f4f4; box-sizing: border-box;padding-left:20rpx;}
+.template-RecCom .template-RecCom-title{line-height:86rpx;text-align: center;}
+.template-RecCom-title text{position:relative;color:#303030;padding:0 40rpx;}
+.template-RecCom-title text::before,.template-RecCom-title text::after{position:absolute;content:'';top:50%;margin-top:-1rpx;width:30rpx;height:1px;background:#666;}
+.template-RecCom-title text::before{left:0;}
+.template-RecCom-title text::after{right:0;}
+.template-RecCom-List{float:left;margin-right:20rpx; width:calc(50% - 20rpx);overflow: hidden; background:#fff;border-radius: 20rpx;margin-bottom:20rpx;}
+.template-RecCom-List image{width:345rpx; height:345rpx;margin:0 auto;}
+.template-RecCom-detail{width:100%;padding:20rpx 20rpx 20rpx;box-sizing: border-box;}
+.template-RecCom-detail>text{display:block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;color:#303030;width:100%;}
+.template-RecCom-detail view{color:#eb5902;padding:10rpx 0;}
+.template-RecCom-detail image{width:60rpx;display:inline-block;padding-left:10rpx;position:relative;top:2rpx;}
+.template-RecCom-detail .del{color:#999;text-decoration-line:line-through;font-size:24rpx;padding-left:10rpx;}

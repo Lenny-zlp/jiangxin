@@ -1,0 +1,7 @@
+page{background:#f8f8f8;}
+.house-wrap{width:750rpx;padding:10rpx 0;background:#eee;}
+.house{background:#f8f8f8;padding:20rpx 25rpx;height:120rpx;}
+.house>image{width:120rpx;height:120rpx;margin-right:20rpx;}
+.house>view{height:100rpx;}
+scroll-view{width:100%;height:180rpx;background:#eee;}
+.delete{width:90rpx;line-height:160rpx;text-align: center;background:#eb5902;color:#fff;}

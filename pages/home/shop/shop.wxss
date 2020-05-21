@@ -1,0 +1,87 @@
+@import"../../template/template.wxss";
+page{background:#f4f4f4;}
+image{display:block;}
+.userTop{width:100%;height:96rpx;box-sizing: border-box;padding:8rpx 25rpx;align-items: center; background:#fff;}
+.userTop image{width:60rpx;height:60rpx;border-radius: 30rpx;border:1px solid #f8f8f8;margin-right:20rpx;}
+.usertopSearch{width:100%;height:60rpx;border-radius: 30rpx;background:#f8f8f8; padding:0 15rpx;align-items: center;position:relative;}
+.usertopSearch text{width:100%;text-align: center;color:#999;font-size:24rpx;position:absolute;left:0;top:0;line-height:60rpx;}
+.usertopSearch icon{position:absolute;right:15rpx;top:50%;width:30rpx;height:30rpx;margin-top:-15rpx;}
+.userTop .userNumble{color:#fff; width:200rpx;text-align:center;background:#eb5902;font-size:20rpx;border-radius:15rpx;line-height:30rpx;}
+.homeWrap{width:750rpx;display:flex;flex-direction: column;}
+.menu-wrap{width:750rpx;height:88rpx;border-bottom:1px solid #f4f4f4; background:#fff;}
+.menu{width:100%;height:100%;display:flex;justify-content:space-around}
+.menu text{line-height:88rpx;width:14.29%;text-align: center;font-size:28rpx;}
+.menu .active{color:#eb5902;}
+.screen-wrap{width:750rpx;padding-top:20rpx;}
+.screen-wrap swiper-item{width:100%;height:100%;}
+.content{width:750rpx;height:100%;}
+.swiper-wrap{width:710rpx;height:303rpx;border-radius: 20rpx; overflow: hidden;}
+.swiper-wrap swiper-item,.swiper-wrap swiper-item image{width:100%;height:100%;}
+.vmodule-wrap,.vertical-wrap,.horizontal-wrap,.horizontal-img-wrap{background:#f4f4f4; width:710rpx;margin:0 auto;border-radius: 20rpx;overflow: hidden;}
+
+.list-wrap{width:100%;overflow:hidden;border-top:1px solid #f4f4f4;}
+.product-list{float:left;width:355rpx;border-bottom:1px solid #f4f4f4;overflow:hidden;position:relative;box-sizing: border-box;background:#fff;border-right:1px solid #f4f4f4;}
+.product-list:last-child{border-radius: 0 0 20rpx 0;}
+.horizontal-img{width:100%;background:#fff;}
+.horizontal-img-list{width:calc(100% - 60rpx);padding:0 30rpx;background:#fff;}
+
+.vertical-Bg-wrap,.horizontal-Bg-wrap{width:750rpx; overflow:hidden;}
+.vertical-Bg-wrap>image,.horizontal-Bg-wrap>image{width:100%;height:108rpx;}
+.vertical-Bg-list-wrap{width:710rpx;padding:0 20rpx;}
+.vertical-Bg-list{float:left;margin-bottom:10rpx;width:350rpx;overflow:hidden;background:#fff;position:relative;}
+.vertical-Bg-list:nth-child(2n){float:right;}
+.homeicon{position:absolute;top:0;left:20rpx;width:75rpx;height:77rpx;}
+.vertical-bg-img{width:350rpx;height:350rpx;}
+.verticalBg-text{width:350rpx;display: flex;flex-direction: column;justify-content: center;}
+.verticalBg-title,.verticalBg-price{width:100%;text-align: center;padding:10rpx 10rpx 0;box-sizing: border-box;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.verticalBg-price>text:nth-child(1){font-size:36rpx; padding-right:10rpx;}
+.verticalBg-price>text:nth-child(2){font-size:22rpx;color:#999;text-decoration: line-through;}
+.vertical-btn{display:inline-block;width:170rpx;height:56rpx;text-align: center;line-height:56rpx;border-radius: 8rpx;margin:20rpx auto 40rpx;}
+
+.horizontalBG-list{width:710rpx;margin:0 auto 10rpx;background:#fff;border-radius: 10rpx;overflow:hidden;position:relative;}
+.horizontalBG-list>.homeicon{position:absolute;top:0;left:20rpx;width:75rpx;height:77rpx;}
+.horizontalBG-list>image{width:280rpx;height:280rpx;float:left;}
+.horizontalBG-text{width:390rpx;height:280rpx;float:right;position:relative;overflow:hidden;}
+.horizontalBG-title{padding-top:48rpx;font-size:30rpx;color:#505050;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.horizontalBG-Othertitle{color:#999;padding-top:12rpx;width:100%;
+text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;}
+.horizBg-price{position:absolute;left:0;bottom:44rpx;}
+.horizBg-price>text:nth-child(1){font-size:40rpx;padding-right:20rpx;}
+.horizBg-price>text:nth-child(2){font-size:26rpx;color:#999;text-decoration: line-through;}
+.horizBg-btn{position:absolute;right:30rpx;bottom:40rpx;width:140rpx;height:54rpx;border-radius: 6rpx;text-align: center;line-height:54rpx;}
+/* 限时购样式 */
+.sale-time-wrap{background:#f4f4f4;width:710rpx;height:341rpx; overflow: hidden;margin:20rpx auto;border-radius: 20rpx;}
+.sale-time{background:rgb(250, 244, 237);width:710rpx;height:341rpx;position:relative;}
+.sale-time>image{width:100%;height:100%;}
+.sale-time-title{position:absolute;top:80rpx;left:40rpx;font-size:36rpx;color:#303030;}
+.sale-time-text{position:absolute;left:50rpx;bottom:150rpx;color:rgba(0,0,0,.4);font-size:28rpx;}
+.sale-time-s{position:absolute;left:40rpx;bottom:84rpx;display:flex;flex-direction: row;}
+.sale-time-day,.sale-time-hour,.sale-time-secend,.sale-time-min{color:rgba(0,0,0,.4);margin-right:2px;}
+.sale-time-day text,.sale-time-hour text,.sale-time-secend text,.sale-time-min text{padding:2rpx 10rpx;border-radius: 6rpx;background:#eb5902;color:#fff;margin-left:2px;font-size:26rpx;}
+/*竖版顶部横图*/
+.listTopImage{width:100%;overflow:hidden;}
+.listTopImage>image{width:100%;display:block;border-bottom:1px solid #f4f4f4;}
+/*热区*/
+.hotView-list{position:relative;width:100%;overflow:hidden;background:#f4f4f4;}
+.hotView-list>image{display:block;}
+.hotView-list navigator{position:absolute;display:block; }
+/*横版*/
+.hotView{width:100%;overflow: hidden;background:#f4f4f4;}
+/*每周一品*/
+.everyWeek{width:710rpx;overflow: hidden;background:#f4f4f4; margin:20rpx auto;border-radius: 20rpx;}
+.weekTitle{width:100%;height:90rpx;line-height:90rpx;border-bottom:1rpx solid #f4f4f4;text-align: center;font-size:30rpx;background: #fff;}
+.weekContent{width:100%;position:relative;overflow: hidden;}
+.weekContent image{width:100%;display:block;}
+.paytext{color:#666;font-size:22rpx;position:absolute;left:30rpx;bottom:20rpx;}
+.progressWrap{position:absolute;bottom:0;width:100%;overflow: hidden;left:0;}
+.progressnum{width:100%;padding:0 30rpx 10rpx;box-sizing: border-box;}
+.progressnum view,.progressnum text{font-size:22rpx;}
+.progressnum text{color:#666;}
+.progress{width:100%;height:10rpx;background:#ddd;}
+.progress text{max-width:100%;position: absolute;left:0;bottom:0;height:10rpx;background:-webkit-linear-gradient(left,#fcdb2a,#f75f14)}
+

@@ -1,0 +1,39 @@
+
+@import"../template/template-collage.wxss";
+page{background:#eee;}
+.collage-wrap{width:750rpx;overflow:hidden;background:#fff;}
+.collage-menu{width:750rpx;height:88rpx;overflow: hidden;display: flex;flex-direction: row;justify-content: space-between;}
+.collage-menu view{width:375rpx;line-height:88rpx;text-align: center;position: relative;color:#303030;}
+.collage-menu view.menu-active{color:#eb5902;}
+view.menu-active::after{position:absolute;content:"";bottom:0;left:25rpx;width:300rpx;background:#eb5902;height:2px;}
+.collage-topImg{display:block;width:750rpx;height:310rpx;}
+.collage-list{background:#eee;padding-top:20rpx;display: flex;flex-direction: column;justify-content: center;}
+.collage-title{text-align: center;height:90rpx;line-height:90rpx;background:#fff;border-bottom:1px solid #eee;font-size:32rpx;color:#303030;}
+.collage-content{background:#fff;padding:30rpx;width:690rpx;margin-bottom:20rpx;}
+.collage-orderlist{width:100%;overflow:hidden;background:#eee;position:relative;}
+.collage-order-list{width:750rpx;background:#fff;padding:20rpx 0 0;position:relative;margin-top:20rpx;}
+.orderMes{width:700rpx;display: flex;flex-direction: row;padding:0 25rpx 20rpx;border-bottom:1px solid #eee;}
+.orderMes>image{width:180rpx;height:180rpx;background:#f4f4f4;}
+.orderDetail{display:flex;flex-direction: column;justify-content: space-between;padding:15rpx 0 15rpx 20rpx;width:500rpx;}
+.order-price{color:#eb5902;font-size:38rpx;}
+.order-name{width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:30rpx; color:#303030}
+.order-state{padding:2rpx 6rpx;color:#fff;background:#ff9457;width:140rpx;height:34rpx; line-height:34rpx;border-radius: 3px;
+text-align: center;}
+.orderList-bottom{width:700rpx;padding:20rpx 25rpx;overflow:hidden;}
+.orderBtn{float:right;display:flex;flex-direction: row;}
+.orderBtn text,.orderBtn navigator{margin-left:20rpx;width:140rpx;height:48rpx;text-align: center;line-height:48rpx;border-radius: 3px;border:1px solid #dedddd;color:#666;}
+.orderBtn .redBtn{border-color:#eb5902;color:#eb5902;}
+.payTime{float:left;margin-top:10rpx;}
+.payTime,.payTime>view{display:flex;flex-direction: row;}
+.paytime-wrap{padding:1rpx 12rpx;background:#eb5902;color:#fff;border-radius: 3px;margin-right:10rpx;}
+.collage-order-list>navigator{padding-top:10rpx;}
+.IsCancel{position:absolute;width:750rpx;height:230rpx;left:0;top:0;background:rgba(0,0,0,.15) url(http://cache.jiangxinxiaozhen.com/WD/shop/little/purchase_cancle_logo.png)no-repeat right top;background-size:140rpx 140rpx;}
+.popup-title{text-align: center;font-size:32rpx;font-weight: 600;color:#333;margin:0 auto;}
+.popup-title text{color:#eb5902;font-size:32rpx;font-weight: 600;}
+.popup-time{font-size:28rpx;color:#333;margin:30rpx auto;justify-content: center;}
+.popup-time text{display:inline-block;width:40rpx;height:40rpx;border:1px solid #dedddd;text-align: center;line-height:38rpx;font-size:20rpx;border-radius: 20rpx;margin-right:10rpx;margin-left:10rpx;box-sizing: border-box;}
+.popup-pensonal{position:relative;width:100%;text-align: center;margin: 30rpx auto 20rpx;height:44rpx;}
+.popup-pensonal>text{position:absolute;width:70%;background:#fff;text-align: center;left:15%;}
+.popup-pensonal::before{position:absolute;width:90%;height:2rpx;background:#999;left:5%;top:50%;margin-top:1rpx;content:"";}
+.popuo-btn{width:60%;height:70rpx;border-radius: 44rpx !important;color:#fff;text-align: center;line-height:70rpx;background:#eb5902;margin:30rpx auto 15rpx;}
+

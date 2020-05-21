@@ -1,0 +1,37 @@
+@import"../../order/paySuccess/paySuccess.wxss";
+page{background:#f4f4f4;}
+.productList {
+  float: left;
+  width: 50%;
+  overflow: hidden;
+  padding-bottom: 25rpx;
+  border-bottom: 1px solid #f4f4f4;
+  border-right: 1px solid #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+  background:#fff;
+}
+
+.productList:nth-child(2n) {
+  border-right: 0 none;
+}
+
+.productList>image {
+  display: block;
+  width: 375rpx;
+  height: 375rpx;
+}
+
+.productList>text,.priceWrap {
+  display: block;
+  width: 100%;
+  padding: 15rpx 15rpx 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  color: #505050;
+ 
+}

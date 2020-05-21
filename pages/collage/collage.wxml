@@ -1,0 +1,75 @@
+<import src="../template/template-collage.wxml" />
+<popup id="popup" showCancel="0" showConfirm="0" bind:cancelEvent="_closePopup">
+  <view slot="content">
+    <view class="popup-title">{{hasGroupStr}}，再邀请
+      <text>{{persons}}人</text>成团</view>
+    <view class="popup-time row-center">
+      剩余
+      <view wx:if="{{GroupList[i].showpopuptime.d>0}}" style="font-size:20rpx;">
+      <text>{{GroupList[i].showpopuptime.d}}</text>天
+      </view>
+      <text>{{GroupList[i].showpopuptime.h}}</text>:
+      <text>{{GroupList[i].showpopuptime.s}}</text>:
+      <text>{{GroupList[i].showpopuptime.m}}</text>
+    </view>
+    <view class="popup-pensonal">
+      <text>{{sendStr}}<text style="color:#eb5902;">{{sendStr1}}</text></text>
+    </view>
+    <button open-type='share' class="popuo-btn">邀请微信好友</button>
+  </view>
+</popup>
+<view class="collage-wrap">
+  <view class="collage-menu">
+    <view class="{{active=='false'?'menu-active':''}}" catchtap='collageListLink'>小镇拼团</view>
+    <view class="{{active=='true'?'menu-active':''}}" catchtap='collageMyLink'>我的拼团</view>
+  </view>
+  <view class="collage-list-wrap" wx:if="{{active=='false'}}">
+    <image src="{{topImg}}" class="collage-topImg"></image>
+    <view class="collage-list">
+      <block wx:for="{{list}}" wx:key="list">
+        <text class="collage-title">{{item.GroupName}}</text>
+        <block wx:for="{{item.GroupList}}" wx:key="grouplist">
+          <view class="collage-content" data-sku="{{item.ProductCode}}" data-groupid="{{item.GroupId}}" catchtap='onhref'>
+            <template is="collage" data="{{...item}}" />
+          </view>
+        </block>
+      </block>
+    </view>
+  </view>
+  <view class="collage-orderlist" wx:if="{{active=='true'}}">
+    <block wx:for="{{GroupList}}" wx:key="key" wx:for-index="ind">
+      <view class="collage-order-list">
+        <navigator url="/pages/order/orderdetail/detail?ordercode={{item.ordercode}}" hover-class='none'>
+          <view class="IsCancel" wx:if="{{item.IsCancel==1}}"></view>
+          <view class="orderMes">
+            <image src="{{item.ProductImg}}"></image>
+            <view class="orderDetail">
+              <text class="order-state" style="background:#dc2929" wx:if="{{item.Status==0}}">{{item.GroupStr}}</text>
+              <text class="order-state" style="background:#dba860" wx:if="{{item.Status==1}}">{{item.GroupStr}}</text>
+              <text class="order-state" style="background:#666" wx:if="{{item.Status==-1}}">{{item.GroupStr}}</text>
+              <text class="order-name">{{item.ProductName}}</text>
+              <text class="order-price">¥{{item.Price}}</text>
+            </view>
+          </view>
+        </navigator>
+        <view class="orderList-bottom">
+          <view wx:if="{{item.GroupDown>0}}" class="payTime">
+            <view class="paytime-wrap">
+              <view>{{item.pay_countdown}}</view>
+            </view>
+            <text>{{item.GroupDownStr}}</text>
+          </view>
+          <view class="orderBtn">
+            <text wx:if="{{item.IsShowCancle==1}}" bindtap='cancel_order' data-oc='{{item.ordercode}}'>取消订单</text>
+            <text wx:if="{{item.IsShowDel==1}}" bindtap='del_order' data-oc='{{item.ordercode}}'>删除订单</text>
+            <navigator wx:if="{{item.IsDetails==1}}" url="/pages/collage/collagedetail/detail?OrderCode={{item.ordercode}}&v=0">拼团详情 </navigator>
+            <!-- <navigator wx:if="{{item.IsDetails==1}}" url="/pages/collage/paysuccess/paysuccess?OrderCode={{item.ordercode}}&v=0">开团成功</navigator> -->
+            <navigator wx:if="{{item.IsShowPay==1}}" class="redBtn" url="/pages/order/dualPayment/dualPayment?ordercode={{item.ordercode}}">立即付款</navigator>
+            <text wx:if="{{item.IsShowJoinGroup==1}}" class="redBtn" bindtap='send_order' data-oc='{{item.ordercode}}' data-ind="{{ind}}">邀请成团</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>

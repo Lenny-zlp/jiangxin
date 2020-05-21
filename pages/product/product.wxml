@@ -1,0 +1,501 @@
+<wxs module="dateUtil" src="../../pages/until/convertUtil.wxs"></wxs>
+<import src="../template/template-discuss.wxml" />
+<import src="../template/template-recCom.wxml" />
+<view class="page-wrap">
+  <swiper current='{{index}}' data-cur="{{index}}" class="swiper" bindanimationfinish="chageVideo">
+    <swiper-item wx:if='{{product.VideoUrl}}'>
+      <view class="video-wrap" style="z-index:{{zIndex}}">
+        <view class="posterWrap" wx:if='{{!videoPlay}}'>
+          <image lazy-load="true" src="{{product.VideoImg}}" class="videoPoster" mode='widthFix'></image>
+          <image lazy-load="true" src="https://cache.jiangxinxiaozhen.com/WD/APP/little/play.png" class="playBtn" data-id="video" catchtap='videoPlay'></image>
+        </view>
+        <video src="{{product.VideoUrl}}" poster="{{product.VideoImg}}" bindended="videoEnd" data-id="video" id="video" controls="true" show-mute-btn="true" show-center-play-btn="true" wx:if='{{videoPlay}}'>
+        </video>
+      </view>
+    </swiper-item>
+    <block wx:for="{{product.ScrollImgList}}">
+      <swiper-item class="bannerList">
+        <image lazy-load="true" src="{{item.ImgUrl}}" class="img" mode='aspectFit'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view wx:if="{{product.VideoUrl?index!=0:true}}" class='swiperNum'>
+    <block wx:for="{{product.ScrollImgList.length}}" wx:for-index="ind">
+      <text class="{{product.VideoUrl?(index-1==ind?'cur':''):(index==ind?'cur':'')}}"></text>
+    </block>
+  </view>
+  <view class="tabVideo" wx:if='{{product.VideoUrl}}' catchtap='videoImg'>
+    <text class="{{index==0?'active':''}}" data-click="0">视频</text>
+    <text class="{{index!=0?'active':''}}" data-click="1">图片</text>
+  </view>
+  
+  <view class="collageText {{textshow?'on':'off'}}" wx:if="{{product.IsShowGroup==1&&!collage}}">
+    <text catchtap='textTaggle'>拼</text>
+    <block wx:if='{{textshow}}'>
+      <view class="column-between collagePriceD">
+        <text>拼团价 <text style="color:#eb5902;">￥{{product.GroupPrice}}</text></text>
+        <text>跟好友一起买更划算</text>
+      </view>
+      <view class="toCollage leftArrow" bindtap='groupbuy'>去拼团</view>
+    </block>
+  </view>
+  <!-- 星品 -->
+  <view class="starBg-wrap" wx:if="{{product.IsMarketProduct==0&&product.ProductType==1&&!collage&&product.StarStatus<2&&product.IsMarketProduct!=1}}">
+    <view class="star-wrap">
+      <image lazy-load="true" src="{{product.StarBanner}}"></image>
+      <view class="star-text-wrap">
+        <view class="star-price">
+          <text>¥{{product.gold_price}}</text>
+          <text>¥{{product.gold_vprice}}</text>
+        </view>
+        <view class="Star-amout">
+          <text>定金¥{{product.StarAmout}}</text>
+          <text>已预订{{product.ReserveCount}}件</text>
+        </view>
+      </view>
+      <view class="star-img-wrap">
+        <image lazy-load="true" src="{{product.StarImg}}"></image>
+        <view class="star-time">
+          <view>
+            <text wx:if="{{saleTime.d>0}}">{{saleTime.d}}天</text>
+          </view>
+          <text>{{saleTime.h}}</text>:
+          <text>{{saleTime.s}}</text>:
+          <text>{{saleTime.m}}</text>
+          <text>{{product.StarStatus==0?"开始":"结束"}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="starPay-time">支付尾款时间：{{product.TailBeginTime}} ~ {{product.TailEndTime}}</view>
+  </view>
+  <!-- 活动商品 -->
+  <view class='sumstatus-price-wrap' wx:if="{{product.IsMarketProduct==0&&product.IsActivity==1&&!collage&&product.ProductType!=1&&product.IsMarketProduct!=1}}" style="background-image:url({{product.productImg}})">
+    <image lazy-load="true" src="{{product.ActivityImg}}"></image>
+    <view class="sumstatus-price">
+      <text>¥<text style="font-size:78rpx;padding-left:10rpx;">{{product.activity_price}}</text></text>
+      <view class="sumstatus-vprice">
+        <text>¥{{product.gold_vprice}}</text>
+        <text style="font-size:24rpx;">已售{{product.saleCount>10000?"10000+":product.saleCount}}件</text>
+      </view>
+    </view>
+    <view class="sumTime" wx:if="{{count>0}}">
+      <text wx:if="{{product.PurState==1}}">距开始还剩</text>
+      <text wx:if="{{product.PurState==2}}">距结束还剩</text>
+      <view class="sumTime-wrap">
+        <view wx:if="{{saleTime.d>0}}">
+          <text>{{saleTime.d}}</text>天</view>
+        <text>{{saleTime.h}}</text>:
+        <text>{{saleTime.s}}</text>:
+        <text>{{saleTime.m}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 小镇市集 -->
+  <view class="marketWrap row-between" wx:if="{{!collage&&product.IsMarketProduct==1}}">
+    <view class="marketLeft column-center">
+      <image src="https://cache.jiangxinxiaozhen.com/WD/shop/little/weeklyLog.png" mode='widthFix'></image>
+      <view class="weekPriceWrap row-center">
+        <text>¥</text>
+        <text style="font-size:50rpx;line-height:50rpx;">{{dateUtil.replace(product.MarketPrice)}}</text>
+        <text wx:if="{{dateUtil.hasMin(product.MarketPrice)}}">起</text>
+        <text class="subscript">会员价</text>
+      </view>
+      <view class="cost">小镇价：¥{{product.gold_sprice}}</view>
+    </view>
+    <view class="marketright column-center">
+      <view class="sumTime-wrap">
+        <text style="background:none;padding-right:10rpx;border:none;color:#fff;">{{product.PurState==2?'距结束':'距开始'}}</text>
+        <view wx:if="{{saleTime.d>0}}">
+          <text>{{saleTime.d}}</text>天</view>
+        <text>{{saleTime.h}}</text>:
+        <text>{{saleTime.s}}</text>:
+        <text>{{saleTime.m}}</text>
+      </view>
+      <view class="progressWrap">
+        <view class="progress">
+          <text style="width:{{product.MarketProductCount>0?(product.stock/product.MarketProductCount)*100:100}}%;"></text>
+        </view>
+        <text>{{(product.PurState==2?"仅剩":"限量")+product.stock}}件</text>
+      </view>
+    </view>
+  </view>
+  <!-- 限时购 -->
+  <view class="pur-price-wrap" wx:if="{{product.IsActivity!=1&&product.ProductType!=1&&!collage&&product.PurState>0&&product.IsMarketProduct!=1}}">
+    <view class="pur-price-name">
+      <text>{{product.ActivityName}}</text>
+      <text>{{product.PurState==2?'抢购中':'即将开抢'}}</text>
+    </view>
+    <view class="pur-price-time">
+      <text>{{product.PurState==2?'距活动结束':'距活动开始'}}</text>
+      <view wx:if="{{saleTime.d>0}}">
+        <text>{{saleTime.d}}</text>天
+      </view>
+      <view>
+        <text>{{saleTime.h}}</text> :
+        <text>{{saleTime.s}}</text> :
+        <text>{{saleTime.m}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="product-detail">
+    <view class="product-price">
+      <view class="name">{{product.productname}}</view>
+      <view class="othername">{{product.productOtherName}}</view>
+    </view>
+    <navigator class='stand' wx:if="{{product.HasStardand==1}}" url="/pages/product/standard/standard?productcode={{product.productcode}}" hover-class='none'>
+      <image lazy-load="true" src="../image/rule.png" mode='widthFix'></image>
+    </navigator>
+    <view class='price-wrap' wx:if="{{product.IsMarketProduct==0&&collage==false&&product.ProductType!=1&& product.IsActivity!=1}}">
+      <view class="price">¥{{dateUtil.replace(product.gold_sprice)}}
+        <text wx:if='{{dateUtil.hasMin(product.gold_sprice)}}' style="font-size:26rpx;">起</text>
+      </view>
+      <view class="vPrice" wx:if='{{product.gold_vprice*1>product.sprice}}'>¥{{product.gold_vprice}}</view>
+      <view wx:if="{{product.IsVipBuy==1&&!collage}}" class="price" style="font-size:28rpx;color:#ff9402;padding-left:20rpx ">¥{{product.gold_price}}
+        <text style="font-size:20rpx;background:#ff9402;color:#fff;padding:2rpx 6rpx;border-radius:3px;">小镇会员</text>
+      </view>
+    </view>
+
+    <!-- 团购商品 -->
+    <view class="GroupPersons" wx:if="{{collage}}">
+      <text style='font-size:36rpx;'>{{product.GroupPersons}}</text>人团</view>
+
+    <view class='collage-price-wrap' wx:if="{{collage==true }}">
+      <view class="collage-price-left">
+        <view class="price" style="padding-top:12rpx;">
+          <text>拼团价</text> ¥{{product.GroupPrice}}</view>
+        <text wx:if='{{product.GroupOldPrice>product.GroupPrice}}' style="text-decoration: line-through">¥{{product.GroupOldPrice}}</text>
+      </view>
+      <view style="display:block;padding-top:20rpx;">
+        <text style="color:#eb5902;">已成团{{product.GroupCount}}人</text>
+      </view>
+    </view>
+    <view style="display:block;clear: both;padding-top: 5px;" wx:if="{{product.Packing||collage}}">
+      <text style="padding:2rpx 12rpx;background:#eb5902;color:#fff;font-size:24rpx;border-radius:6rpx;">{{collage?(product.GroupPersons):product.Packing}}{{collage?"人团":""}}</text>
+    </view>
+  </view>
+  <view class="product-numble">
+    <view class="numble-wrap" style="background: #f9f5ef url(//cache.jiangxinxiaozhen.com/Content/wd/more1.png) no-repeat right 30rpx center;background-size: 14rpx 24rpx;width:100%;box-sizing:border-box;">
+
+      <navigator wx:if="{{userRatingId<1}}" hover-class="none" url="/pages/user/recommend/Goldcard/Goldcard" class="addVip">{{product.MarketTips}}</navigator>
+
+    </view>
+    <view class="numble-wrap">
+      <view>
+        <text style="color:#303030;">运费：</text> {{freight=='0'?'包邮':freight+'元'}} {{product.StoreName}}
+      </view>
+      <view wx:if="{{!collage}}">
+        <text style="color:#303030">{{product.PurState==1&&product.IsMarketProduct!=1?"限量：":(product.PurState==2&&product.IsMarketProduct!=1?"仅剩：":"销量：")}}</text> {{(product.PurState==1||product.PurState==2)&&product.IsMarketProduct!=1?product.stock:(product.saleCount>10000?"10000+":product.saleCount)}}件</view>
+    </view>
+    <view class="numble-wrap">
+      <view>
+        <text style="color:#303030;">规格：</text>
+      </view>
+      <view>{{product.Color}}</view>
+    </view>
+    <view class="star-rule" wx:if="{{product.ProductType==1}}" catchtap='onShade'>
+      <view>预定规则 : {{starrules}}</view>
+    </view>
+    <view class="sale-detail" wx:if="{{product.ProductType!=1&&promotion!=''}}" catchtap='moreSale'>
+      <view class="sale-font">促</view>
+      <view class="sale-text">{{promotion}}</view>
+      <view class="sale-more" wx:if='{{saleList.length>0}}'>
+        <image lazy-load="true" src="../image/more1.png"></image>
+      </view>
+    </view>
+    <view class="sale-serve" wx:if='{{serveList.length>0}}' catchtap='onServer'>
+      <view class='serve-font'>
+        <text style="color:#303030;">服务：</text>
+      </view>
+      <view class='serve-list'>
+        <block wx:for='{{serveList}}'>
+          <view class='serveName'>
+            <view>•</view> {{item.ProductServiceName}}</view>
+        </block>
+      </view>
+    </view>
+    <!-- 参团列表入口，滚动区域 -->
+    <view class="collageUser-wrap" wx:if="{{collage}}">
+      <navigator url="/pages/product/webView/webView?url={{product.GroupRole}}" class="collageRule-more">{{product.GroupTips}}</navigator>
+      <view class="collageUser-list-title" catchtap='onCollageMoreShow' wx:if="{{collageArr.length>0}}">{{joinlist_title}}</view>
+      <view class="collageUser-list-wrap" wx:if="{{collageArr.length>0}}">
+        <swiper class="collageUserListBg" autoplay="true" vertical="true" circular="true">
+          <block wx:for="{{collageArr}}" wx:key="colageIndex" wx:for-index="ind">
+            <swiper-item class="collageUser-list row-between" data-index="{{ind}}" data-grouplogid="{{item.GroupLogId}}" catchtap='onJoin'>
+              <view class="collageUser-mesg row-center">
+                <image lazy-load="true" src="{{item.Head}}" binderror='imgerr' data-index="{{ind}}" data-logid="{{item.GroupLogId}}"></image>
+                <text>{{item.NickName}}</text>
+              </view>
+              <view class="collageUser-time row-center">
+                <view class="column-between">
+                  <text>还差<text style="color:#eb5902;font-size:24rpx;">{{item.Number}}</text>人成团</text>
+                  <text style="color:#999; font-size:24rpx;">剩余时间 {{item.pay_countdown}}</text>
+                </view>
+                <view>去参团</view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+  </view>
+  <!-- 评论入口 -->
+  <view class="discuss-wrap">
+    <navigator url="/pages/product/discuss/list?sku={{product.productcode}}&count={{commentcount}}" class="discuss-top row-between">
+      <text>评价({{commentcount}})</text>
+      <text class="likeuser">{{commentlike}}</text>
+    </navigator>
+    <view class="discussList">
+      <block wx:for="{{commentlist}}" wx:key="discuss">
+        <template is="discuss" data="{{...item}}" />
+      </block>
+    </view>
+  </view>
+
+  <view class="product-numble">
+    <view class="productDetail">
+      <text class="{{p_toggle==0?'active':''}}" data-toggle="0" bindtap="view_toggle">商品详情</text>
+      <text class="{{p_toggle==1?'active':''}}" data-toggle="1" bindtap="view_toggle">规格参数</text>
+    </view>
+    <!-- 详情 -->
+    <view wx:if="{{p_toggle==0}}">
+      <view class="" wx:if='{{Video.length>0}}' style="position:relative;width:750rpx;height:425rpx;overflow:hidden;">
+        <view class="posterWrap" wx:if='{{!videofooter}}' style="width:750rpx;height:425rpx;">
+          <image lazy-load="true" src="https:{{VideoImg}}" class="videoPoster" style="width:750rpx;height:425rpx;"></image>
+          <image lazy-load="true" src="https://cache.jiangxinxiaozhen.com/WD/APP/little/play.png" class="playBtn" data-id="videofooter" catchtap='videoPlay' style="margin:168rpx auto;display:block;"></image>
+        </view>
+        <video src="https:{{Video}}" poster="{{VideoImg}}" show-mute-btn="true" data-id="videofooter" id="videofooter" controls="true" style="width:750rpx;height:425rpx;" show-center-play-btn="true" wx:if='{{videofooter}}'>
+        </video>
+      </view>
+      <rich-text nodes='{{html}}'></rich-text>
+    </view>
+    <!-- 规格 -->
+    <rich-text wx:if="{{p_toggle==1}}" nodes='{{productRule}}' style="min-height:500rpx;"></rich-text>
+    <!--推荐商品-->
+    <view class="RecCom-wrap" wx:if="{{RecShow && RecCom.list.length>0}}">
+      <template is="RecCom" data="{{list:RecCom.list,title:RecCom.productMsg}}"/>
+    </view>
+  </view>
+  <view class="footer">
+    <view wx:if='{{!collage&&product.ProductType!=1}}'>
+      <navigator open-type='switchTab' url="/pages/home/shop/shop" class="homeImg" hover-class='none'>
+        <image src="/pages/image/home.png" mode='widthFix'></image>
+        <text>首页</text>
+      </navigator>
+      <navigator open-type='switchTab' url="/pages/shoppingcart/shoppingcart" class="shopingCart" hover-class='none'>
+        <text class="num" wx:if="{{cartnum>0}}">{{cartnum}}</text>
+        <image src="/pages/image/cart.png" mode='widthFix'></image>
+        <text>购物车</text>
+      </navigator>
+      <block wx:if="{{product.PurState==1&&product.sumstock>0&&product.sumstatus>0}}">
+        <view class="buy" style="background:#999;border-radius:40rpx 0 0 40rpx; margin-left:10rpx;">
+          <text>即将开抢</text>
+        </view>
+        <view class="addCart" bindtap='addShow' style="border-radius:0 40rpx 40rpx 0;margin-left:0;background:#eb5902;">
+          <text>加入购物车</text>
+        </view>
+      </block>
+      <block wx:if="{{product.sumstock>0&&product.sumstatus>0&&(product.PurState==0||product.PurState==2)&&!(product.MarketStatus==0&&product.IsMarketProduct==1)}}">
+        <view class="addCart" bindtap='addShow'>
+          <text>加入购物车</text>
+        </view>
+        <view class="buy" bindtap='buynow'>
+          <text>立即购买</text>
+        </view>
+      </block>
+      <view wx:if="{{product.sumstock==0}}" class="buy" style="background:#999;width:428rpx;border-radius:40rpx ; margin-left:18rpx;">
+        <text>已售罄</text>
+      </view>
+      <view wx:if="{{product.sumstatus==0}}" class="buy" style="background:#999;width:428rpx;border-radius:40rpx; margin-left:18rpx;">
+        <text>暂不销售</text>
+      </view>
+      <view wx:if="{{product.MarketStatus==0&&product.IsMarketProduct==1}}" class="buy" style="background:#999;width:428rpx;border-radius:40rpx; margin-left:18rpx;">
+        <text>已结束</text>
+      </view>
+
+    </view>
+    <view class="" wx:if='{{collage&&product.GroupLogStatus!=1}}'>
+      <navigator open-type='switchTab' url="/pages/home/shop/shop" class="homeImg" hover-class='none'>
+        <image src="/pages/image/home.png" mode='widthFix'></image>
+        <text>首页</text>
+      </navigator>
+      <view class="addCart" style="background:#e0b673;float:left;width:279rpx;margin-left:10rpx;" bindtap='normalbuy'>
+        <text>原价购买￥{{product.gold_sprice}}</text>
+      </view>
+      <view wx:if="{{product.sumstock>0&&product.GroupStatus==1}}" class="buy" style="background:#eb5902;float:left;width:279rpx;" bindtap='creategroup'>
+        <text>发起拼团￥{{product.GroupPrice}}</text>
+      </view>
+      <view wx:if="{{product.sumstock==0||product.GroupStatus==0}}" class="buy" style="background:#999;float:left;width:279rpx;">
+        <text>拼团已结束</text>
+      </view>
+      <view wx:if="{{product.GroupStatus==2}}" class="collageBtn-footer buy column-between" style="background:#999;float:left;width:279rpx;height:80rpx;padding:10rpx 0;line-height:30rpx;">
+        <text style="font-size:30rpx;"><text wx:if="{{saleTime.d>0}}">{{saleTime.d}} 天 </text>{{saleTime.h}}：{{saleTime.s}}：{{saleTime.m}}后</text>
+        <text style="font-size:24rpx;">拼团即将开始</text>
+      </view>
+    </view>
+
+
+    <view class="" wx:if="{{collage&&product.GroupLogStatus==1}}">
+      <navigator open-type='switchTab' url="/pages/home/shop/shop" class="homeImg" hover-class='none'>
+        <image src="/pages/image/home.png" mode='widthFix'></image>
+        <text>首页</text>
+      </navigator>
+
+      <view class=" collageBigBtn" catchtap='creategroup'>
+        <image lazy-load="true" wx:if="{{product.GroupLogUserHead.length>0}}" src="{{product.GroupLogUserHead}}"></image>
+        <view class="column-between collageBigBtn-text" style="text-align:{{product.GroupLogUserHead.length>0?'left':'center'}};">
+          <text>继续参与{{product.GroupLogNickName}}的拼团</text>
+          <text>剩余时间{{collageArr[grouplog_num].pay_countdown}}结束</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="row-between" wx:if="{{product.ProductType==1&&!collage&&product.StarStatus<2}}">
+      <navigator open-type='switchTab' url="/pages/home/shop/shop" class="homeImg" hover-class='none'>
+        <image src="/pages/image/home.png" mode='widthFix'></image>
+        <text>首页</text>
+      </navigator>
+      <navigator open-type='switchTab' url="/pages/shoppingcart/shoppingcart" class="shopingCart" hover-class='none'>
+        <text class="num" wx:if="{{cartnum>0}}">{{cartnum}}</text>
+        <image src="/pages/image/cart.png" mode='widthFix'></image>
+        <text>购物车</text>
+      </navigator>
+      <view class="star-footerBtn" style="background:{{product.StarBtnColor}}">
+        <text style="font-size:32rpx;">{{(product.StarStatus==1?"立即支付定金￥":"即将开始付定金￥")+product.StarAmout}}</text>
+        <text>可抵扣尾款￥{{product.DisAmount}}</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+<view class="shade" wx:if="{{shade==true}}">
+  <view class="shade-text-wrap">
+    <view class="shade-title">预定规则</view>
+    <scroll-view class="shade-scroll" scroll-y="{{true}}">
+      <block wx:for="{{product.RuleDes}}">
+        <view class="shade-text">{{item}};</view>
+      </block>
+    </scroll-view>
+    <view class="shade-btn" catchtap='onShade'>关闭</view>
+  </view>
+</view>
+<popup id="popup" title="促销活动" sure="确定" catch:sure="closeSale">
+  <scroll-view slot='content' scroll-y="true" class="saleDetailMore">
+    <block wx:for="{{saleList}}" wx:for-item="item">
+      <view>{{item}}</view>
+    </block>
+  </scroll-view>
+</popup>
+<servel id="servel" title="服务" sure="关闭" catch:sure="closeSale">
+  <scroll-view slot='content' scroll-y="true" class="saleDetailMore">
+    <block wx:for="{{serveList}}" wx:key="serveList1">
+      <view class="shade-text">
+        <view class='serveName'>
+          •{{item.ProductServiceName}}
+        </view>
+        <view>{{item.ProductServiceContent}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</servel>
+
+<!-- 参团列表弹出层 -->
+<view class="collageMore-bg" wx:if="{{collageMoreShow}}">
+  <view style="position:absolute;top:0;left:0;width:100%;height:100%;" catchtap='onCollageMoreClose'></view>
+  <view class="collageMore-list-wrap">
+    <icon type="clear" size="40rpx" catchtap='onCollageMoreClose'></icon>
+    <text class="collageMore-bottom"></text>
+    <view class="collageMoreH">正在拼团</view>
+    <scroll-view scroll-y="true" style="height:{{collageMoreH}}px">
+      <view class="collageMore-list">
+        <block wx:for="{{collageArr}}" wx:for-index="index">
+          <view class="collageMore row-between row-center" data-index="{{index}}" catchtap='onJoin' data-grouplogid="{{item.GroupLogId}}">
+            <view class="row-center">
+              <image lazy-load="true" src="{{item.Head}}"></image>
+              <view class="column-between">
+                <text>{{item.NickName}}</text>
+                <text style="color:#999;font-size:24rpx;">还差 {{item.Number}} 人，剩余 {{item.pay_countdown}} 结束</text>
+              </view>
+            </view>
+            <view class="collageBtn">去参团</view>
+          </view>
+        </block>
+        <view wx:if="{{collageArr.length>=10}}" class="noMore">只显示10个正在拼团的人</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 参团弹出层 -->
+<view class="attendCollage-bg" wx:if="{{attendShow}}">
+  <view style="position:absolute;top:0;left:0;width:100%;height:100%;" catchtap='onHideJoinWindow'></view>
+  <view class="attendContent">
+    <view class="attendTitle">参与{{collageArr[grouplogindex].NickName}}的拼团</view>
+    <view class="attendTime">仅剩
+      <text style="color:#eb5902;">{{collageArr[grouplogindex].Number}}个</text>名额，
+      <text>{{collageArr[grouplogindex].pay_countdown}}</text>后结束</view>
+    <view class="attendImage-wrap row-center">
+      <view class="sirTop">
+        <image lazy-load="true" src='{{collageArr[grouplogindex].Head}}'></image>
+      </view>
+      <block wx:if="{{collageArr[grouplogindex].Number>2}}">
+        <image lazy-load="true" src="https://cache.jiangxinxiaozhen.com/WD/public/more-user.png"></image>
+        <image lazy-load="true" src="https://cache.jiangxinxiaozhen.com/WD/public/no-user.png"></image>
+      </block>
+      <block wx:for="{{collageArr[grouplogindex].Number}}" wx:if="{{collageArr[grouplogindex].Number<=2}}">
+        <image lazy-load="true" src="https://cache.jiangxinxiaozhen.com/WD/public/no-user.png"></image>
+      </block>
+
+    </view>
+    <view class="attendBtn" catchtap='onJoinNow'>立即参团</view>
+  </view>
+</view>
+<view class="addCart-wrap" wx:if="{{addView==true}}">
+  <view style="height:100%;width:100%;" catchtap='addhide'></view>
+  <view class="addCart-content" style="height:{{height*0.6}}rpx">
+    <view class="closeWin" catchtap='addhide'>×</view>
+    <view class="addCart-pro-text">
+      <image lazy-load="true" src='{{modelproduct.img}}'></image>
+      <view class="addCart-pro-price">
+        <text>{{product.productname}}</text>
+        <view class="addPrice-wrap">
+          <text class="addPrice" wx:if="{{collage}}">¥{{product.GroupPrice}}</text>
+          <text class="addPrice" wx:if="{{!collage&&product.IsMarketProduct==0}}">¥{{modelproduct.sprice}} <text  style="color:#ff9402; font-size:24rpx;"wx:if="{{product.IsVipBuy==1}}">¥{{modelproduct.gold_price}}<text style="padding:2rpx 10rpx;border-radius:3px;color:#fff;background:#ff9402; font-size:20rpx;margin-left:5px;">小镇会员</text></text>
+          </text>
+          <view class="row-center weelySprice" wx:if="{{!collage&&product.IsMarketProduct==1}}">
+            <text style="color:#e02e24">¥{{modelproduct.gold_price}}</text>
+            <text style="color:#303030;padding-left:20rpx;font-size:26rpx;">小镇价 ¥{{modelproduct.sprice}}</text>
+          </view>
+        </view>
+        <text style="color:#303030;font-size:26rpx;">已选：{{modelproduct.Color+modelproduct.Hue}}</text>
+      </view>
+    </view>
+    <scroll-view scroll-y="true" style="height:{{height*0.6-108-275}}rpx" class="addScroll">
+      <view class="addScroll-content">
+        <view class="addRule">
+          <view>规格：</view>
+          <block wx:for="{{modelcolor}}">
+            <text catchtap='colorbtn' data-color="{{item.Color}}" data-status='{{item.Status}}' class="{{item.Status==1?'active':(item.Status==2?'':'gray')}}">{{item.Color}}</text>
+          </block>
+        </view>
+        <view class="addcolor" wx:if="{{modelhue.length>0}}">
+          <view>尺码：</view>
+          <block wx:for="{{modelhue}}">
+            <text catchtap='huebtn' data-hue="{{item.Hue}}" data-status='{{item.Status}}' class="{{item.Status==1?'active':(item.Status==2?'':'gray')}}">{{item.Hue}}</text>
+          </block>
+        </view>
+        <view class="addNum">
+          <view>数量
+            <text wx:if="{{modelproduct.LimitCount>0}}" style="font-size:24rpx;color:#eb5902;">{{modelproduct.LimitCountTips}}</text>
+          </view>
+          <view>
+            <text data-num="{{addnum}}" bindtap='subtract'>-</text>
+            <input value='{{addnum}}' class="inp-add" type='number' bindinput='checklimit' data-limitcount='{{modelproduct.LimitCount}}' data-limitcounttips='{{modelproduct.LimitCountTips}}'></input>
+            <text data-num="{{addnum}}" data-limitcount='{{modelproduct.LimitCount}}' data-limitcounttips='{{modelproduct.LimitCountTips}}' bindtap='add'>+</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <button data-sku="{{modelproductcode}}" data-action="{{action}}" data-limitcount='{{modelproduct.LimitCount}}' data-qty="{{addnum}}" data-stock="{{modelproductstock}}" catchtap='subbtn'>确定</button>
+  </view>
+
+</view>

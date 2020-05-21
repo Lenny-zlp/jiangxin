@@ -1,0 +1,16 @@
+.inviteNew-wrap{width:100%;overflow:hidden;border-bottom:18rpx solid #eee;}
+.inviteImg{width:100%;height:300rpx;display:block;}
+swiper{width:100%;height:50rpx;background:#fff6da;}
+swiper-item{width:100%;line-height:50rpx;text-align: center; color:#b19438;font-size:24rpx;}
+.shareBtn{width:600rpx;height:90rpx;border-radius:45rpx !important;background:#f3534b;color:#fff;font-size:32rpx;line-height:90rpx;margin:10rpx auto;}
+.invite-tab{width:100%;padding:40rpx 0;display:flex;flex-direction:row;justify-content: space-around;position:relative;}
+.invite-tab::after{content:"";position:absolute;top:50%;margin-top:-15rpx;height:30rpx;width:1rpx;background:#777;left:50%; }
+.invite-tab>text{color:#999;}
+.invite-tab>.active{color:#333;position:relative;}
+.invite-tab>.active::after{position:absolute;width:100%;height:1rpx;background:#333;content:'';left:0;bottom:0;}
+.invite-list{width:700rpx;padding:30rpx 25rpx;border-top:1px solid #eee;align-items: center;}
+.invite-list>view{height:58rpx;}
+.invite-list>text{height:58rpx;line-height:58rpx;}
+.invite-list image{width:58rpx;height:58rpx;border-radius: 50%;margin-right:20rpx;}
+.rulePage{width:130rpx;height:46rpx;text-align: center;line-height: 46rpx;background:rgba(0,0,0,.4);color:#fff;font-size:26rpx;border-radius: 23rpx;position:absolute;right:20rpx;top:20rpx;}
+

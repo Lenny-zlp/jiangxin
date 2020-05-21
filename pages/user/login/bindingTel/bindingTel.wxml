@@ -1,0 +1,33 @@
+<view class="headBg" style="padding-top:{{topH}}px">
+  <navigator url="/pages/home/shop/shop" class="backBtn" open-type='switchTab'></navigator>
+  <text class="headTitle" style="top:{{topH}}px;font-size:{{fontSize}}px">绑定手机号</text>
+</view>
+
+<block wx:if="{{showInp}}">
+  <view class="title-top">为了保证账号安全，请绑定手机号</view>
+  <view class="login-wrap" wx:if="{{!contentShow}}">
+    <view style="overflow:hidden; margin-bottom:20rpx;">
+      <view class="inpt row-between">
+        <input type="number" class="tel" value='{{u_phone}}' placeholder="请输入手机号" placeholder-style="color:#999" bindinput="userNameInput"></input>
+      </view>
+      <view class="inpt row-between">
+        <input type="text" value='{{u_code}}' class="checknum" placeholder="请输入验证码" placeholder-style="color:#999" bindinput="userCodeInput"></input>
+        <button bindtap="_getphonecode" disabled='{{u_codedis}}' class="checkBtn" style="color:{{btnColor}};background-color:{{btnBg}}">{{btn}}</button>
+      </view>
+    </view>
+    <button class="loginBtn" style="opacity:{{opacity}}" bindtap="_bindPhoneCode">绑定</button>
+    <view class="orLine row-center">
+      <text></text>
+      <text>或</text>
+      <text></text>
+    </view>
+
+    <button class="wxloginBtn" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">微信手机号授权</button>
+  </view>
+</block>
+<view class="login-wrap">
+  <image src="/pages/image/jxxzicon.png" mode="widthFix" class="logoPng"></image>
+  <button class="wxloginBtn" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">微信手机号授权</button>
+  <view class="title-top" style="font-weight:400;margin-top:30rpx;color:#999;font-size:28rpx;">为了保证账号安全，请绑定手机号</view>
+   <!-- <view class="title-top" style="font-weight:400;margin-top:60rpx;color:#999;font-size:28rpx;"  catchtap='closeWeb'>暂不绑定</view> -->
+</view>

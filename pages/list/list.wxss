@@ -1,0 +1,110 @@
+@import"../template/template.wxss";
+.search_view{
+  padding: 15rpx 10rpx;
+  border-bottom:1rpx solid #f4f4f4;
+}
+.search_text{
+    border-radius: 10rpx;
+    background: #f4f4f4 url(https://cache.jiangxinxiaozhen.com/WD/shop/little/serch.png) no-repeat left 2% center;
+    background-size: 18px;
+    color: #aaa;
+    box-sizing: border-box;
+    height: 60rpx;
+    padding: 5px 5px 5px 7%;
+    font-size: 26rpx;
+    text-align: center;
+}
+.main{
+   width:750rpx;  
+   overflow: hidden;
+}
+.list_wrap{width:100%;overflow:hidden;display: flex;flex-direction: row;}
+.navigation_view{
+
+  width: 18%;
+}
+.navigation_view view{
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: rgb(66, 63, 63)
+}
+.category_active{
+  color:coral !important;
+}
+.list_view{
+  width:82%;
+  overflow: hidden;
+  background-color: rgb(230, 229, 229);
+  border-left:1rpx solid #f4f4f4;
+  box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+}
+.list_view scroll_view{width:100%;}
+.image_view{
+  float:left;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;     
+    border-bottom:1px solid #f4f4f4;
+    min-height:280rpx;
+     box-sizing:border-box;
+    -webkit-box-sizing: border-box;   
+  }
+.list_view image{
+  float:left;
+ width: 280rpx;
+ height: 280rpx;
+ margin:10rpx auto;
+ display: block;
+}
+
+.scroll_view{
+  width:750rpx;
+  overflow:hidden;
+  height:1200rpx;
+}
+.productRight{
+  float:right;
+  width:calc(100% - 300rpx);
+  height: 240rpx;
+  overflow: hidden;
+  padding:30rpx 0;
+}
+.product_name,.product_othername{
+  width: 100%;
+  padding:30rpx 0 10rpx;
+  box-sizing: border-box; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size:28rpx;
+  color:#303030;
+  height:68rpx;
+}
+.product_othername{padding:0 10rpx 30rpx 0; font-size:26rpx;color:#999;}
+.product_price{
+  padding: 10rpx 0;
+  color:#eb5902;  
+}
+.product_price .vipSpan{display:inline-block;width: 60rpx;height:30rpx;position:relative;top:6rpx;}
+.more{
+  clear: both;
+  line-height:70rpx;
+  text-align: center;
+  color:#999;
+}
+.search-wrap{width:100%;height:100%;background:#fff;position:absolute;top:0;left:0;z-index: 5;padding:0 25rpx;box-sizing: border-box;}
+.search-top{width:100%;background:#fff;padding:15rpx 0;box-sizing: border-box; align-items: center;}
+.search-border{width:640rpx;background:#f4f4f4;border-radius: 5px;padding:15rpx 0;}
+.search-border icon{padding:0 20rpx;}
+.search-border input{width:500rpx;}
+.search-top>text{display:block;width:100rpx;text-align: right;line-height:50rpx;}
+.recommend-wrap{padding-top:30rpx;width:100%;}
+.recTitle{color:#666;padding-bottom:15rpx;font-size:30rpx;}
+.recommend{width:100%;overflow:hidden;flex-wrap: wrap;}
+.recommend navigator{padding:4rpx 20rpx;background:#f4f4f4;color:#505050;border-radius: 3px;margin-right:20rpx;margin-bottom:20rpx;}
+.recommendlist{display:flex;flex-direction: column-reverse;}
+.recommendlist navigator{width:100%;padding:20rpx 0;border-bottom:1px solid #f4f4f4;display:block;color:#666;font-size:28rpx;}
+.history{width:100%;height:400rpx;}
+.clearSearch{width:200rpx;line-height:50rpx;text-align: center;margin:20rpx auto;color:#666;background: #f4f4f4;border-radius: 5px;}

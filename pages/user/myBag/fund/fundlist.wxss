@@ -1,0 +1,5 @@
+page{background:#f8f8f8;}
+.mybag-wrap{background:#eee;padding-top:10rpx;width:750rpx;overflow:hidden;}
+.fund,.fundlist{padding:10rpx 25rpx;width:700rpx;background:#fff;border-bottom:1px solid #eee;line-height:90rpx;}
+.fundlist{background:#fff url(https://cache.jiangxinxiaozhen.com/Content/wd/more1.png)no-repeat right 25rpx center;background-size:14rpx 24rpx;}
+.fundlist,.fund text{color:#666;font-size:28rpx;}

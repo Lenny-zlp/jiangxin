@@ -1,0 +1,8 @@
+.standard-wrap{width:100%;overflow:hidden;border-bottom:8rpx solid #eee;}
+.standard-wrap>view.row-center{padding:25rpx;height:60rpx;}
+.ruleImage{width:60rpx;height:60rpx;margin-right:15rpx;}
+.standard-wrap>view.row-center>text{font-size:30rpx;margin-right:15rpx;}
+.list{width:100%;box-sizing: border-box;padding:25rpx 50rpx 25rpx 100rpx;background:#eff8ff url(https://cache.jiangxinxiaozhen.com/WD/APP/standard/rule1_1.png) no-repeat left 50rpx center;background-size:30rpx;color:#666;}
+.list:nth-child(2n){background-color:#fff;}
+.list2{background-image:url(https://cache.jiangxinxiaozhen.com/WD/APP/standard/rule2_1.png)}
+.list3{background-image:url(https://cache.jiangxinxiaozhen.com/WD/APP/standard/rule2_1.png)}

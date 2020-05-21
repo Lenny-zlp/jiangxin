@@ -1,0 +1,29 @@
+<view class="seach-wrap row-between row-center">
+  <form bindsubmit="formSubmit" style="width:85%;">
+    <view class="seach-bor row-between row-center">
+      <input type="text" name="FullName">{{FullName}}</input>
+     
+      <icon type='search' size="34rpx" color="#999"></icon>
+       <button form-type="submit" class="searchBtn"></button>
+    </view>
+  </form>
+  <navigator hover-class='none' url="/pages/shoppingcart/address/list/edit?addressId=&UserId=&fullname=&address=&provinceid=&cityid=&areaid=&provincename=&cityname=&areaname=&mobilephone=&phone=&postalcode=&type=0&isdefault=0&source={{source}}&ordercode={{ordercode}}">添加</navigator>
+</view>
+<view class="address-list-wrap" style="padding-top:8rpx;">
+  <block wx:for="{{address}}" wx:key="address">
+    <view class="address row-between row-center">
+      <view style="width:115rpx;;padding-right:10rpx;">
+        <text>{{item.FullName}}</text>
+        <text wx:if="{{item.IsDefault=='1'}}" style="color:#eb5902;">默认</text>
+      </view>
+      <view catchtap='onToUrl' data-addressid='{{item.AddressId}}' class="detail"style="width:500rpx;">
+        <text>{{item.Mobile}}</text>
+        <text style="color:#999;">{{item.Province+item.City+item.Area+item.Address}}</text>
+      </view>
+      <view style="width:125rpx;" class='column-center'>
+        <navigator class="editImg" hover-class="none" url="/pages/shoppingcart/address/list/edit?addressId={{item.AddressId}}&UserId={{item.UserId}}&fullname={{item.FullName}}&address={{item.Address}}&provinceid={{item.ProvinceId}}&cityid={{item.CityId}}&areaid={{item.AreaId}}&provincename={{item.Province}}&cityname={{item.City}}&areaname={{item.Area}}&mobilephone={{item.Mobile}}&phone={{item.Telphone}}&postalcode={{item.ZipCode}}&type=1&isdefault={{item.IsDefault}}&source={{source}}&ordercode={{ordercode}}">
+        </navigator>
+      </view>
+    </view>
+  </block>
+</view>

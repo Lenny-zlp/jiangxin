@@ -1,0 +1,41 @@
+<scroll-view class="scrolltop" scroll-y="true" style="height:{{screenH}}px" bindscroll="scrollMenu">
+  <view class="backBtn column-center" style="top:{{top-44}}px" bindtap='backLastpage'>
+  </view>
+  <view style="height:{{top}}px" class="backTop" wx:if="{{topshow}}"></view>
+  <view class="topBg">
+    <image src="{{list.length>0?datalist.banner:datalist.EmptyImg}}" mode='widthFix'></image>
+  </view>
+  <image mode="widthFix" wx:if="{{list.length==0}}" src="https://cache.jiangxinxiaozhen.com/WD/shop/little/emptybill.jpg" class="emptybill"></image>
+  <view class="boxwrap">
+    <block wx:for="{{list}}">
+      <navigator class="list-wrap" hover-class='none' url='/pages/product/product?sku={{item.ProductCode}}'>
+        <view class="productWrap">
+          <image src="{{item.Img}}" mode='widthFix'></image>
+          <text class="saleOver" wx:if="{{item.state==1 && item.Stock==0}}">已售馨</text>
+          <view class="productDetail">
+            <text>{{item.ProductName}}</text>
+            <view class="textWrap">
+              <text>{{item.remarks}}</text>
+              <view class="vipPrice row">
+                <view>会员价
+                  <text>¥<text style="font-size:36rpx;">{{item.ActivityPrice}}</text> {{item.smallest}}</text>
+                </view>
+                <text>小镇价 ¥{{item.SPrice}}</text>
+              </view>
+            </view>
+            <view class="hrefBtn column-center" wx:if="{{item.state!=1}}">
+              <view>即将开抢</view>
+            </view>
+            <view class="hrefBtn column-center" style="background:#bbb" wx:if="{{item.state==1 && item.Stock==0}}">
+              <view>已售馨</view>
+            </view>
+            <view class="hrefBtn column-center" wx:if="{{item.state==1 && item.Stock>0}}">
+              <view>立即购买</view>
+              <text>仅剩{{item.Stock}}件</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</scroll-view>

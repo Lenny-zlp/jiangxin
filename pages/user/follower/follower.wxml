@@ -1,0 +1,11 @@
+<block wx:for="{{followerlist}}">
+  <view class="follower-wrap">
+    <view class="follower row-center">
+      <image src="{{item.Head}}"></image>
+      <view class="follower-user column-between">
+        <text>{{item.UserName}}</text>
+        <text>{{item.RegTime}}</text>
+      </view>
+    </view>
+  </view>
+</block>

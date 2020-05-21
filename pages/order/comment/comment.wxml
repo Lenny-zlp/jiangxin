@@ -1,0 +1,30 @@
+<form bindsubmit="submitMessage">
+  <block wx:for="{{list}}" wx:for-index="i" wx:for-item="product" wx:key="list">
+    <view class="reviews-wrap" data-name="{{product.ProductName}}" data-sku="{{product.ProductCode}}">
+      <view class="row-center">
+        <image src="{{product.Img}}" class="productImg"></image>
+        <textarea type='text' value='{{product.content}}' bindinput="checkText" data-sku="{{product.ProductCode}}" name='{{product.ProductCode}}' placeholder="亲！宝贝是否满意~" class="reviewText" show-confirm-bar="true"></textarea>
+      </view>
+      <view class="reviewImage-wrap">
+        <block wx:for="{{product.postimg}}" wx:key="product">
+          <view class="imageWrap">
+            <image src="{{item.localimg}}" bindtap="previewImage"  data-sku="{{product.ProductCode}}" data-src="{{item.localimg}}"></image>
+            <text catchtap='deleteImage' class="clearBtn" data-sku="{{product.ProductCode}}" data-index='{{index}}'></text>
+          </view>
+       </block>
+        <button wx:if="{{product.postimg.length<5}}" catchtap='fileImg' data-sku="{{product.ProductCode}}" class="chooseImgBtn"></button>
+      </view>
+      <view class="row-center star-wrap">
+        <text>描述相符</text>
+        <view catchtap='checkStar' data-ind="{{product.ProductCode}}">
+          <block wx:for="{{product.starArry}}" wx:for-item='v' wx:for-index="ind" wx:key="star">
+            <image wx:if="{{v==1}}" data-index="{{ind}}" src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png"></image>
+            <image wx:if="{{v==0}}" data-index="{{ind}}" src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/grayStar.png"></image>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+  <button form-type='submit' class="submitBtn" >发表评论</button>
+</form>
+<canvas canvas-id="photo_canvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-1000px;top:-1000px;"></canvas>

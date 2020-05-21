@@ -1,0 +1,197 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.0",
+	"appid": "wxc4f4398d9d3dbe86",
+	"projectname": "Wx_xiaochengxu",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "登录",
+					"pathName": "pages/user/inviteNew/inviteNew/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "邀新",
+					"pathName": "pages/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "团购",
+					"pathName": "pages/collage/collage",
+					"query": "v=v2&shopid=23",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "首页",
+					"pathName": "pages/home/shop/shop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请码",
+					"pathName": "pages/user/invitenum/invitenum",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "开通金卡",
+					"pathName": "pages/user/recommend/goldcardmesg/goldcardmesg",
+					"query": "productcode=0000403",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "支付合同",
+					"pathName": "pages/user/recommend/payGoldcard/payGoldcard",
+					"query": "id=29639",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "绑定手机",
+					"pathName": "pages/user/login/wxlogin/wxlogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "原登录",
+					"pathName": "pages/user/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "拼团成功",
+					"pathName": "pages/collage/paysuccess/paysuccess",
+					"query": "OrderCode=419042400041",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "拼团详情",
+					"pathName": "pages/user/user",
+					"query": "OrderCode=419042900039&v=0",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "绑定手机号",
+					"pathName": "pages/user/login/wxlogin/wxlogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定手机号",
+					"pathName": "pages/user/login/bindingNum/bindingNum",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "绑定手机号",
+					"pathName": "pages/user/login/bindingNum/bindingNum",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定手机号",
+					"pathName": "pages/order/orderdetail/detail",
+					"query": "ordercode=419050900953",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "单品页面",
+					"pathName": "pages/product/product",
+					"query": "productcode=0000002",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "资产",
+					"pathName": "pages/user/myBag/fund/stream/streamlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "拼团列表",
+					"pathName": "pages/collage/collage",
+					"query": "v=v2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "每周一品",
+					"pathName": "pages/home/weekly/weekly",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/purchase/purchase",
+					"pathName": "pages/purchase/purchase",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/login/bindingTel/bindingTel",
+					"pathName": "pages/user/login/bindingTel/bindingTel",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+<!-- <wxs module="convert_u" src="../../../until/convertUtil.wxs"></wxs> -->
+<radio-group style="display:block;width:100%;overflow:hidden;padding-bottom:120rpx;">
+  <block wx:for="{{list}}" wx:key="list">
+    <view class="checkWrap row-between">
+      <radio class="checkedBg" size='10rpx' color='#eb5902' checked='{{voucherId==item.Cardid}}'></radio>
+      <view class="voucherWrap">
+        <view catchtap='onBack' data-paidbycardisenabled='true' data-giftcardno='{{item.Cardid}}' class="voucherList row-between">
+          <view class="voucherL column-center">
+            <text>{{item.VoucherPrice}}</text>
+          </view>
+          <view class="voucherR column-center">
+            <text>{{item.BatchName}}</text>           
+          </view>
+        </view>
+        <view class="saleTime">{{item.Begintime}} ~ {{item.Endtime}}</view>
+      </view>
+    </view>
+  </block>
+</radio-group>
+<view catchtap='onBack' data-paidbycardisenabled='false' data-giftcardno='-1' class="voucherBtn">
+  <text>不使用小镇币</text>
+</view>

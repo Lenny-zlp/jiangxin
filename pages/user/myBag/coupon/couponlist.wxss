@@ -1,0 +1,20 @@
+.couponTab{width:100%;height:80rpx;display:flex;flex-direction: row;justify-content: space-around;align-items: center;}
+.couponTab>text{position: relative;width:33.33%;text-align: center;color:#666;line-height:78rpx;height:78rpx;}
+.couponTab>text.active{color:#eb5902;}
+.couponTab>text.active::after{position:absolute;left:20%;bottom:0;content:'';width:60%;height:2rpx;background:#eb5902;}
+scroll-view{width:100%;padding:0 25rpx;box-sizing: border-box;background:#eee;}
+.couponlist{width:100%;background:#fff;overflow:hidden;margin-top:18rpx; position:relative;}
+.coupon-top{width:100%;background: linear-gradient(left, #fd7a3b,#fbb04b);background: -webkit-linear-gradient(left, #fd7a3b,#fbb04b);height:154rpx;display:flex;flex-direction: row;align-items: center;}
+.coupon-left{width:216rpx;height:154rpx;border-right:1px dashed rgba(255,255,255,.6);box-sizing: border-box;display:flex;flex-direction: column;justify-content: center;align-items: center;}
+.coupon-left text,.coupon-right text{color:#fff;}
+.coupon-right{display:flex;flex-direction: column;justify-content: center;padding-left:18rpx;height:154rpx;}
+.couponText{width:100%;text-align: center;padding:15rpx 25rpx;box-sizing: border-box;}
+.couponText.bg,.couponText.bgTop{background:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/arrowB.png) no-repeat right 25rpx center;background-size:24rpx 12rpx;padding-right:60rpx;}
+.bgGaryColor{background:#999 url(https://cache.jiangxinxiaozhen.com/WD/shop/little/used.png) no-repeat right 80rpx center;background-size:120rpx 92rpx;}
+.bgImage{background-image:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/expire.png)}
+.couponText text{color:#999;display:block;width:100%;overflow:hidden;text-align: center;}
+.bg text{text-overflow: ellipsis;white-space: nowrap;}
+.couponText.bgTop{background-image:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/arrowT.png);background-position: right 25rpx bottom 15rpx;padding-right:25rpx;}
+.bgTop text{text-align: justify;}
+.clearCoupon{position:absolute;right:15rpx;top:0;width:50rpx;height:50rpx;text-align: center;line-height:50rpx;color:#fff;font-size:50rpx;font-weight: 300;opacity: 0.6;}
+

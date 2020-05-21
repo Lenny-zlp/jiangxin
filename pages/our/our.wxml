@@ -1,0 +1,15 @@
+<!--pages/our/our.wxml-->
+<view class="main">
+  <block wx:for="{{list}}" wx:key="list">
+    <view class="ourlist-wrap">
+      <navigator hover-class='none' class="ourlist" url="/pages/our/ourlist/detail?code=33009&loginuserid=133926&messid={{item.MessID}}&shopcode=kSZ7Nk8O">
+        <view class="ourlist-top row-center">
+          <image src="{{item.UserHead}}"></image>
+          <text>{{item.NickName}}</text>
+        </view>
+        <image src="{{item.Img}}"></image>
+        <text class="ourlist-title">{{item.Title}}</text>
+      </navigator>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,23 @@
+<template name="discuss">
+  <view class="discussList-template">
+    <view class="row-between">
+      <view class="discussUser-template row-center">
+        <image src="{{head}}" class="userHeader-template" lazy-load="true"></image>
+        <text>{{discussName}}</text>
+        <block wx:for="{{starArr}}" wx:for-item="i" wx:key="star">
+          <image wx:if="{{i==1}}" src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png"></image>
+          <image wx:if="{{i==0}}" src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/grayStar.png"></image>
+        </block>
+      </view>
+      <text style="color:#999">{{addtime}}</text>
+    </view>
+    <view class="discussText-template">{{content}}</view>
+    <view class="discussImage-template">
+      <block wx:for="{{Imgs}}" wx:for-index="int">
+        <image src="{{item.img}}" lazy-load="true" data-img="{{item.img}}" data-i="{{int}}" mode="center"></image>
+      </block>
+    </view>
+   
+    <view class="discussColor-template" style="font-size:22rpx;color:#999;">{{color}}</view>
+  </view>
+</template>

@@ -1,0 +1,9 @@
+@import "../voucher/voucherlist.wxss";
+.voucherL text{font-size:50rpx;}
+.checkedBg{transform:scale(0.6);}
+.voucherBtn{height:100rpx;width:100%;box-sizing: border-box;position:fixed;bottom:0;left:0;z-index: 10;background: #fff;padding-top:16rpx;}
+.voucherBtn text{width:90%;height:70rpx;text-align: center;line-height:70rpx;border:1px solid #eb5902;color:#eb5902;border-radius: 5px;display:block;margin:0 auto;}
+.voucherL text::before{bottom:6rpx;}
+.checkWrap{width:100%;overflow: hidden;padding:0 2%;box-sizing: border-box;margin:20rpx auto 40rpx;height:240rpx;align-items: center;}
+.voucherWrap{margin:0 !important ;}
+.voucherList {margin:0;}

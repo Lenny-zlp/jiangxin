@@ -1,0 +1,220 @@
+@import"../template/template-discuss.wxss";
+@import"../template/template-recCom.wxss";
+.GroupPersons{position:absolute;top:60rpx;right:60rpx;width:80rpx;height:80rpx;border-radius: 100%;text-align: center;line-height:80rpx;background:#eb5902;color:#fff;z-index: 4;}
+page{background:#eee;}
+.page-wrap{padding-bottom:96rpx;}
+.video-wrap{position:absolute;top:0;left:0;width:750rpx;height:750rpx;display:flex;flex-direction: column;justify-content: center;align-items: center;}
+.playBtn{width:90rpx;height:90rpx;position: relative;z-index: 1;}
+.video-wrap video{width:750rpx;height:750rpx;}
+.backplay{background:#eb5902;color:#fff;padding:2rpx 12rpx;border-radius: 6rpx;float:right;margin-top:60rpx;margin-right:60rpx;}
+.videoPoster{position:absolute;width:100%;left:0;top:0;}
+.tabVideo{position:absolute;top:580rpx;left:0;width:100%;height:80rpx;display: flex;flex-direction: row;justify-content: center;align-items: center;z-index: 2}
+.tabVideo text{display:block;margin:0 15rpx;width:80rpx;height:44rpx;border-radius: 22rpx;background:#f8f8f8;color:#666;text-align: center;line-height:44rpx;}
+.tabVideo .active{color:#fff;background:#eb5902;}
+.swiper{width:750rpx;height:750rpx}
+.swiperNum{position:absolute;top:690rpx;right:0;width:100%;height:40rpx;display: flex;flex-direction: row;justify-content: center;align-items: center;z-index: 2;}
+.swiperNum text{width:10rpx;height:10rpx;display:inline-block;margin:0 10rpx;background:rgba(0,0,0,.4);border:1rpx solid #fff;}
+.swiperNum .cur{background:#eb5902;}
+.bannerList{width:100%;height:100%;}
+.img{width:100%;height:100%;}
+.product-detail{padding:60rpx 30rpx 40rpx;width:100%;box-sizing:border-box;overflow: hidden;background:#fff;}
+.product-price{float:left;width:500rpx;display:flex; flex-direction: column;}
+.stand{float:right;width:100rpx;height:150rpx;position:relative;}
+.stand::before{position:absolute;left:-30rpx;top:0;width:1rpx;height:100%;border-left:1px dashed #dedddd;content:'';}
+.stand image{width:70rpx;float:right;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;}
+.name{font-size:32rpx; color:#505050;}
+.othername{font-size:26rpx;color:#999;padding-top:15rpx;}
+.price{font-size:40rpx;color:#eb5902;}
+.price text{font-size:30rpx;}
+.vPrice{font-size:24rpx;color:#777;text-decoration: line-through;margin-left:15rpx;}
+.collage-price-wrap{display:flex;flex-direction: row;width:100%;line-height:40rpx; align-items: center;}
+.price-wrap{display:flex;flex-direction: row;width:100%;height:50rpx;align-items:baseline;}
+.collage-price-wrap{justify-content: space-between;}
+.collage-price-left{display:flex;flex-direction:row;}
+.collage-price-left>text{line-height:40rpx;margin-left:10rpx;color:#999;margin-top:18rpx;}
+.collage-count{margin-top:6rpx;color:#999;}
+.collageText{height:92rpx;border:2rpx solid rgb(216,168,96);top:600rpx; left:40rpx;position:absolute;border-radius: 46rpx;background:#fff;width:480rpx;overflow:hidden;z-index: 6;}
+.collageText>text{float:left; width:76rpx;height:76rpx;background:rgb(216,168,96);color:#fff;font-weight: 600;font-size:42rpx;display:inline-block;text-align: center;line-height:76rpx;border-radius: 38rpx;margin:8rpx;}
+.collagePriceD{float:left;width:245rpx;height:76rpx;margin-left:10rpx;margin-top:8rpx}
+.collagePriceD text{font-size:26rpx;}
+.toCollage{padding-right:20rpx;margin-right:25rpx;height:76rpx;line-height:76rpx;margin-top:8rpx;float:right;}
+@keyframes unfold {
+  from{width:92rpx;}
+  to{width:480rpx;}
+}
+
+@keyframes shrink {
+  from{width: 480rpx;}
+  to{width: 92rpx;}
+}
+.on {
+  width: 480rpx;
+  animation: unfold 1s 1 ease-in-out;
+  overflow: hidden;
+}
+.off {
+  width: 92rpx;
+  overflow: hidden;
+  animation: shrink 1s 1 ease-in-out;
+}
+.product-numble{background:#fff;margin-top:1rpx;width:750rpx;}
+.numble-wrap,.sale-detail,.sale-serve,.star-rule{width:690rpx; line-height:86rpx;padding:0 30rpx;border-bottom:1rpx solid #eee;}
+.numble-wrap{display:flex;justify-content: space-between; }
+.numble-wrap>view{color:#777;font-size:28rpx;display:flex;flex-direction: row;}
+.sale-detail,.sale-serve{display:flex;flex-direction: row;color:#eb5902;font-size:24rpx;}
+.sale-font{width:30rpx;height:30rpx;border-radius: 3px;background :#eb5902;color:#fff;font-size:20rpx;text-align: center;line-height:30rpx;margin-top:28rpx;}
+.sale-text{padding:0 10rpx; width:638rpx; overflow:hidden;text-overflow: ellipsis;white-space: nowrap;font-size:24rpx;}
+.sale-more{width:14rpx;height:24rpx;}
+.sale-more image{width:100%;height:100%;}
+.sale-serve{color:#777;}
+.saleDetailMore{width:100%;height:560rpx;margin:10rpx auto;}
+.saleDetailMore view{padding:20rpx 20rpx;box-sizing: border-box;width:100%;}
+.sale-serve,.star-rule{background:url('https://cache.jiangxinxiaozhen.com/Content/wd/more1.png') no-repeat right 24rpx center;background-size:14rpx 24rpx;overflow:hidden; }
+.serve-font{width:90rpx;}
+.serve-list{padding:20rpx 10rpx; width:592rpx;overflow:hidden; box-sizing: border-box;}
+.serveName {display: flex;flex-direction: row;width:50%;float:left;line-height:40rpx;flex-wrap: nowrap; padding-bottom:10rpx;font-size:26rpx;}
+.serveName view{color:#eb5902;margin-right:5rpx;}
+.footer{position:fixed;bottom:0;left:0;width:100%;height:108rpx; background:#fff;font-size:24rpx;z-index: 12;}
+.footer>view{width:100%;height:108rpx;overflow:hidden;}
+.collageBigBtn{width:595rpx;height:80rpx;margin-top:14rpx;justify-content: center;float:left;background:#eb5902;margin-left:10rpx;border-radius: 40rpx;display: flex;flex-direction: row;align-items: center;}
+.collageBigBtn image{width:60rpx;height:60rpx;border-radius: 30rpx;margin-right:20rpx;background:#fff;}
+.collageBigBtn-text text{color:#fff;}
+.homeImg,.shopingCart,.addCart,.buy{text-align: center; box-sizing: border-box;}
+.shopingCart,.homeImg{float:left;height:108rpx;width:115rpx;display:flex;flex-direction: column;justify-content: center;}
+.shopingCart image,.homeImg image{width:50rpx; margin:0 auto 4rpx; display:inline-block;}
+.shopingCart text,.homeImg text{font-size:24rpx;}
+.collageBtn-footer{width:327rpx;background:#eb5902;color:#fff;text-align: center;border:0 none;display:flex;flex-direction: column;}
+.star-footerBtn{border:0 none;width:480rpx;height:80rpx;display:flex;flex-direction: column;justify-content: center;align-items: center; border-radius: 40rpx;margin-top:15rpx;}
+.star-footerBtn text{color:#fff;font-size:24rpx;}
+.shopingCart{position:relative;}
+.shopingCart .num{position:absolute;min-width:30rpx;height:30rpx;text-align: center;line-height: 30rpx;border-radius:15rpx;background:#eb5902;color:#fff;top:15rpx;right:15rpx;font-size:20rpx;}
+.addCart,.buy{width:240rpx;color:#fff;background:#eb5902;border:0 none;line-height: 80rpx;float:left;margin-top:14rpx;}
+.buy{border-radius: 0 40rpx 40rpx 0;}
+.addCart{background:#e0b673;border-radius: 40rpx 0 0 40rpx;margin-left:10rpx;}
+.productDetail{width:100%;height:88rpx;border-bottom:1px solid #eee;overflow: hidden;}
+.productDetail text{float: left;width:50%;height:88rpx;position:relative;text-align: center;line-height:88rpx;}
+.productDetail .active{color:#eb5902;}
+.productDetail .active::after{position:absolute;width:60%;height:2rpx;background:#eb5902;content:"";left:20%;bottom:1rpx;}
+rich-text{width:750rpx;overflow:hidden;}
+rich-text .rich-img{margin:0 !important;}
+.star-rule>view{width:100%;height:100%;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;color:#666;}
+.collageRule-more,.collageUser-list-title{background:#fff url('https://cache.jiangxinxiaozhen.com/Content/wd/more1.png') no-repeat right 24rpx center;background-size:14rpx 24rpx;padding:0rpx 25rpx;line-height:86rpx;box-sizing: border-box;color:#777;border-bottom:1px solid #eee;font-size:28rpx;}
+.collageUser-list-wrap{background:#fff;width:100%;height:100rpx;overflow:hidden;}
+.collageUser-list{height:100rpx;padding:20rpx 25rpx;box-sizing: border-box;width:100%;}
+.collageUserListBg{width:100%;height:100rpx;}
+.collageUser-mesg{line-height:60rpx;}
+.collageUser-mesg>image{width:60rpx;height:60rpx;border-radius: 50%;margin-right:15rpx;border:1px solid #f8f8f8;}
+.collageUser-mesg text,.collageUser-time text{font-size:24rpx;}
+.collageUser-time>view:nth-child(1){text-align: right;margin-right:15rpx;height:60rpx;}
+.collageUser-time>view:nth-child(2),.collageBtn{height:40rpx;padding:0 12rpx;font-size:24rpx;line-height:40rpx;color:#fff;background:#eb5902;border-radius: 3px;}
+/*拼团列表弹出层*/
+.collageMore-bg,.attendCollage-bg{width:100%;height:100%;position:fixed;top:0;left:0;background:rgba(0,0,0,.2);z-index: 6;}
+.collageMore-list-wrap,.attendContent{width:600rpx;height:60%;background:#fff;overflow:hidden;border-radius: 12rpx;position:absolute;top:0;left: 0;bottom:0;right:0;margin:auto;}
+.collageMore-list-wrap>view,.attendTitle{width:100%;line-height:80rpx;text-align: center;font-size:30rpx;height:80rpx;}
+.collageMore{height:60rpx;padding:15rpx;border-bottom:1px solid #eee;}
+.collageMore image{width:60rpx;height:60rpx;border:1px solid #f8f8f8;border-radius: 50%;margin-right:10rpx;}
+.noMore{color:#999;width:100%;text-align: center;line-height:60rpx;font-size:24rpx;}
+.collageMore-list-wrap icon{position:absolute;right:20rpx;top:20rpx; opacity: .4;}
+.collageMore-bottom{z-index:2;position:absolute;bottom:0;left:0;width:100%;height:54rpx;background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1))}
+.collageMore-list{margin-bottom:40rpx;}
+/*评价*/
+.discuss-wrap{padding:20rpx 0;width:100%;overflow:hidden;}
+.discuss-top{background:#fff url('https://cache.jiangxinxiaozhen.com/Content/wd/more1.png') no-repeat right 24rpx center;background-size:14rpx 24rpx;padding:25rpx;box-sizing: border-box;border-bottom:1px solid #eee;}
+.likeuser{color:#999;padding-right:20rpx;}
+.discussList{background:#fff;width:100%;box-sizing: border-box;padding:15rpx 25rpx 0;}
+.attendContent{height:400rpx;}
+.attendTitle{font-size:36rpx;}
+.attendTime{text-align: center;width:100%;padding:20rpx 0;color:#999;}
+.attendImage-wrap{height:80rpx;justify-content: center;}
+.attendImage-wrap>view{height:80rpx;position:relative;width:110rpx;overflow: hidden;}
+.attendImage-wrap image{width:80rpx;height:80rpx;margin:0 15rpx;border-radius: 40rpx;display: block;}
+.sirTop::after{position:absolute;left:50%;margin-left:-30rpx;bottom:0;content:'团长';line-height:30rpx;width:60rpx;border-radius: 15rpx;background:#eb5902;color:#fff;text-align: center;font-size:20rpx;}
+.attendBtn{position:absolute;bottom:0;left:0;width:100%;line-height:80rpx;text-align: center;color:#fff;background:#eb5902;font-size:28rpx;}
+/* 星品预定 */
+.starBg-wrap{width:750rpx;overflow:hidden;background:#fff;}
+.star-wrap{width:750rpx;height:130rpx;overflow:hidden;position:relative;}
+.star-wrap>image{width:750rpx;height:130rpx;}
+.star-text-wrap{width:504rpx;height:130rpx;position:absolute;left:0;top:0;padding-left:36rpx;display:flex;flex-direction: column;justify-content: left;}
+.star-price{display:flex;flex-direction: row;padding-top:20rpx;}
+.star-price text:nth-child(1),.star-price text:nth-child(2){color:#fff;font-size:40rpx;margin-right:10rpx;}
+.star-price text:nth-child(2){opacity: 0.6;font-size:26rpx;text-decoration: line-through;margin-top:14rpx;}
+.Star-amout text{color:#fff;}
+.Star-amout text:nth-child(1){margin-right:20rpx;}
+.star-img-wrap{width:210rpx;height:130rpx;position:absolute;right:0;top:0;display: flex;flex-direction:column;}
+.star-img-wrap::before{position:absolute;left:0;top:20rpx;height:90rpx;width:1px;content:"";background:#fff;opacity: 0.6;}
+.star-img-wrap>image{width:150rpx;height:80rpx;margin:10rpx auto 0;}
+.star-img-wrap>view{color:#fff;width:100%;}
+.starPay-time{padding-left:36rpx;color:#999;padding-top:10rpx;font-size:24rpx;}
+.star-time{display:flex;flex-direction: row;justify-content: center;font-size: 24rpx;}
+.star-time text{font-size: 24rpx;}
+/*弹出层*/
+.shade,.addCart-wrap{width:100%;height:100%;background:rgba(0,0,0,.2);position:fixed;top:0;left:0;z-index: 20;}
+.shade-text-wrap{width:100%;height:750rpx;position:absolute;left:0;bottom:0;background:#fff;}
+.shade-btn{width:100%;height:80rpx;background:#eb5902;color:#fff;position:absolute;left:0;bottom:0;line-height:80rpx;text-align: center;}
+.shade-title{width:100%;line-height:70rpx;padding-top:20rpx;text-align: center;}
+.shade-text{width:90%;padding:15rpx 0;border-bottom:1px solid #eee;margin:0 auto;color:#666;text-align: justify;}
+.shade-scroll{width:100%;height:580rpx;}
+.shade-text .serveName{width:100%;color:#eb5029;padding:10rpx 0;}
+.shade-text view:last-child{padding:5rpx 20rx;}
+/*促销活动*/
+.sumstatus-price-wrap{width:100%;padding:0 30rpx;height:108rpx;position:relative;background-repeat: no-repeat;background-position: center center;box-sizing: border-box;z-index:3 }
+.sumstatus-price-wrap>image{position:absolute;right:0;top:-83rpx;height:84rpx;width:172rpx;}
+.sumstatus-price{float:left;color:#fff;display: flex;flex-direction: row;align-items: center;height:108rpx;}
+.sumstatus-vprice{display:flex;flex-direction: column;height:80rpx;justify-content:center;}
+.sumstatus-price>text{font-size:38rpx;padding-right:10rpx;}
+.sumstatus-vprice>text:nth-child(1){text-decoration: line-through;color:#fff;}
+.sumTime{float:right;color:#fff;text-align: right;height:100%;padding:10rpx 0 12rpx;box-sizing: border-box;display: flex;flex-direction: column;justify-content: space-between;}
+.sumTime>text{font-size:28rpx;}
+.sumTime-wrap{display:flex;flex-direction: row;line-height:30rpx;}
+.sumTime-wrap>view{line-height:25rpx;padding-right:5rpx;}
+.sumTime-wrap text{border:1rpx solid #fff;border-radius: 6px;min-width:36rpx;height:36rpx;display:inline-block;margin-right:5rpx;line-height:36rpx;margin-left:5rpx;text-align: center;padding:0 6rpx;font-size:26rpx;}
+/* 小镇市集 */
+.marketWrap{width:100%;height:150rpx;background:#e02e24;padding:0 22rpx 0 26rpx;box-sizing:border-box;}
+.marketLeft,.marketright{justify-content:center;height:150rpx;align-items:flex-start;}
+.marketLeft image{width:119rpx;height:36rpx; }
+.weekPriceWrap text{color:#fff;margin-right:6px;}
+.weekPriceWrap{align-items:baseline;}
+.marketLeft .cost{color:#fff;font-size:26rpx;}
+.subscript{padding:2rpx 6rpx;background:#fff;border-radius: 3px;color:#e02e24 !important;font-size:22rpx;position: relative;bottom:6rpx;}
+.marketright{align-items:flex-end;}
+.marketright .sumTime-wrap{color:#fff;}
+.marketright text{background:#fff;color:#e02e24;}
+.progressWrap{width:280rpx;height:34rpx;border-radius: 17rpx;background:#b4231b;margin-top:24rpx;position:relative;text-align: center;line-height:34rpx;color:#fff;font-size:22rpx;}
+.progress{position:absolute;left:0;top:0;height:34rpx;width:100%;border-radius: 17rpx;text-align: left;overflow: hidden;}
+.progress text{display:inline-block;background:#f7bc49 !important;height:34rpx;}
+.progressWrap text{background:none;position:relative;color:#fff;font-size: 22rpx;}
+.weelySprice text:first-child{width:auto !important;position:relative; padding-right:80rpx;}
+.weelySprice text:first-child::before{position:absolute;content:'会员价';color:#fff;padding:2rpx 6rpx;background:#e02e24;border-radius: 2px;bottom:2rpx;right:0;font-size:20rpx;}
+.addVip{width:100%;font-size:28rpx;color:#303030;background:url(https://cache.jiangxinxiaozhen.com/WD/shop/little/vipCard.png) no-repeat left center;background-size:40rpx 32rpx;padding:0 20rpx 0 55rpx;box-sizing: border-box;}
+/*限时购*/
+.pur-price-wrap{width:100%;padding:20rpx 24rpx;height:90rpx;background:#eb5902;color:#fff;display: flex;flex-direction: row;justify-content: space-between;box-sizing: border-box;}
+.pur-price-name{line-height:50rpx;}
+.pur-price-name>text:nth-child(1){font-size:34rpx;padding-right:10rpx;}
+.pur-price-time{line-height:50rpx;display:flex;flex-direction: row;}
+.pur-price-time>text{padding-right:10rpx;}
+.pur-price-time>view{display:inline-block;}
+.pur-price-time>view>text{padding:1rpx 6rpx;background:#fff;color:#eb5902;margin:0 5rpx;border-radius:6rpx;}
+.pur-price-time>view:nth-child(2)>text{margin-left:0;}
+/*加入购物车弹出层*/
+.addCart-wrap
+.addCart-content{width:750rpx;height:60%;background:#fff;position: absolute;left:0;bottom:0;padding:0 24rpx 80rpx 24rpx;box-sizing: border-box;}
+.addCart-content button{width:700rpx;height:80rpx;background:#eb5902;color: #fff;text-align: center;line-height: 80rpx;position: absolute;left:25rpx;bottom:14rpx;border:0 none;border-radius:40rpx !important;font-size:28rpx;}
+.addCart-pro-text{width:100%;padding:20rpx 0;border-bottom: 1px solid #eee;display: flex;flex-direction: row;}
+.addCart-pro-text>image{width:242rpx;height:242rpx;box-sizing: border-box;}
+.addCart-pro-text>view{width:440rpx;padding:40rpx 0 40rpx 20rpx;height:242rpx;display: flex;flex-direction: column;justify-content:space-between;box-sizing: border-box;}
+.addCart-pro-price text:first-child{font-size:28rpx;width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.addCart-pro-price text:last-child{color:#999;}
+.addCart-pro-price .addPrice{color:#eb5902 !important;}
+.addPrice-wrap{display: flex;flex-direction: row;}
+.addScroll{width:100%;}
+.addScroll-content{width:100%;height:100%;display: flex;flex-direction: column;justify-content: space-between}
+.addScroll-content>view{padding:15rpx 0;background:#fff;}
+.addScroll-content>view>view{padding-bottom:10rpx;}
+.addScroll-content>view>text{display: inline-block;border:1rpx solid #eee;color:#666;margin-right:20rpx;margin-bottom:20rpx;min-width:80rpx;text-align: center;line-height:40rpx;border-radius: 3rpx;padding:5rpx 18rpx;}
+.addScroll-content>view>.active{border:1px solid #eb5902;background:#eb5902;color:#fff;}
+.addScroll-content>view>.gray{color:#dedddd; background:#f8f8f8;}
+.addNum view:nth-child(2){width:240rpx;height:60rpx;border:1px solid #eee;border-radius: 3rpx;display: flex;flex-direction: row;justify-content: center;padding-bottom: 0;}
+.addNum view:nth-child(2) text{line-height:58rpx;width:33.33%;text-align: center;}
+.addNum{padding-bottom:20rpx;}
+.addNum view:nth-child(2) .inp-add{width:33.33%;text-align: center;line-height:58rpx;box-sizing: border-box;border-left:1px solid #eee;border-right:1px solid #eee;height:60rpx;font-size:26rpx;}
+.closeWin{position:absolute;top:0;right:0;width:60rpx;height:60rpx;font-size:50rpx;color:#999;font-weight: 600;}

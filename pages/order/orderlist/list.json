@@ -1,0 +1,10 @@
+{
+      "usingComponents": {
+        "refresh-view": "/components/refresh/refresh-view",
+        "popup": "/components/showmodal/showModal"
+      },
+      "navigationBarBackgroundColor": "#eb5902",
+      "navigationBarTitleText": "我的订单",
+      "backgroundColor":"#f8f8f8",
+      "enablePullDownRefresh": false
+}

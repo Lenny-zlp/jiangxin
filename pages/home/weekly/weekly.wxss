@@ -1,0 +1,24 @@
+page{background:#f4f4f4;}
+.backTop{width:100%;background:#ee1a14;position: fixed;top:0;left:0;z-index: 12;}
+.list-wrap{width:710rpx;margin:0 auto;overflow: hidden;position:relative; padding-bottom:10rpx;}
+.emptybill{display: block;width:75%;margin:0 auto;}
+.topBg{width:100%;overflow: hidden;}
+.topBg image{display:block;width:100%;}
+.boxwrap{width:100%;overflow: hidden;margin-top:-126rpx;}
+.productWrap{width:100%;background:#fff;overflow: hidden;border-radius: 10rpx;margin-bottom:30rpx;position:relative;}
+.productWrap image{width:100%;height:320rpx;display:block;}
+.productDetail{width:100%;padding:32rpx 26rpx 38rpx;overflow: hidden;box-sizing: border-box;position: relative;}
+.productDetail>text{font-size:30rpx;color:#303030;}
+.textWrap{width:410rpx;}
+.textWrap text{padding:16rpx 0 22rpx;color:#999;font-size:24rpx;}
+.vipPrice{align-items: baseline;}
+.vipPrice view{color:#303030;font-size:26rpx;padding-right:44rpx;align-items: baseline;}
+.vipPrice text{color:#666;font-size:26rpx;align-items: baseline;padding:0;}
+.vipPrice view text{color:#EE1a14}
+.hrefBtn{position:absolute;right:26rpx;bottom:38rpx;width:180rpx;height:76rpx;border-radius: 38rpx;color:#fff;text-align: center;background:#EE1a14;justify-content:center;}
+.saleOver{position:absolute;width:160rpx;height:160rpx;border-radius: 50%;background:rgba(0,0,0,.3);color:#fff;font-size:36rpx;text-align: center;line-height:160rpx;left:50%;margin-left:-80rpx;top:80rpx;}
+.hrefBtn text{display:block;width:100%;font-size:20rpx; align-items: center;}
+.hrefBtn view{display:block;width:100%;font-size:28rpx; align-items: center;}
+.scrolltop{width:100%;}
+.backBtn{position:fixed;left:30rpx;width:44rpx;height:44px;z-index: 13;justify-content: center;background:url(https://cache.jiangxinxiaozhen.com/WD/APP/little/whiteBack.png) no-repeat left center;background-size:20rpx 36rpx;}
+

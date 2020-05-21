@@ -1,0 +1,12 @@
+page{background:#f4f4f4;}
+.seach-wrap{width:100%;padding:10rpx 25rpx;box-sizing: border-box;}
+.seach-bor{height:66rpx;padding:0 10rpx;border-radius: 8px; width:100%; box-sizing: border-box;border:1px solid #eee;position:relative;}
+.address-list-wrap{width:100%;background:#eee;overflow:hidden;}
+.address{background:#fff;padding:30rpx 25rpx;border-bottom:1rpx solid #f4f4f4;justify-content: center;}
+.editImg{width:38rpx;height:38rpx;display:inline-block;background:url(https://cache.jiangxinxiaozhen.com/WD/APP/little/edit.png) no-repeat;background-size:100%;}
+
+.address>view text{display:block;width:100%;text-align: left;line-height:36rpx;}
+.searchBtn{position:absolute;right:10rpx;height:66rpx;width:66rpx;top:0;}
+.seach-bor input{width:80%;}
+.detail{box-sizing: border-box;}
+.detail text:nth-child(1){margin-bottom:20rpx;}

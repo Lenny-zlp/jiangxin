@@ -1,0 +1,56 @@
+<form bindsubmit="formSubmit">
+  <view class="headImg">
+    <image src="{{Head}}" name="head"></image>
+    <text catchtap='checkedImg'>修改头像</text>
+  </view>
+  <view class="personalList-wrap">
+    <view class="personalList row-between">
+      <text>昵称</text>
+      <input type="text" name="nickname" value='{{nickName}}'></input>
+    </view>
+    <view class="personalList row-between">
+      <text>真实姓名</text>
+      <input type="text" name="name" value='{{TrueName}}'></input>
+    </view>
+    <view class="personalList row-between">
+      <text>性别</text>
+      <input type="text" name="sex"disabled="true" value="{{Sex==1?'男':'女'}}" catchtap="focusCheck"></input>
+    </view>
+    <view class="personalList row-between">
+      <text>出生日期</text>
+      <picker mode='date' bindchange="birstday" name="birstday" value='{{Birthday}}'>
+        <view class="picker">{{Birthday}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="personalList-wrap">
+    <view class="personalList row-between">
+      <text>手机号</text>
+      <input type="numble" name="tel" value='{{Mobile}}' disabled='true'></input>
+    </view>
+    <view class="personalList row-between">
+      <text>地址</text>
+      <picker mode='region' bindchange="checkAddress" name="checkAddress" value="{{Province}}{{City}}{{Area}}">
+        <view class="picker">{{(!Province&&!City&&!Area)?'--请选择--':Province+'\n'+City+'\n'+Area}}</view>
+      </picker>
+    </view>
+    <view class="personalList row-between">
+      <text>详细地址</text>
+      <input type="text" name="detailAddress" value='{{address}}' placeholder="输入详细地址" placeholder-style="color:#deddd;"></input>
+    </view>
+  </view>
+  <button form-type='submit'>保存</button>
+</form>
+<view class="checkdeWrap" wx:if="{{show}}">
+  <view class="cameraBtn">
+    <view wx:if="{{!sexwrap}}">
+      <button type="primary" bindtap="takePhoto">拍照</button>
+      <button type="primary" bindtap="takePhoto1">从相册中选择</button>
+    </view>
+    <view class="sexWrap column-between" wx:if="{{sexwrap}}" catchtap='checkedSex'>
+      <text data-sexNum='1' style="color:{{Sex==1?'#eb5902':''}}">男</text>
+      <text data-sexNum='0' style="color:{{Sex==0?'#eb5902':''}}">女</text>
+    </view>
+    <button catchtap='hideCheckedImg'>取消</button>
+  </view>
+</view>

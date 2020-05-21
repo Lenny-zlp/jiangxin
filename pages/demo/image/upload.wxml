@@ -1,0 +1,4 @@
+<!--pages/demo/image/upload.wxml-->
+<image src='{{img}}'></image>
+<button catchtap='takeAlbum'>上传图片</button>
+<canvas canvas-id="photo_canvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:0px;top:0px;"></canvas>

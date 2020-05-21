@@ -1,0 +1,3 @@
+
+.issue{width:90%;height:88rpx;border:1px solid #eee;color:#eb5902;margin:40rpx auto;border-radius: 6rpx !important; line-height:88rpx;}
+textarea{background:#fff;padding:20rpx;min-height: 200rpx;width:90%;margin:20rpx auto;box-sizing: border-box;border:1px solid #eee;border-radius: 10rpx;}

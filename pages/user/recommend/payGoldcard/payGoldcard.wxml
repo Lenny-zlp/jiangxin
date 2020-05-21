@@ -1,0 +1,18 @@
+<view class="payGoldcardWrap">
+  <image src="https://cache.jiangxinxiaozhen.com/WD/APP/little/logoV.png" mode='widthFix'></image>
+  <view class="message-wrap">
+    <view class="row-between">
+      <text>开通服务</text>
+      <text>{{userRatingName}}</text>
+    </view>
+    <view class="row-between">
+      <text>技术服务年费（365天）</text>
+      <text>￥{{ratingJoinPrice}}</text>
+    </view>
+  </view>
+  <view class="payBtn"  open-type='getUserInfo' bindtap='openWxPay'>立即支付{{joinPrice}}</view>
+  <view class="row-center">
+  <text>支付即视为同意</text>
+  <view style="color:#eb5902" bindtap='openHetong'>{{userRatingStr}}</view>
+  </view>
+</view>

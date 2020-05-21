@@ -1,0 +1,38 @@
+<view class="fruit-top">
+  <navigator class="arrowRight row-center">
+    <text>我的沙棘果</text>
+    <text>{{fruit.MyIntegral}}颗</text>
+  </navigator>
+  <view class="fruit-title row-center">
+    <text>商品名称</text>
+    <text style="color:#999;">商品数量</text>
+  </view>
+</view>
+<view class="fruit-list-wrap">
+  <block wx:for="{{fruit.list}}">
+    <view class="fruit-list row-center">
+      <view class="fruit row-center">
+        <image src="{{item.ImgUrl}}"></image>
+        <view class="column-between">
+          <text>{{item.ProductName}}</text>
+          <text style="color:#999">{{item.Color}}</text>
+          <text style="color:#eb5902;">{{item.Integral}}颗</text>
+        </view>
+      </view>
+      <view class="fruitNum-wrap row-center">
+        <label>-</label>
+        <text>0</text>
+        <label class="addNum">+</label>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="balance-wrap row-center">
+  <view class="addFruit">
+    <text>共计0件商品</text>
+    <text style="padding-left:15rpx;">使用</text>
+    <text style="color:#eb5902;">0颗</text>
+  </view>
+  <button form-type='sumbit'>立即的兑换</button>
+</view>

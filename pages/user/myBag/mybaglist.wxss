@@ -1,0 +1,6 @@
+page{background:#f8f8f8;}
+.bag-wrap{background:#eee;width:750rpx;padding-top:10rpx;}
+.more-fund{background:#fff url(https://cache.jiangxinxiaozhen.com/Content/wd/more1.png) no-repeat right 25rpx center;background-size:14rpx 24rpx;padding:10rpx 25rpx;line-height:90rpx;width:700rpx;border-bottom:1rpx solid #eee;}
+.more-fund>text{padding-right:20rpx;color:#999;}
+.fund-left>image{margin-right:15rpx;width:50rpx;height:50rpx;}
+.fund-left text{color:#666;font-size:28rpx;}

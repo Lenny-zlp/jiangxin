@@ -1,0 +1,13 @@
+<view class="bgWrap" wx:if="{{showModal}}">
+  <view class="maske" bindtap='hide'></view>
+  <view class="m-content">
+    <view class='m-title'>
+      <text>{{title}}</text>
+      <icon type="clear" size="50rpx;"></icon>
+    </view>
+    <slot name="content"></slot>
+    <view class="m-footer" catchtap='sureBtn'>
+      <text>{{sure}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+page{background:#eee;}
+.main{width:100%;padding:270rpx 50rpx 0;box-sizing:border-box;overflow: hidden;display: flex;flex-direction: column;justify-content: center;align-items: center;background-repeat:no-repeat;background-position: top left;background-size:100% 538rpx;}
+.content{width:620rpx;margin:0 auto 40rpx;background:#fff; border-radius: 20rpx;box-shadow: 0 0 30rpx 12rpx rgba(0,0,0,.1);overflow:hidden;padding:50rpx 40rpx;box-sizing: border-box;}
+.form-title{width:100%;align-items: center;justify-content: center;height:80rpx;}
+.form-title image{width:80rpx;height:80rpx;box-sizing: border-box;border: 1px solid #f8f8f8;border-radius: 50%;margin-right:32rpx;}
+.form-title text{font-size:28rpx;color:#303030;}
+.invitenCard{width:188rpx;height:188rpx;margin:40rpx auto;display:block;}
+.inp{width:100%;height:80rpx;box-sizing: border-box;border:1px solid #eee;border-radius: 40rpx;margin:38rpx auto; padding:10rpx 0;position: relative;}
+.submitBtn{width:100%;height:80rpx;background:#f3534b;color:#fff;border-radius: 40rpx !important; line-height:80rpx;margin-top:56rpx;}
+.inp input{padding:0 52rpx;box-sizing: border-box;line-height:60rpx;}
+.checkPassword{position:absolute;right:10rpx;top:50%;margin-top:-30rpx;color:#eb5902;height:60rpx;line-height:60rpx;}
+.lineR::after{position:absolute;right:195rpx;top:20rpx;width:1px;height:40rpx;content:'';background:#eb5902;}
+.rule-text{padding-bottom:40rpx;}
+.rule-text text{color:#999;}

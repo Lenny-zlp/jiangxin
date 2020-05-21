@@ -1,0 +1,12 @@
+page{background:#eee;}
+.returnAddress{width:100%;background:#fff;padding:30rpx;box-sizing: border-box;margin-bottom:10rpx;}
+.returnAddress view{color:#303030;font-size:32rpx;}
+.returnAddress text{color:#999;padding:15rpx 0 5rpx;}
+.noteNum{width:100%;padding:20rpx 30rpx;box-sizing: border-box;color:#eb5902;font-size:30rpx;margin-bottom:10rpx;}
+.order{width:100%;padding:25rpx 30rpx 25rpx 0;box-sizing: border-box;height:180rpx;position:relative;align-items: center;}
+.productImag{width:130rpx;height:130rpx;position:relative;margin-right:32rpx;}
+.imgBG{width:130rpx;height:130rpx;border:1px solid #f8f8f8;box-sizing: border-box;}
+.productDetail{height:120rpx;}
+.superscript{position:absolute;right:1px;top:1px;width:60rpx;height:60rpx;}
+.orderNum{display:block;line-height:130rpx;}
+.productDetail text{padding:0;}

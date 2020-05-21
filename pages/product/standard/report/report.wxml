@@ -1,0 +1,5 @@
+<view class="report-wrap">
+<block wx:for="{{list}}">
+<image src="{{item.ImgUrl}}" mode='widthFix'></image>
+</block>
+</view>

@@ -1,0 +1,9 @@
+.detail-wrap{padding-bottom:80rpx;}
+.ourlist-top{line-height:38rpx;padding:20rpx 25rpx 10rpx;border-bottom:1px solid #eee;}
+.ourlist-top image{width:60rpx;height:60rpx;border-radius: 50%;margin-right:20rpx;}
+.ourlist-title{display:block;font-size:28rpx;overflow: hidden;font-weight:600;text-overflow: ellipsis;white-space: nowrap;width:700rpx; margin:0 auto 10rpx;}
+.user-words{width:92%;margin:50rpx 4%;text-align:center;line-height:76rpx;background:#eb5902;color:#fff;}
+.tabBar-wrap{background:#fff;height:88rpx;width:100%;justify-content: space-around;border-top:1px solid #dedddd;position:fixed;left:0;bottom:0;}
+.tabBar-wrap>view{display:flex;flex-direction: column;justify-content: center;}
+.tabBar-wrap>view image{width:40rpx;height:40rpx;}
+.tabBar-wrap>view text{color:#999;}

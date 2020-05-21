@@ -1,0 +1,69 @@
+<import src="../../template/template-hotCollage.wxml" />
+<view class="collage-detail-wrap">
+  <navigator class="detail-top" url="/pages/product/product?sku={{group.Group.ProductCode}}&groupid={{group.Group.GroupId}}&grouplogid={{group.Group.GroupLogId}}" hover-class='none'>
+    <image src="{{group.Group.ProductImg}}"></image>
+    <view class="collage-status">
+      <text class="statusBg" wx:if="{{group.Group.Status==1}}" style="background:#dba860">{{group.Group.GroupStr}}</text>
+      <text class="statusBg" wx:if="{{group.Group.Status==0}}" style="background:#dc2929">{{group.Group.GroupStr}}</text>
+      <text class="statusBg" wx:if="{{group.Group.Status==-1}}">{{group.Group.GroupStr}}</text>
+      <text style="font-size:30rpx; padding:20rpx 0;">{{group.Group.Name}}</text>
+      <text class="collage-dec" style="padding:0 0 10rpx;">{{group.Group.Description}}</text>
+      <view>
+        <text style="color:#cd5752; margin-right:10rpx;">拼团价<text style="font-size:38rpx; margin-left:10rpx;">¥{{group.Group.Price}}</text></text>
+        <text style="color:#999;text-decoration: line-through;">¥{{group.Group.OldPrice}}</text>
+      </view>
+    </view>
+  </navigator>
+  <view class="detail-user">
+    <text class="order-status">{{group.Group.GroupStr1}}</text>
+    <view class="order-lasttiame" wx:if="{{group.Group.GroupDown>0}}">
+      剩余
+      <view class="order-time-wrap">{{saleTime}}</view>
+      结束
+    </view>
+    <text class="productMore" wx:if="{{group.Group.Status==1||group.Group.Status==-1}}">还有更多拼团商品，加油哦~</text>
+    <view class="user-wrap">
+      <block wx:for="{{GroupUserList}}" wx:for-index="{{ind}}">
+        <view catchtap='onclose'>
+          <image src="{{item.userimg}}" binderror='headimgerr' data-time="{{item.posttime}}"></image>
+          <text wx:if="{{item.IsGroupSir==1}}">团长</text>
+        </view>
+      </block>
+    </view>
+    <navigator url='/pages/collage/collage' wx:if="{{group.Group.Status==1||group.Group.Status==-1}}" class="moreCollage" hover-class='none'>更多拼团商品</navigator>
+    <view style="width:100%;overflow:hidden;text-align:center;" wx:if="{{group.Group.Status==0}}">
+      <navigator class="moreCollage" wx:if='{{group.Group.OrderStatus<0}}' url="/pages/product/product?sku={{group.Group.ProductCode}}&groupid={{group.Group.GroupId}}&grouplogid={{group.Group.GroupLogId}}">参与TA的拼团</navigator>
+      <navigator class="moreCollage" wx:if='{{ group.Group.OrderStatus==0}}' url="/pages/order/dualPayment/dualPayment?ordercode={{group.Group.ordercode}}">立即付款</navigator>
+      <button class="moreCollage" open-type='share' wx:if="{{group.Group.OrderStatus>0}}">{{group.Group.SendStr}}</button>
+      <text style='color:#999;'>{{group.Group.BackStr}}</text>
+    </view>
+    <navigator class="collageRule" url="/pages/product/webView/webView?url={{group.SendUrl}}">{{group.GroupTips}}</navigator>
+  </view>
+  <block wx:if="{{hotCollage.PromoteGroupList.length>0}}">
+    <view class="hotCollage-list">
+      <text>{{hotCollage.PromoteGroupTitle}}</text>
+      <view class="collage-list">
+        <block wx:for="{{PromoteGroupList}}">
+          <navigator url="/pages/product/product?sku={{item.ProductCode}}&groupid={{item.GroupId}}&grouplogid=0" hover-class='none'>
+            <template is="hotCollage" data="{{...item}}" />
+            <view class="Persons">{{item.Persons}}</view>
+          </navigator>
+        </block>
+      </view>
+      <view style="background:#fff;width:100%;overflow:hidden;">
+        <navigator class="moreCollageBtn" url="/pages/collage/collage">{{hotCollage.PromoteGroupFoot}}</navigator>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="collageUser-wrap" wx:if="{{!closebtn}}">
+  <view class="collageUser">
+    <view class="collageUser-title">参团人员列表</view>
+    <view>
+      <block wx:for="{{GroupUserList}}">
+        <template is="collageUser" data="{{...item}}" />
+      </block>
+    </view>
+    <view class="closeBtn" catchtap='onclose'>确定</view>
+  </view>
+</view>

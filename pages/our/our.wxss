@@ -1,0 +1,6 @@
+.ourlist-wrap{width:100%;background:#eee;padding-top:10rpx;}
+.ourlist{width:100%;background:#fff;}
+.ourlist-top{line-height:78rpx;padding:0 25rpx;border-bottom:1px solid #eee;}
+.ourlist-top>image{width:60rpx;height:60rpx;border-radius: 50%;}
+.ourlist>image{width:700rpx;height:400rpx;background:#eee;margin: 15rpx 25rpx;}
+.ourlist-title{display:block;font-size:30rpx;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:700rpx; margin:0rpx auto 30rpx;}

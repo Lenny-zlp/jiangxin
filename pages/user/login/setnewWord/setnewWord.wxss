@@ -1,0 +1,3 @@
+@import '../forgotpassword/forgotpassword.wxss';
+.telInp image{width:44rpx;height:33rpx;position:absolute;right:0;bottom:28rpx;z-index: 5;}
+.telInp input{color:#303030;}

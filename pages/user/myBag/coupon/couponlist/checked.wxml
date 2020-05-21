@@ -1,0 +1,27 @@
+<view class="content">
+  <block wx:for="{{list}}" wx:key="list">
+ 
+    <view class="couponlist-wrap" catchtap='onBack' data-couponid='{{item.CouponId}}' data-couponkeyid='{{item.Id}}'>
+      <view class="checkedBtn {{item.IsSelected?'checkedBtnBg':''}}"></view>
+      <view class="couponlist">
+        <view class="coupon-top">
+          <view class="coupon-left">
+            <text style="font-size:50rpx;margin-top:-15rpx;"><text style="font-size:34rpx;">￥</text>{{item.Price}}</text>
+            <text>{{item.satisfyprice>0?"满"+item.satisfyprice+"元可用":item.DiscountMsg}}</text>
+          </view>
+          <view class="coupon-right">
+            <text style="font-size:30rpx; margin-bottom:15rpx;">{{item.CouponName}}</text>
+            <text style="opacity:.4">{{item.Begintime}}~{{item.Endtime}}</text>
+          </view>
+        </view>
+        <view class="couponText" catchtap='moreRemarks'>
+          <text class="Remarks">{{item.Remarks}}</text>
+        </view>
+      </view>
+    </view>
+   
+  </block>
+  <view class="noChecked-wrap">
+    <text class="noChecked" catchtap='onBack' data-couponid='-1' data-couponkeyid='-1'>不使用优惠券</text>
+  </view>
+</view>

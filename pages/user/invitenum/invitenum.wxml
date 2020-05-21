@@ -1,0 +1,30 @@
+<popup id="popup" cancelText="取消" confirmText="确定" bind:cancelEvent="onReview" bind:confirmEvent="onSure" confirmBgColor="none" confirmColor="#eb5902">
+  <input type="text" fouse='true' slot="content" bindinput='checkNum' class="popupInp" confirm-type="done" value="{{loginname}}"></input>
+</popup>
+<!-- <form>
+  <view class="wrap row-between">
+    <input type="text" id="codeNum" disabled='disabled' value="{{rsloginname}}"></input>
+    <button from-style="submit" catchtap='shopPopup' disabled='{{u_iseditcode}}'>更改邀请码</button>
+  </view>
+</form> -->
+<image src="{{topimg2}}" mode='widthFix' class="topimg"></image>
+<block wx:if="{{u_iseditcode == 0}}">
+  <view class="num">您已绑定邀请码：{{rsloginname}}</view>
+  <button catchtap='shopPopup'>更改邀请码</button>
+</block>
+<block wx:if="{{u_iseditcode == 1}}">
+  <view class="num">您的店铺邀请码：{{rsloginname}}</view>
+  <button catchtap='copy'>复制</button>
+</block>
+<block wx:if="{{u_iseditcode == 2}}">
+  <form>
+    <input type="text" placeholder='请输入邀请码'fouse="true" value=''></input>
+    <button bindtap="_bindShopCode" from-style="submit">完成</button>
+  </form>
+</block>
+<view class="rule">
+  <view style="color:#999;">规则：</view>
+  <text>1、邀请码为匠心小镇店主店铺授权编码。</text>
+  <text>2、一个用户只可以绑定一个邀请码，绑定后可更改。</text>
+  <text wx:if="{{u_iseditcode == 1}}">会员以及经销商不可更改。</text>
+</view>

@@ -1,0 +1,18 @@
+.hot-template{width:342rpx;box-sizing:border-box;border:1rpx solid #eee;border-radius: 3px;overflow:hidden;margin:0 auto;}
+.hot-template>image{width:300rpx;height:300rpx;margin:24rpx auto;display:block;}
+.hot-detail-template{width:100%;padding:0 15rpx;box-sizing: border-box;}
+.hotName-template{display:block;width:100%;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;font-size:28rpx;}
+.hotUsr-template{width:100%;display:flex;flex-direction: row;padding:10rpx 0;}
+.hotUsr-template image{width:36rpx;height:36rpx;border-radius: 100%;margin-right:-6rpx;}
+.hotUsr-template>view{display:flex;flex-direction: row; margin-right:12rpx;}
+.hotUsr-template>text{color:#999;font-size:24rpx;}
+.hotCollage-price-template{padding-bottom:20rpx;}
+/*参团人员列表*/
+
+.collageUser-list-template{width:100%;overflow:hidden;margin-bottom:20rpx;}
+.usertext-template,.payTime-template{float:left;display:flex;flex-direction: row;align-items: center;}
+.payTime-template{float:right;height:80rpx;}
+.usertext-template>view:nth-child(1){position:relative;width:80rpx;overflow:hidden;margin-right:20rpx;}
+.usertext-template image{width:80rpx;height:80rpx;border-radius: 50%;}
+.usertext-template text{width:70rpx;line-height:30rpx;background:#eb5902;color:#fff;text-align: center;position:absolute;left:50%;margin-left:-35rpx;bottom:0;border-radius:18rpx;font-size:24rpx !important;}
+.payTime-template view{margin-left:20rpx;}

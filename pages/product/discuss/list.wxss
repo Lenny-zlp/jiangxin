@@ -1,0 +1,32 @@
+@import"../../template/template-discuss.wxss";
+page{background:#fff;}
+.discussTop-wrap{width:100%;padding:25rpx;box-sizing:border-box;border-bottom:1px solid #eee}
+.discussTop{width:100%;height:60rpx;line-height:60rpx;padding-bottom:20rpx;}
+.discussTop image{width:30rpx;height:30rpx;margin-left:10rpx;}
+.discussBtn-wrap{display:flex;flex-direction: row;flex-wrap: wrap;width:100%;overflow:hidden;
+}
+.discussBtn-wrap text{height:40rpx;padding:10rpx 20rpx;line-height:40rpx;border:1px solid #dedddd; border-radius:6rpx;margin:0 25rpx 25rpx 0;}
+.discussBtn-wrap .active{border-color: #eb5902;color:#eb5902;}
+.discussBtn-more{padding:10rpx 0;text-align: center; color:#999;}
+.discussBtn-more text{padding-right:35rpx;background:url(https://cache.jiangxinxiaozhen.com/WD/APP/little/arrowB.png) no-repeat right center;background-size:25rpx 13rpx;}
+.discussBtn-more .cur{background:url(https://cache.jiangxinxiaozhen.com/WD/APP/little/arrowT.png) no-repeat right center;background-size:25rpx 13rpx;}
+.scroll-content{width:100%;height:1000rpx;background:#fff;}
+.discussList-wrap{width:100%;}
+.bigimgWrap{width:100%;height:100%;background:rgba(0,0,0,1);position: fixed;top:0;left: 0;}
+.bigimg,.bigimg image{width:80%;position:absolute;left:0;top:0;right:0;bottom:0;margin:auto;height:80%;}
+.bigimg swiper-item{width:100%;height:100%;}
+.discusstext{position:absolute;bottom:3%;left:10%;width:80%}
+.discusstext text,.discusstext view{color:#fff;font-size:24rpx;}
+.discusstext view{text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;}
+  .closeIcon{position:absolute;left:10%;top:3%;color:#f8f8f8;padding:0 40rpx 40rpx 0;z-index: 2;}
+  .pagenum{text-align: center;color:#fff;font-size:24rpx;width:100%;position:absolute;top:3%;left:0;}
+  .bigimg image{background:#f4f4f4;}
+  .datanull{width:100%;position:absolute;top:0;left:0; bottom:0;right:0;background:#f4f4f4; display: flex;flex-direction: column;justify-content: center;align-items: center;}
+  .datanull image{width:150rpx;height:150rpx;}
+  .datanull text{padding-top:30rpx; color:#999;}
+  
