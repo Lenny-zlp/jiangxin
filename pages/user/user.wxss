@@ -17,6 +17,7 @@ page{background:#f4f4f4;padding-bottom:100rpx;}
 .serve-wrap>navigator{width:25%;float:left;padding:30rpx 0 40rpx;border-bottom:1px solid #fafafa;}
 
 .orderBtn-wrap .othermes{position:absolute;right:0;width:34rpx;height:34rpx;text-align: center;line-height:34rpx;background:#eb5902;color:#fff;border-radius: 50%;font-size: 20rpx !important;top:0;}
+.orderBtn-wrap .othermes:nth-child(3){position:absolute;right:-10rpx;width:34rpx;height:34rpx;text-align: center;line-height:34rpx;background:#eb5902;color:#fff;border-radius: 50%;font-size: 20rpx !important;top:-10rpx;}
 navigator>image{width:48rpx;height:48rpx;display:block;margin:0 auto}
 .VipBtn{width:700rpx;margin:0 auto 20rpx; height:119rpx;border-radius: 20rpx;background:url(https://cache.jiangxinxiaozhen.com/WD/APP/togoldcard.png) no-repeat center center;background-size:700rpx 119rpx;position:relative;padding:0 25rpx;box-sizing: border-box;display: flex;flex-direction: row;justify-content: space-between;}
 .Viptext text{color:#fff; font-weight:bold;font-size:26rpx;}

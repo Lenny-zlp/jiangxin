@@ -9,13 +9,23 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.0",
 	"appid": "wxc4f4398d9d3dbe86",
-	"projectname": "Wx_xiaochengxu",
+	"projectname": "jiangxin",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -43,7 +53,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -189,6 +199,14 @@
 					"id": -1,
 					"name": "pages/user/login/bindingTel/bindingTel",
 					"pathName": "pages/user/login/bindingTel/bindingTel",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价",
+					"pathName": "pages/order/commentList/commentList",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -1,0 +1,94 @@
+
+<view class="tabs">
+    <view class="t_header">评价</view>
+    <view class="t_title">
+        <view
+        wx:for="{{tabs}}"
+        wx:key="id"
+        data-index="{{index}}"
+        class="item {{item.isActive?'active':''}}"
+        bindtap="handleItemTap"
+        >
+            <text class="t_font">{{item.value}}</text>
+            <text class="t_line"></text>
+        </view>
+    </view>
+    <view wx:if="{{tabs[0].isActive}}" class="t_content">
+        <vie
+        class="comment"
+        wx:for="{{commentList}}"
+        wx:key="*this"
+        >
+            <navigator class="left">
+                <view class="comment_l">
+                    <image src="{{item.PImg}}" alt="" />
+                </view>
+                <view class="comment_p">
+                    <view class="fontf item">{{item.ProductName}}</view>
+                    <view class="fonts item">{{item.PColor}}</view>
+                    <view class="fontt item">收货时间：{{item.CompleteTime}}</view>
+                </view>
+            </navigator>
+            <navigator  class="gocomment"><text>去评价</text></navigator>
+        </vie>
+        <view class="nodata hid">
+            <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/nocommented.png" mode="widthFix" />
+            <text>暂无待评价数据</text>
+        </view>
+    </view>
+    <view wx:elif="{{tabs[1].isActive}}" class="t_content">
+        <view
+        class="recomment"
+        wx:for="{{commentedList}}"
+        wx:key="*this"
+        >
+            <navigator class="y_top">
+              <view class="y_img">
+                <image src="{{item.Img}}" alt="" />
+              </view>
+              <view class="y_grade">
+                <view class="y_font">
+                  {{item.productname}}
+                </view>
+                <view class="y_spec">{{item.Color}}</view>
+                <view class="y_star">
+                  <text class="i">评分:</text>
+                  <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png" alt="" />
+                  <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png" alt="" />
+                  <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png" alt="" />
+                  <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png" alt="" />
+                  <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/actStar.png" alt="" />
+                </view>
+              </view>
+              <!-- </view> -->
+            </navigator>
+            <view class="unresponse" wx:if="{{item.Imgs.length>0}}">
+                <view class="p">{{item.content}}</view>
+                <view class="appraise_time">评价时间: {{item.addtime}}</view>
+            </view>
+            <view class="y_cont" wx:else>
+                <view class="p">{{item.content}}</view>
+                <view class="y_bot">
+                    <block
+                    wx:for="{{item.Imgs}}"
+                    wx:item="item1"
+                    wx:index="index"
+                    wx:key="*this"
+                    >
+                        <view class="y_image">
+                            <image src="{{item.img}}" alt="" />
+                        </view>
+                    </block>
+                </view>
+                <view class="appraise_time">评价时间: {{item.addtime}}</view>
+                <view class="response {{item.ReplayContent===''?'hid':''}}">
+                  <text>{{item.ReplayContent}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="nodata hid">
+            <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/nocommented.png" mode="widthFix" />
+            <text>暂无已评价数据</text>
+        </view>
+    </view>
+</view>

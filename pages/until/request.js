@@ -8,9 +8,9 @@ export const request=(params)=>{
     //给参数加上sign验签
     var dataJson = signJs.getSign(params)
      //默认get请求
-    if (!parms.type) {
-      parms.type = 'GET'
-    }
+    // if (!parms.type) {
+    //   parms.type = 'GET'
+    // }
   // 判断 url中是否带有 / 私有路径 / 请求的是私有的路径 带上header token
 //   let header={...params.header};
 //   if(params.url.includes("/私有路径/")){
@@ -30,11 +30,21 @@ ajaxTimes++;
   const baseUrl = 'http://192.168.0.7:8080/';
   return new Promise((resolve,reject)=>{
     wx.request({
-     ...dataJson,
+     data:dataJson,
+     method:"POST",
      url:baseUrl+params.url,
      header:{"content-type": "application/x-www-form-urlencoded"},
      success:(result)=>{
-       resolve(result);
+      if (result.statusCode == 200) { //返回数据成功
+        resolve(result);
+      } else { //返回数据失败
+        wx.showToast({
+          title: '服务器内部错误！',
+          icon: 'none',
+          duration: 3000
+        })
+      }
+       
      },
      fail:(err)=>{
        reject(err);

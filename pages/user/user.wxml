@@ -25,9 +25,9 @@
         <text>待收货</text>
         <text class="othermes" wx:if="{{data.StatusSum.DSH>0}}">{{data.StatusSum.DSH}}</text>
       </navigator>
-      <navigator hover-class="none" url="/pages/order/orderlist/list?status=5">
+      <navigator hover-class="none" url="/pages/order/commentList/commentList?status=5">
         <image src="http://cache.jiangxinxiaozhen.com/WD/APP/user/w_disc.png"></image>
-        <text>待评价</text>
+        <text>评价</text>
         <text class="othermes" wx:if="{{data.StatusSum.DPJ>0}}">{{data.StatusSum.DPJ}}</text>
       </navigator>
       <navigator hover-class="none" url='/pages/order/returnorder/returnorder'>
