@@ -48,6 +48,7 @@
     "pages/product/discuss/list",
     "pages/product/standard/standard",
     "pages/product/standard/report/report",
+    "pages/product/hotSellProduct/hotSellProduct",
     "pages/collage/collage",
     "pages/collage/collagedetail/detail",
     "pages/purchase/purchase",
@@ -64,6 +65,7 @@
     "pages/demo/popup/demo",
     "custom-tab-bar/index",
     "pages/order/commentList/commentList"
+    
   ],
   "window": {
     "navigationBarBackgroundColor": "#eb5902"

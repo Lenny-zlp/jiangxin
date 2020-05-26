@@ -1,0 +1,218 @@
+<!--首页-->
+<view class="homePage">
+  <!-- 导航栏 -->
+  <view class="container">
+    <!-- tab导航栏 -->
+    <!-- scroll-left属性可以控制滚动条位置 -->
+    <!-- scroll-with-animation滚动添加动画过渡 -->
+    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+        <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav">
+          {{navItem.text}}</view>
+      </block>
+    </scroll-view>
+    <!-- 页面内容 -->
+    <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+      <swiper-item wx:for="{{[0,1,2,3,4,5,6,7,8]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx"
+        class="tab-content">
+        <view class="ul">
+          <view class="li">
+            <view class="left">
+              <image src="@m.Img" />
+            </view>
+            <view class="right">
+              <view class="h4">微山湖松花蛋</view>
+              <view class="p">出口级品质</view>
+              <view class="bot">
+                <view class="b_left">
+                  <!-- <view class="b_vip">
+                              <text class="span">￥49</text><text class="i">会员价</text>
+                          </view>
+                          <view class="b_limited">
+                              <text class="span">￥49</text><text class="i">限时购</text>
+                          </view> -->
+
+                  <view class="b_sub">
+                    <text class="span">￥29.9</text>
+
+                    <text class="i">补贴价</text>
+                  </view>
+                  <view class="b_xzprice">
+                    <text class="span">￥45</text> <text class="i">小镇价</text>
+                  </view>
+                </view>
+                <view class="b_right">
+                  <!-- <view class="b_notice">
+                                  到货通知
+                              </view> -->
+                  <view class="b_cart">
+                    <image src="http://cache.jiangxinxiaozhen.com/WD/APP/cart.png" />
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="sign">
+              <text class="i">1</text>
+            </view>
+          </view>
+          <view class="li">
+            <view class="left">
+              <image src="@m.Img" />
+            </view>
+            <view class="right">
+              <view class="h4">微山湖松花蛋</view>
+              <view class="p">出口级品质</view>
+              <view class="bot">
+                <view class="b_left">
+                  <!-- <view class="b_vip">
+                              <text class="span">￥49</text><text class="i">会员价</text>
+                          </view>
+                          <view class="b_limited">
+                              <text class="span">￥49</text><text class="i">限时购</text>
+                          </view> -->
+
+                  <view class="b_sub">
+                    <text class="span">￥29.9</text>
+
+                    <text class="i">补贴价</text>
+                  </view>
+                  <view class="b_xzprice">
+                    <text class="span">￥45</text> <text class="i">小镇价</text>
+                  </view>
+                </view>
+                <view class="b_right">
+                  <!-- <view class="b_notice">
+                                  到货通知
+                              </view> -->
+                  <view class="b_cart">
+                    <image src="http://cache.jiangxinxiaozhen.com/WD/APP/cart.png" />
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="sign">
+              <text class="i">1</text>
+            </view>
+          </view>
+          <view class="li">
+            <view class="left">
+              <image src="@m.Img" />
+            </view>
+            <view class="right">
+              <view class="h4">微山湖松花蛋</view>
+              <view class="p">出口级品质</view>
+              <view class="bot">
+                <view class="b_left">
+                  <!-- <view class="b_vip">
+                              <text class="span">￥49</text><text class="i">会员价</text>
+                          </view>
+                          <view class="b_limited">
+                              <text class="span">￥49</text><text class="i">限时购</text>
+                          </view> -->
+
+                  <view class="b_sub">
+                    <text class="span">￥29.9</text>
+
+                    <text class="i">补贴价</text>
+                  </view>
+                  <view class="b_xzprice">
+                    <text class="span">￥45</text> <text class="i">小镇价</text>
+                  </view>
+                </view>
+                <view class="b_right">
+                  <!-- <view class="b_notice">
+                                  到货通知
+                              </view> -->
+                  <view class="b_cart">
+                    <image src="http://cache.jiangxinxiaozhen.com/WD/APP/cart.png" />
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="sign">
+              <text class="i">1</text>
+            </view>
+          </view>
+          <view class="li">
+            <view class="left">
+              <image src="@m.Img" />
+            </view>
+            <view class="right">
+              <view class="h4">微山湖松花蛋</view>
+              <view class="p">出口级品质</view>
+              <view class="bot">
+                <view class="b_left">
+                  <!-- <view class="b_vip">
+                              <text class="span">￥49</text><text class="i">会员价</text>
+                          </view>
+                          <view class="b_limited">
+                              <text class="span">￥49</text><text class="i">限时购</text>
+                          </view> -->
+
+                  <view class="b_sub">
+                    <text class="span">￥29.9</text>
+
+                    <text class="i">补贴价</text>
+                  </view>
+                  <view class="b_xzprice">
+                    <text class="span">￥45</text> <text class="i">小镇价</text>
+                  </view>
+                </view>
+                <view class="b_right">
+                  <!-- <view class="b_notice">
+                                  到货通知
+                              </view> -->
+                  <view class="b_cart">
+                    <image src="http://cache.jiangxinxiaozhen.com/WD/APP/cart.png" />
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="sign">
+              <text class="i">1</text>
+            </view>
+          </view>
+          <view class="li">
+            <view class="left">
+              <image src="@m.Img" />
+            </view>
+            <view class="right">
+              <view class="h4">微山湖松花蛋</view>
+              <view class="p">出口级品质</view>
+              <view class="bot">
+                <view class="b_left">
+                  <!-- <view class="b_vip">
+                              <text class="span">￥49</text><text class="i">会员价</text>
+                          </view>
+                          <view class="b_limited">
+                              <text class="span">￥49</text><text class="i">限时购</text>
+                          </view> -->
+
+                  <view class="b_sub">
+                    <text class="span">￥29.9</text>
+
+                    <text class="i">补贴价</text>
+                  </view>
+                  <view class="b_xzprice">
+                    <text class="span">￥45</text> <text class="i">小镇价</text>
+                  </view>
+                </view>
+                <view class="b_right">
+                  <!-- <view class="b_notice">
+                                  到货通知
+                              </view> -->
+                  <view class="b_cart">
+                    <image src="http://cache.jiangxinxiaozhen.com/WD/APP/cart.png" />
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="sign">
+              <text class="i">1</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

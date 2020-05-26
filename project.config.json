@@ -208,6 +208,13 @@
 					"pathName": "pages/order/commentList/commentList",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "排行榜",
+					"pathName": "pages/product/hotSellProduct/hotSellProduct",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
