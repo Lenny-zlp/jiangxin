@@ -40,6 +40,12 @@ handleItemTap(e) {
     .then(res=> {
       const { detailList } = res.data.data;
       // console.log(detailList)
+      if(detailList.length === 0) {
+        this.setData({
+          flag:false
+        })
+        return
+      }
       this.setData({
         commentList: [...this.data.commentList,...detailList]
       })

@@ -36,22 +36,25 @@ Page({
     currentTab: 0,
     navScrollLeft: 0
   },
-  setTab: function (e) {
-    const edata = e.currentTarget.dataset;
-    this.setData({
-      showtab: edata.tabindex,
+  // setTab: function (e) {
+  //   const edata = e.currentTarget.dataset;
+  //   this.setData({
+  //     showtab: edata.tabindex,
 
-    })
-  },
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    const { userid } = wx.getStorageSync("user");
-    request({url:'/Product/GetReCommentForUser',data:{userId:userid}})
+    // const { userid } = wx.getStorageSync("user");
+    request({url:'/Product/HotProductList',data:{HotProductid:1}})
     .then(res=> {
-      console.log(res)
+      console.log("11",res)
+      // this.setData({
+      //   navData:
+      // })
     })
     
     // 获取系统信息

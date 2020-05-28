@@ -1,0 +1,187 @@
+
+<view class="tabs">
+    <view class="t_title">
+        <view
+        wx:for="{{tabs}}"
+        wx:key="id"
+        data-index="{{index}}"
+        class="item {{item.isActive?'active':''}}"
+        bindtap="handleItemTap"
+        >
+            <text class="t_font">{{item.value}}({{item.number}})</text>
+            <text class="t_line"></text>
+        </view>
+    </view>
+</view>
+<view wx:if="{{tabs[0].isActive}}" class="t_content">
+    <view class="not_user">
+        <view
+        class="li"
+        wx:for="{{notUserList}}"
+        wx:key="id"
+        >
+        <view class="s_top">
+            <view class="t_left">
+                <view class="span">小镇币</view>
+                <view class="i">面值{{item.VoucherPrice}}</view>
+            </view>
+            <view class="t_right">
+                <view class="span" bindtap="handleMenuTap"><image src="http://cache.jiangxinxiaozhen.com/WD/APP/menu.png" onclick="LoadLog('@m.Cardid')" /></view>
+                <view class="i">{{item.Begintime}}-{{item.Endtime}}</view>
+            </view>
+        </view>
+        <view class="s_bot">
+            <view class="b_left">
+                <view class="left"><view class="i">余</view><view class="span">{{item.VoucherPrice}}</view><view class="em">元</view></view>
+            </view>
+            <view class="b_right">
+                {{item.BatchName}}
+            </view>
+        </view>
+        <view class="icon">
+                <image src="http://cache.jiangxinxiaozhen.com/WD/APP/completed.png" />
+                <image src="http://cache.jiangxinxiaozhen.com/WD/APP/expired.png" />
+        </view>
+        </view>
+        <view class="nodata {{tabs[0].number>0?'hid':''}}">
+            <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/nocommented.png" mode="widthFix" />
+            <text>暂无待评价数据</text>
+        </view>
+    </view>
+</view>
+<view wx:elif="{{tabs[1].isActive}}" class="t_content">
+    <view class="completed">
+        <view
+        class="li"
+        wx:for="{{completedList}}"
+        wx:key="id"
+        >
+        <view class="s_top">
+            <view class="t_left">
+                <view class="span">小镇币</view>
+                <view class="i">面值{{item.VoucherPrice}}</view>
+            </view>
+            <view class="t_right">
+                <view class="span"><image src="http://cache.jiangxinxiaozhen.com/WD/APP/menu.png" onclick="LoadLog('@m.Cardid')" /></view>
+                <view class="i">{{item.Begintime}}-{{item.Endtime}}</view>
+            </view>
+        </view>
+        <view class="s_bot">
+            <view class="b_left">
+                <view class="left"><view class="i">余</view><view class="span">{{item.VoucherPrice}}</view><view class="em">元</view></view>
+            </view>
+            <view class="b_right">
+                {{item.BatchName}}
+            </view>
+        </view>
+        <view class="icon">
+                <image src="http://cache.jiangxinxiaozhen.com/WD/APP/completed.png" />
+                <!-- <image src="http://cache.jiangxinxiaozhen.com/WD/APP/expired.png" /> -->
+        </view>
+        </view>
+        <view class="nodata {{tabs[0].number>0?'hid':''}}">
+            <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/nocommented.png" mode="widthFix" />
+            <text>暂无相关数据</text>
+        </view>
+    </view>
+</view>
+<view wx:elif="{{tabs[2].isActive}}" class="t_content">
+    <view class="expired">
+    <view
+    class="li"
+    wx:for="{{expiredList}}"
+        wx:key="id"
+    >
+    <view class="s_top">
+        <view class="t_left">
+            <view class="span">小镇币</view>
+            <view class="i">面值{{item.VoucherPrice}}</view>
+        </view>
+        <view class="t_right">
+            <view class="span"><image src="http://cache.jiangxinxiaozhen.com/WD/APP/menu.png" onclick="LoadLog('@m.Cardid')" /></view>
+            <view class="i">{{item.Begintime}}-{{item.Endtime}}</view>
+        </view>
+    </view>
+    <view class="s_bot">
+        <view class="b_left">
+            <view class="left"><view class="i">余</view><view class="span">{{item.VoucherPrice}}</view><view class="em">元</view></view>
+        </view>
+        <view class="b_right">
+            {{item.BatchName}}
+        </view>
+    </view>
+    <view class="icon">
+            <!-- <image src="http://cache.jiangxinxiaozhen.com/WD/APP/completed.png" /> -->
+            <image src="http://cache.jiangxinxiaozhen.com/WD/APP/expired.png" />
+    </view>
+    </view>
+    <view class="nodata {{tabs[2].number>0?'hid':''}}">
+        <image src="https://cache.jiangxinxiaozhen.com/WD/APP/pro/nocommented.png" mode="widthFix" />
+        <text>暂无相关数据</text>
+    </view>
+    </view>
+</view>
+<!-- 消费记录弹层 -->
+<van-dialog
+  use-slot
+  title="小镇币"
+  show="{{ show }}"
+  bind:close="onClose"
+  confirmButtonText="我知道了"
+  confirm-button-color="#eb5902"
+  closeOnClickOverlay
+>
+<view class="m_tit">消费记录：</view>
+  <view class="menu">
+    <view class="m_item">
+        <view class="m_top">
+            <view class="t_left">订单号：40049023923</view>
+            <view class="t_right">-20</view>
+        </view>
+        <view class="m_bot">
+            <view class="t_left">2020-02-02 15：08：14</view>
+            <view class="t_right">余50</view>
+        </view>
+    </view>
+    <view class="m_item">
+        <view class="m_top">
+            <view class="t_left">订单号：40049023923</view>
+            <view class="t_right">-20</view>
+        </view>
+        <view class="m_bot">
+            <view class="t_left">2020-02-02 15：08：14</view>
+            <view class="t_right">余50</view>
+        </view>
+    </view>
+    <view class="m_item">
+        <view class="m_top">
+            <view class="t_left">订单号：40049023923</view>
+            <view class="t_right">-20</view>
+        </view>
+        <view class="m_bot">
+            <view class="t_left">2020-02-02 15：08：14</view>
+            <view class="t_right">余50</view>
+        </view>
+    </view>
+    <view class="m_item">
+        <view class="m_top">
+            <view class="t_left">订单号：40049023923</view>
+            <view class="t_right">-20</view>
+        </view>
+        <view class="m_bot">
+            <view class="t_left">2020-02-02 15：08：14</view>
+            <view class="t_right">余50</view>
+        </view>
+    </view>
+    <view class="m_item">
+        <view class="m_top">
+            <view class="t_left">订单号：40049023923</view>
+            <view class="t_right">-20</view>
+        </view>
+        <view class="m_bot">
+            <view class="t_left">2020-02-02 15：08：14</view>
+            <view class="t_right">余50</view>
+        </view>
+    </view>
+  </view>
+</van-dialog>

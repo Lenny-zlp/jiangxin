@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-dialog":"../../../components/vant/dialog/index"
+  },
+  "navigationBarTitleText": "小镇币",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark"
+}

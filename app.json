@@ -39,6 +39,7 @@
     "pages/user/myBag/fruit/fruitlist",
     "pages/user/follower/follower",
     "pages/user/myhouse/myhouse",
+    "pages/user/voucherList/voucherList",
     "pages/our/our",
     "pages/our/ourlist/detail",
     "pages/our/xzlife/xzlife",
@@ -64,8 +65,8 @@
     "pages/demo/demolist/demo",
     "pages/demo/popup/demo",
     "custom-tab-bar/index",
-    "pages/order/commentList/commentList"
-    
+    "pages/order/commentList/commentList",
+    "pages/order/goComment/goCommentList"
   ],
   "window": {
     "navigationBarBackgroundColor": "#eb5902"
